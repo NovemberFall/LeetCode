@@ -1,4 +1,4 @@
-package TopologicalSort;
+package TopologicalSort.alien;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -59,6 +59,5 @@ public class alien {
     public static void main(String[] args) {
         String [] words = {"wrt","wrf","er","ett","rftt"};
         String str = alienOrder(words);
-
     }
 }
