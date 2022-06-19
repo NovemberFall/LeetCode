@@ -1,8 +1,10 @@
 package TopologicalSort.alien;
 
+import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 public class alien1 {
@@ -10,7 +12,7 @@ public class alien1 {
         int[] indegree = new int[26];
         Map<Character, Set<Character>> graph = new HashMap<>();
         buildGraph(graph, words, indegree);
-        return bfs();
+        return bfs(graph, indegree);
     }
 
     private static void buildGraph(Map<Character, Set<Character>> graph, String[] words, int[] indegree) {
@@ -34,5 +36,29 @@ public class alien1 {
                 }
             }
         }
+    }
+
+    private static String bfs(Map<Character, Set<Character>> graph, int[] indegree) {
+        StringBuilder sb = new StringBuilder();
+        Queue<Character> queue = new ArrayDeque<>();
+        int totalChars = graph.size();
+        for (char c : graph.keySet()) {
+            if (indegree[c - 'a'] == 0) {
+                sb.append(c);
+                queue.offer(c);
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            char out = queue.poll();
+            for (char in : graph.get(out)) {
+                indegree[in - 'a']--;
+                if (indegree[in - 'a'] == 0) {
+                    queue.offer(in);
+                    sb.append(in);
+                }
+            }
+        }
+        return sb.length() == totalChars ? sb.toString() : "";
     }
 }
