@@ -1,8 +1,8 @@
-package SystemDesign;
+package ObjectOrientedDesign.LRU;
 
 import java.util.HashMap;
 
-public class LRUCache {
+public class LRUCache1 {
     static class Node {
         Node next;
         Node previous;
@@ -32,7 +32,7 @@ public class LRUCache {
     private Node head;
     private Node tail;
 
-    public LRUCache(int capacity) {
+    public LRUCache1(int capacity) {
         this.capacity = capacity;
         map = new HashMap<>();
     }
@@ -115,7 +115,7 @@ public class LRUCache {
     }
 
     public static void main(String[] args) {
-        LRUCache lRUCache = new LRUCache(5);
+        LRUCache1 lRUCache = new LRUCache1(5);
         lRUCache.put(1, 1);
         lRUCache.put(2, 2);
         int temp = lRUCache.get(1);
