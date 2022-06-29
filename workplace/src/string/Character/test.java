@@ -1,4 +1,4 @@
-package string.strAPI;
+package string.Character;
 
 public class test {
     public static void main(String[] args) {

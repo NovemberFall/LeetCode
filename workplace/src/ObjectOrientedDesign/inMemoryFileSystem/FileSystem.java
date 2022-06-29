@@ -1,6 +1,7 @@
 package ObjectOrientedDesign.inMemoryFileSystem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -58,6 +59,7 @@ class FileSystem {
         String [] dirs = path.split("/");
         System.out.println("==========================");
         System.out.println("Make dir:");
+        System.out.println(Arrays.toString(dirs));
         for (String dir : dirs) {
             System.out.println("This is dir's name: " + dir);
             if (dir.length() == 0) {
