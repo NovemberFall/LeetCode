@@ -1,92 +1,131 @@
 package ObjectOrientedDesign.inMemoryFileSystem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FileSystem1 {
-    class File {
-        boolean isFile = false;
-        Map<String, File> children = new HashMap<>();
-        String content = "";
-    }
+class FileSystem1 {
+    File root;
 
-    File root = null;
+    static class File {
+        boolean isFile;
+        Map<String, File> children;
+        String content;
+
+        File() {
+            isFile = false;
+            children = new HashMap();
+            content = "";
+        }
+    }
 
     public FileSystem1() {
         root = new File();
     }
 
     public List<String> ls(String path) {
+        File curFile = root;
+        List<String> res = new ArrayList<>();
         String[] dirs = path.split("/");
-        File node = root;
-        List<String> result = new ArrayList<>();
-        String name = "";
+        String fileName = "";
         for (String dir : dirs) {
-            if (dir.length() == 0) continue;
-            if (!node.children.containsKey(dir)) {
-                return result;
+            if (dir.length() == 0) {
+                continue;
             }
-            node = node.children.get(dir);
-            name = dir;
+            if (!curFile.children.containsKey(dir)) {
+                return res;
+            }
+            curFile = curFile.children.get(dir);
+            fileName = dir;
         }
-
-        if (node.isFile) {
-            result.add(name);
-        }
-        else {
-            for (String key : node.children.keySet()) {
-                result.add(key);
+        if (curFile.isFile) {
+            res.add(fileName);
+        } else {
+            for (String key : curFile.children.keySet()) {
+                res.add(key);
             }
         }
-
-        Collections.sort(result);
-
-        return result;
+        Collections.sort(res);
+        return res;
     }
 
     public void mkdir(String path) {
+        File curFile = root;
         String[] dirs = path.split("/");
-        File node = root;
         for (String dir : dirs) {
-            if (dir.length() == 0) continue;
-            if (!node.children.containsKey(dir)) {
-                File file = new File();
-                node.children.put(dir, file);
+            if (dir.length() == 0) {
+                continue;
             }
-            node = node.children.get(dir);
+            if (!curFile.children.containsKey(dir)) {
+                File file = new File();
+                curFile.children.put(dir, file);
+            }
+            curFile = curFile.children.get(dir);
         }
     }
 
     public void addContentToFile(String filePath, String content) {
+        File curFile = root;
         String[] dirs = filePath.split("/");
-        File node = root;
         for (String dir : dirs) {
-            if (dir.length() == 0) continue;
-            if (!node.children.containsKey(dir)) {
-                File file = new File();
-                node.children.put(dir, file);
+            if (dir.length() == 0) {
+                continue;
             }
-            node = node.children.get(dir);
+            if (!curFile.children.containsKey(dir)) {
+                File file = new File();
+                curFile.children.put(dir, file);
+            }
+            curFile = curFile.children.get(dir);
         }
-        node.isFile = true;
-        node.content += content;
+        curFile.content += content;
+        curFile.isFile = true;
     }
 
     public String readContentFromFile(String filePath) {
+        File curFile = root;
         String[] dirs = filePath.split("/");
-        File node = root;
         for (String dir : dirs) {
-            if (dir.length() == 0) continue;
-            if (!node.children.containsKey(dir)) {
-                File file = new File();
-                node.children.put(dir, file);
+            if (dir.length() == 0) {
+                continue;
             }
-            node = node.children.get(dir);
+            if (!curFile.children.containsKey(dir)) {
+                File file = new File();
+                curFile.children.put(dir, file);
+            }
+            curFile = curFile.children.get(dir);
         }
+        return curFile.content;
+    }
 
-        return node.content;
+    public static void main(String[] args) {
+        FileSystem1 fs1 = new FileSystem1();
+        fs1.ls("/");                         // return []
+        fs1.mkdir("/a/b/c");
+        fs1.addContentToFile("/a/b/c/d", "hello");
+        fs1.ls("/");                         // return ["a"]
+        fs1.readContentFromFile("/a/b/c/d"); // return "hello"
+        System.out.println();
+        fs1.addContentToFile("/a/b/c/e", "world");
+        fs1.addContentToFile("/a/b/c/f", "hi");
+        fs1.addContentToFile("/a/b/c/g", "hey");
+        String res = fs1.readContentFromFile("/a/b/c/d");
+        System.out.println(res);
+        res = fs1.readContentFromFile("/a/b/c/e");
+        System.out.println(res);
+
+        System.out.println();
+        List<String> list  = fs1.ls("/a/b/c");
+        System.out.println(list);
+
+        System.out.println();
+        fs1.mkdir("/a/b/c/folder1");
+        fs1.mkdir("/a/b/c/folder2");
+        fs1.mkdir("/a/b/c/folder3");
+        fs1.mkdir("/a/b/c/folder4");
+        list = fs1.ls("/a/b/c");
+        System.out.println(list);
     }
 }
