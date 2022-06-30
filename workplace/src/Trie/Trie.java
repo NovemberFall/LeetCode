@@ -1,7 +1,7 @@
 package Trie;
 
 public class Trie {
-    class TrieNode {
+    static class TrieNode {
         char val;
         TrieNode[] children;
         boolean isWord;
