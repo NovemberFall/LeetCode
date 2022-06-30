@@ -40,9 +40,12 @@ class FileSystem1 {
 //            }
             curFile = curFile.children.get(dir);
             fileName = dir;
+            System.out.println(fileName);
         }
         if (curFile.isFile) {
+            System.out.println(fileName);
             res.add(fileName);
+//            System.out.println(res);
         } else {
             for (String key : curFile.children.keySet()) {
                 res.add(key);
@@ -81,6 +84,7 @@ class FileSystem1 {
             curFile = curFile.children.get(dir);
         }
         curFile.content += content;
+//        System.out.println("curFile.content: " + curFile.content);
         curFile.isFile = true;
     }
 
@@ -108,24 +112,29 @@ class FileSystem1 {
         fs1.ls("/");                         // return ["a"]
         fs1.readContentFromFile("/a/b/c/d"); // return "hello"
         System.out.println();
+
         fs1.addContentToFile("/a/b/c/e", "world");
         fs1.addContentToFile("/a/b/c/f", "hi");
         fs1.addContentToFile("/a/b/c/g", "hey");
-        String res = fs1.readContentFromFile("/a/b/c/d");
-        System.out.println(res);
-        res = fs1.readContentFromFile("/a/b/c/e");
-        System.out.println(res);
+//        String res = fs1.readContentFromFile("/a/b/c/d");
+//        System.out.println(res);
+//        res = fs1.readContentFromFile("/a/b/c/e");
+//        System.out.println(res);
+//
+//        System.out.println();
+//        List<String> list  = fs1.ls("/a/b/c");
+//        System.out.println(list);
+//
+//        System.out.println();
+//        fs1.mkdir("/a/b/c/folder1");
+//        fs1.mkdir("/a/b/c/folder2");
+//        fs1.mkdir("/a/b/c/folder3");
+//        fs1.mkdir("/a/b/c/folder4");
+//        list = fs1.ls("/a/b/c");
+//        System.out.println(list);
 
-        System.out.println();
-        List<String> list  = fs1.ls("/a/b/c");
-        System.out.println(list);
+        List<String> res = fs1.ls("/a/b/c/d");
+//        System.out.println(res);
 
-        System.out.println();
-        fs1.mkdir("/a/b/c/folder1");
-        fs1.mkdir("/a/b/c/folder2");
-        fs1.mkdir("/a/b/c/folder3");
-        fs1.mkdir("/a/b/c/folder4");
-        list = fs1.ls("/a/b/c");
-        System.out.println(list);
     }
 }
