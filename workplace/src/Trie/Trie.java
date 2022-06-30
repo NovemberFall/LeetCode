@@ -1,18 +1,17 @@
 package Trie;
 
-class TrieNode {
-    char val;
-    TrieNode[] children;
-    boolean isWord;
-
-    public TrieNode(char c) {
-        children = new TrieNode[26];
-        isWord = false;
-        val = c;
-    }
-}
-
 public class Trie {
+    class TrieNode {
+        char val;
+        TrieNode[] children;
+        boolean isWord;
+
+        public TrieNode(char c) {
+            children = new TrieNode[26];
+            isWord = false;
+            val = c;
+        }
+    }
     private TrieNode root;
 
     public Trie() {
