@@ -1,0 +1,62 @@
+package ObjectOrientedDesign.MaxStack;
+
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.PriorityQueue;
+import java.util.Stack;
+
+class MaxStack {
+
+    Deque<Integer> dqStack;
+    PriorityQueue<Integer> pqMax;
+
+    /**
+     * initialize your data structure here.
+     */
+    public MaxStack() {
+        dqStack = new ArrayDeque<>();
+
+        // Max Heap
+        pqMax = new PriorityQueue<>((a, b) -> (b - a));
+    }
+
+    public void push(int x) {
+        dqStack.addLast(x);
+        pqMax.offer(x);
+    }
+
+    public int pop() {
+        int deleteE = dqStack.removeLast();
+        pqMax.remove(deleteE);
+        return deleteE;
+    }
+
+    public int top() {
+        return dqStack.getLast();
+    }
+
+    public int peekMax() {
+        return pqMax.peek();
+    }
+
+    public int popMax() {
+        int deleteE = pqMax.poll();
+        dqStack.removeLastOccurrence(deleteE);
+        System.out.println(dqStack);
+        return deleteE;
+    }
+
+    public static void main(String[] args) {
+        MaxStack ms = new MaxStack();
+        ms.push(5);
+        ms.push(1);
+        ms.push(5);
+        ms.push(3);
+        ms.push(5);
+        ms.push(1);
+        System.out.println(ms.dqStack);
+
+        ms.popMax();
+    }
+}
