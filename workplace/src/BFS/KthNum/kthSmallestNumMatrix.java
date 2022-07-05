@@ -1,4 +1,4 @@
-package BFS;
+package BFS.KthNum;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
