@@ -35,15 +35,12 @@ class FileSystem1 {
             if (dir.length() == 0) {
                 continue;
             }
-//            if (!curFile.children.containsKey(dir)) {
-//                return res;
-//            }
             curFile = curFile.children.get(dir);
             fileName = dir;
             System.out.println(fileName);
         }
         if (curFile.isFile) {
-            System.out.println(fileName);
+//            System.out.println(fileName);
             res.add(fileName);
 //            System.out.println(res);
         } else {
@@ -116,24 +113,25 @@ class FileSystem1 {
         fs1.addContentToFile("/a/b/c/e", "world");
         fs1.addContentToFile("/a/b/c/f", "hi");
         fs1.addContentToFile("/a/b/c/g", "hey");
-//        String res = fs1.readContentFromFile("/a/b/c/d");
-//        System.out.println(res);
-//        res = fs1.readContentFromFile("/a/b/c/e");
-//        System.out.println(res);
-//
-//        System.out.println();
-//        List<String> list  = fs1.ls("/a/b/c");
-//        System.out.println(list);
-//
-//        System.out.println();
-//        fs1.mkdir("/a/b/c/folder1");
-//        fs1.mkdir("/a/b/c/folder2");
-//        fs1.mkdir("/a/b/c/folder3");
-//        fs1.mkdir("/a/b/c/folder4");
-//        list = fs1.ls("/a/b/c");
-//        System.out.println(list);
 
-        List<String> res = fs1.ls("/a/b/c/d");
+        String res = fs1.readContentFromFile("/a/b/c/d");
+        System.out.println(res);
+        res = fs1.readContentFromFile("/a/b/c/e");
+        System.out.println(res);
+
+        System.out.println();
+        List<String> list  = fs1.ls("/a/b/c");
+        System.out.println(list);
+
+        System.out.println();
+        fs1.mkdir("/a/b/c/folder1");
+        fs1.mkdir("/a/b/c/folder2");
+        fs1.mkdir("/a/b/c/folder3");
+        fs1.mkdir("/a/b/c/folder4");
+        list = fs1.ls("/a/b/c");
+        System.out.println(list);
+
+//        List<String> res = fs1.ls("/a/b/c/d");
 //        System.out.println(res);
 
     }
