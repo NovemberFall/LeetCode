@@ -131,8 +131,10 @@ class FileSystem1 {
         list = fs1.ls("/a/b/c");
         System.out.println(list);
 
-//        List<String> res = fs1.ls("/a/b/c/d");
-//        System.out.println(res);
+//        System.out.println();
+//        System.out.println("=========================");
+//        List<String> str = fs1.ls("/a/b/c/d");
+//        System.out.println(str);
 
     }
 }
