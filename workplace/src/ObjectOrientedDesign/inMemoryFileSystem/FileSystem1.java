@@ -42,7 +42,7 @@ class FileSystem1 {
         if (curFile.isFile) {
 //            System.out.println(fileName);
             res.add(fileName);
-//            System.out.println(res);
+            System.out.println("inside ls method: " + res);
         } else {
             for (String key : curFile.children.keySet()) {
                 res.add(key);
@@ -113,6 +113,7 @@ class FileSystem1 {
         fs1.addContentToFile("/a/b/c/e", "world");
         fs1.addContentToFile("/a/b/c/f", "hi");
         fs1.addContentToFile("/a/b/c/g", "hey");
+//        System.out.println(fs1.ls("/a/b/c"));
 
         String res = fs1.readContentFromFile("/a/b/c/d");
         System.out.println(res);
