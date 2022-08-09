@@ -96,10 +96,7 @@ class Graph {
             System.out.print(i + " ");
         }
     }
-}
 
-// Driver program to test above functions
-class Main {
     public static void main(String args[]) {
         // Create a graph given in the above diagram
         Graph g = new Graph(6);
