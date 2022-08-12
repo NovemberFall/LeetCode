@@ -1,4 +1,4 @@
-package ProducerConsumer;
+package Concurrency.ProducerConsumer;
 
 import java.util.LinkedList;
 
