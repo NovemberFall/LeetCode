@@ -1,4 +1,4 @@
-package Arrays_equals_method;
+package Arrays.Arrays_equals_method;
 
 import java.util.ArrayList;
 import java.util.Arrays;
