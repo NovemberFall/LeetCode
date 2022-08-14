@@ -1,4 +1,4 @@
-package Recursion;
+package Recursion._273_IntegerToEnglishWords;
 
 public class _273_IntegerToEnglishWords {
     private final String[] ones = {"", "One", "Two",
