@@ -3,11 +3,11 @@ package Recursion;
 public class _273_IntegerToEnglishWords {
     private final String[] ones = {"", "One", "Two",
             "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
-            "Ten", "Eleven", "Twelve", "Thirteen","Fourteen", "Fifteen",
+            "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
             "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
 
     private final String[] tens = {"", "Ten", "Twenty", "Thirty",
-            "Forty", "Fifty","Sixty", "Seventy", "Eighty", "Ninety"};
+            "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 
     public String numberToWords(int num) {
         if (num == 0) {
@@ -19,7 +19,7 @@ public class _273_IntegerToEnglishWords {
 
     private String helper(int num) {
         if (num >= 1000000000) {
-            return helper(num/1000000000)+" Billion "+helper(num % 1000000000);
+            return helper(num / 1000000000) + " Billion " + helper(num % 1000000000);
         }
         if (num >= 1000000) {
             return helper(num / 1000000) + " Million " + helper(num % 1000000);
