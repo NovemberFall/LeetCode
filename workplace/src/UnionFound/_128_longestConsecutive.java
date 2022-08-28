@@ -4,13 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class _128_longestConsecutive {
-    public static int longestConsecutive(int[] num) {
+    public static int longestConsecutive(int[] nums) {
         Set<Integer> set = new HashSet<>();
-        for (int n : num) {
+        for (int n : nums) {
             set.add(n);
         }
         int longest = 0;
-        for (int n : num) {
+        for (int n : nums) {
             if (!set.contains(n - 1)) {
                 int len = 0;
                 while (set.contains(n + len)) {
