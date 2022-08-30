@@ -1,4 +1,4 @@
-package UnionFound;
+package UnionFind;
 
 import java.util.HashSet;
 import java.util.Set;
