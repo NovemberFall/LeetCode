@@ -1,4 +1,4 @@
-package OOD.Generic;
+package JavaAPI.Generic;
 
 public class NumericFunction <T extends Number> {
     T num;

@@ -1,4 +1,4 @@
-package OOD.Generic;
+package JavaAPI.Generic;
 
 public class MyClass<T> {
     T ob;

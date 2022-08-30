@@ -46,7 +46,7 @@ public class DisjointSet {
         System.out.println();
     }
 
-    // Disjoint–Set data structure (Union–Find algorithm)
+    // Disjoint–JavaAPI.Set data structure (Union–Find algorithm)
     public static void main(String[] args) {
         // universe of items
         int[] universe = {1, 2, 3, 4, 5};

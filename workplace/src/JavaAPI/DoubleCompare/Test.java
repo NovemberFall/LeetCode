@@ -1,4 +1,4 @@
-package DoubleCompare;
+package JavaAPI.DoubleCompare;
 
 public class Test {
     public static void main(String[] args) {

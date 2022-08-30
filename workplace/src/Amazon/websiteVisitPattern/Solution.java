@@ -12,7 +12,7 @@ import java.util.TreeMap;
 public class Solution {
     /*
         map<username, List<visit>>
-        map<3-sequence, Set<username>>
+        map<3-sequence, JavaAPI.Set<username>>
         O(n * M^3)
     */
 

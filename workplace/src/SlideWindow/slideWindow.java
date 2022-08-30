@@ -1,4 +1,4 @@
-package Arrays.Arrays_equals_method;
+package SlideWindow;
 
 import java.util.ArrayList;
 import java.util.Arrays;
