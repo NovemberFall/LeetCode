@@ -5,6 +5,7 @@ import java.util.Map;
 
 /*
  * @see https://www.techiedelight.com/disjoint-set-data-structure-union-find-algorithm/
+ * @see https://leetcode.com/problems/longest-consecutive-sequence/discuss/166544/Union-Find-Thinking-Process
  * */
 // A class to represent a disjoint set
 public class DisjointSet {
