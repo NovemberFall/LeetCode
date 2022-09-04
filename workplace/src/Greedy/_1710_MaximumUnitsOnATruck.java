@@ -2,9 +2,9 @@ package Greedy;
 
 import java.util.Arrays;
 
-public class Test {
+public class _1710_MaximumUnitsOnATruck {
     public static int maximumUnits(int[][] boxTypes, int truckSize) {
-         Arrays.sort(boxTypes, (a, b) -> b[1] - a[1]); // b[1] - a[1] may cause int overflow, credit to @Zudas.
+        Arrays.sort(boxTypes, (a, b) -> b[1] - a[1]); // b[1] - a[1] may cause int overflow, credit to @Zudas.
 //        Arrays.sort(boxTypes, (a, b) -> Integer.compare(b[1], a[1]));
         int boxes = 0;
         for (int[] box : boxTypes) {
