@@ -3,11 +3,11 @@ package PreSum;
 import java.util.Random;
 import java.util.Arrays;
 
-public class randomPickWithWeight {
+public class _528_randomPickWithWeight {
     Random random;
     int[] wSums;
 
-    public randomPickWithWeight(int[] w) {
+    public _528_randomPickWithWeight(int[] w) {
         this.random = new Random();
         for (int i = 1; i < w.length; ++i)
             w[i] += w[i - 1];
@@ -34,7 +34,7 @@ public class randomPickWithWeight {
 
     public static void main(String[] args) {
         int[] w = new int[]{1, 2, 3, 4};
-        randomPickWithWeight rpw = new randomPickWithWeight(w);
+        _528_randomPickWithWeight rpw = new _528_randomPickWithWeight(w);
 
     }
 }
