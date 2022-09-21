@@ -7,6 +7,9 @@ There may be times when you'll want to restrict the kinds of types that are allo
 
         To declare a bounded type parameter, list the type parameter's name,
         followed by the extends keyword, followed by its upper bound.
+
+Following example illustrates how extends is used in a general sense to mean either "extends" (as in classes)
+        or "implements" (as in interfaces).
  */
 class MaximumTest {
     // determines the largest of three Comparable objects
