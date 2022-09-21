@@ -1,4 +1,4 @@
-package Generics.BoundedTypeParameters;
+package Generics.BoundedType.BoundedTypeParameters;
 
 /*
 There may be times when you'll want to restrict the kinds of types that are allowed to be passed to a type parameter.
