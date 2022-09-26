@@ -1,6 +1,6 @@
-package Recursion._273_IntegerToEnglishWords;
+package Recursion.IntegerToEnglishWords;
 
-public class _273_IntegerToEnglishWords_II {
+class _273_IntegerToEnglishWords_II {
     public String numberToWords(int num) {
         if (num == 0) return "Zero";
         return helper(num);

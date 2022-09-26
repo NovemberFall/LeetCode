@@ -1,6 +1,6 @@
-package Recursion._273_IntegerToEnglishWords;
+package Recursion.IntegerToEnglishWords;
 
-public class _273_IntegerToEnglishWords_I {
+class _273_IntegerToEnglishWords_I {
     private final String[] ones = {"", "One", "Two",
             "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
             "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
