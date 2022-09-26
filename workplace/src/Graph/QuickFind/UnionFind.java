@@ -15,12 +15,12 @@ class UnionFind {
     }
 
     public void union(int x, int y) {
-        int rootX = find(x);
-        int rootY = find(y);
-        if (rootX != rootY) {
+        int parentX = find(x);
+        int parentY = find(y);
+        if (parentX != parentY) {
             for (int i = 0; i < parent.length; i++) {
-                if (parent[i] == rootY) {
-                    parent[i] = rootX;
+                if (parent[i] == parentY) {
+                    parent[i] = parentX;
                 }
             }
         }
