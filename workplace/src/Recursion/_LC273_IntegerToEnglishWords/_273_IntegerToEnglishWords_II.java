@@ -1,4 +1,4 @@
-package Recursion.IntegerToEnglishWords;
+package Recursion._LC273_IntegerToEnglishWords;
 
 class _273_IntegerToEnglishWords_II {
     public String numberToWords(int num) {

@@ -1,26 +1,26 @@
 package Graph.QuickFind;
 
 class UnionFind {
-    private int[] root;
+    private int[] parent;
 
     public UnionFind(int size) {
-        root = new int[size];
+        parent = new int[size];
         for (int i = 0; i < size; i++) {
-            root[i] = i;
+            parent[i] = i;
         }
     }
 
     public int find(int x) {
-        return root[x];
+        return parent[x];
     }
 
     public void union(int x, int y) {
         int rootX = find(x);
         int rootY = find(y);
         if (rootX != rootY) {
-            for (int i = 0; i < root.length; i++) {
-                if (root[i] == rootY) {
-                    root[i] = rootX;
+            for (int i = 0; i < parent.length; i++) {
+                if (parent[i] == rootY) {
+                    parent[i] = rootX;
                 }
             }
         }

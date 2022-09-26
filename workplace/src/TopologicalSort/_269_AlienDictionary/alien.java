@@ -1,4 +1,4 @@
-package TopologicalSort.alien;
+package TopologicalSort._269_AlienDictionary;
 
 import java.util.HashMap;
 import java.util.HashSet;
