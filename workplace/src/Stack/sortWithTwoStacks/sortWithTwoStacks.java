@@ -1,4 +1,4 @@
-package sortWithTwoStacks;
+package Stack.sortWithTwoStacks;
 
 import java.util.Arrays;
 import java.util.Deque;

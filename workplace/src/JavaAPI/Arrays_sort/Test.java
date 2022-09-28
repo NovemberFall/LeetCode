@@ -1,4 +1,4 @@
-package Arrays.Arrays_sort;
+package JavaAPI.Arrays_sort;
 
 import java.util.Arrays;
 
