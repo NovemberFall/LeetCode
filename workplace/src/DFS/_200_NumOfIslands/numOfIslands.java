@@ -1,4 +1,4 @@
-package DFS.Islands;
+package DFS._200_NumOfIslands;
 
 public class numOfIslands {
     public static int numIslands(char[][] grid) {
