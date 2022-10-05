@@ -3,7 +3,7 @@ package DFS._93_RestoreIpAddress;
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class IterativeSolution {
     public List<String> restoreIpAddresses(String s) {
         List<String> res = new ArrayList<>();
         int len = s.length();
@@ -33,9 +33,9 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution soln = new Solution();
+        IterativeSolution iterativeSolution = new IterativeSolution();
         String s = "101023";
-        List<String> res = soln.restoreIpAddresses(s);
+        List<String> res = iterativeSolution.restoreIpAddresses(s);
         System.out.println(res);
     }
 }
