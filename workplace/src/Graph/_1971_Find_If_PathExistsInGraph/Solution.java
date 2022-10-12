@@ -1,4 +1,4 @@
-package Graph.Graph_LC._1971_Find_If_PathExistsInGraph;
+package Graph._1971_Find_If_PathExistsInGraph;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
