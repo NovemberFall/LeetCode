@@ -2,7 +2,7 @@ package JavaAPI.hashMapAPI;
 
 import java.util.HashMap;
 
-public class computeIfAbsent {
+class computeIfAbsent {
     public static void main(String[] args) {
         // create a HashMap and add some values
         HashMap<String, Integer> map = new HashMap<>();

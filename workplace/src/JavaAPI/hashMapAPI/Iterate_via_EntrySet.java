@@ -3,7 +3,7 @@ package JavaAPI.hashMapAPI;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class test {
+class Iterate_via_EntrySet {
     public static void main(String[] args) {
         Map<Integer, String> timeMap = new TreeMap<>();
         timeMap.put(3, "hello");
