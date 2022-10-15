@@ -1,9 +1,9 @@
-package TopologicalSort;
+package TopologicalSort._329_LongestIncreasingPathInAMatrix;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class _329_LongestIncreasingPathInAMatrix {
+public class LongestIncreasingPathInAMatrix {
     static int[][] dirs = new int[][]{
             {-1, 0}, {1, 0}, {0, 1}, {0, -1}
     };
@@ -64,7 +64,7 @@ public class _329_LongestIncreasingPathInAMatrix {
     }
 
     public static void main(String[] args) {
-        _329_LongestIncreasingPathInAMatrix longest = new _329_LongestIncreasingPathInAMatrix();
+        LongestIncreasingPathInAMatrix longest = new LongestIncreasingPathInAMatrix();
         int[][] matrix = new int[][]{
                 {3, 4, 5}, {3, 2, 6}, {2, 2, 1}
         };
