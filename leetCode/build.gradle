@@ -18,11 +18,3 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
-tasks.withType(Test) {
-    enableAssertions = true
-}
-
-junitPlatformTest {
-    enableAssertions = true
-}

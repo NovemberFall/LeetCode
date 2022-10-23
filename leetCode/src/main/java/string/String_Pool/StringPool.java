@@ -1,11 +1,12 @@
 package string.String_Pool;
 
+import org.junit.jupiter.api.Test;
 
 public class StringPool {
-//    @Test
-    void testAssertThat() {
+    @Test
+    public void testAssertThat() {
         String constantString1 = "string";
         String constantString2 = "string";
-//        assertThat(constantString1).isSame
+        assertEquals();
     }
 }
