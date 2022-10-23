@@ -19,11 +19,10 @@ test {
     useJUnitPlatform()
 }
 
-//allprojects {
-////忽略警告
-//    gradle.projectsEvaluated {
-//        tasks.withType(JavaCompile) {
-//            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-//        }
-//    }
-//}
+tasks.withType(Test) {
+    enableAssertions = true
+}
+
+junitPlatformTest {
+    enableAssertions = true
+}

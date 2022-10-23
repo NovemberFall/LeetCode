@@ -1,9 +1,9 @@
-package HashTable;
+package HashTable._128_longestConsecutive;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class _128_longestConsecutive {
+public class longestConsecutive {
     public static int longestConsecutive(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int n : nums) {
