@@ -1,4 +1,4 @@
-package string.split;
+package String.split;
 
 import java.util.Arrays;
 

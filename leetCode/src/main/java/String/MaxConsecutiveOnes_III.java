@@ -1,4 +1,4 @@
-package string;
+package String;
 
 public class MaxConsecutiveOnes_III {
 //    public static int longestConsecutiveOnes(int [] nums, int k) {

@@ -1,4 +1,4 @@
-package string;
+package String;
 
 public class LongestPalindromicSubstring {
     private int lo, maxLen;

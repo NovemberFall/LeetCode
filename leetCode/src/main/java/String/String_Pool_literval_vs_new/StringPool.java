@@ -1,4 +1,4 @@
-package string.String_Pool_literval_vs_new;
+package String.String_Pool_literval_vs_new;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,8 +14,8 @@ public class StringPool {
      */
     @Test
     public void string_Interning() {
-        String constantString1 = "string";
-        String constantString2 = "string";
+        String constantString1 = "String";
+        String constantString2 = "String";
         System.out.println(constantString1 == constantString2);
     }
 

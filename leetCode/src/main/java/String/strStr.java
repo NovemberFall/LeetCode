@@ -1,4 +1,4 @@
-package string;
+package String;
 
 public class strStr {
     public int subStr(String haystack, String needle) {

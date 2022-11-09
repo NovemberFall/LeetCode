@@ -1,4 +1,4 @@
-package string.substring;
+package String.substring;
 
 public class test {
     public static void main(String[] args) {
