@@ -1,4 +1,4 @@
-package String.Character;
+package String.API.Character;
 
 public class test {
     public static void main(String[] args) {

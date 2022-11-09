@@ -1,4 +1,4 @@
-package String.substring;
+package String;
 
 class _8_StringTo_Integer {
     public int myAtoi(String s) {

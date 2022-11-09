@@ -1,4 +1,4 @@
-package String.StringBuilder;
+package String.API.StringBuilder;
 
 public class Test {
     public static void main(String[] args) {

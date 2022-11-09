@@ -1,4 +1,4 @@
-package String.IndexOf;
+package String.API.IndexOf;
 
 public class Test {
     public static String longestCommonPrefix(String[] strs) {

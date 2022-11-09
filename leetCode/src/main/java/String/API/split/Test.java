@@ -1,4 +1,4 @@
-package String.split;
+package String.API.split;
 
 import java.util.Arrays;
 

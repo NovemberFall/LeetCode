@@ -1,4 +1,4 @@
-package String.substring;
+package String.API.substring;
 
 public class sub {
     public static void main(String[] args) {
