@@ -1,7 +1,6 @@
-package BitOperation.Print_Num;
+package BitOperation.Basic.Print_Num;
 
 class Solution {
-
     private static void print(int num) {
         String ans = "";
         for (int i = 31; i >= 0; i--) {
