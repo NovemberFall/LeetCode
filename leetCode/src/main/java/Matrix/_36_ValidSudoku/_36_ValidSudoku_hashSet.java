@@ -1,9 +1,9 @@
-package Matrix;
+package Matrix._36_ValidSudoku;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class _36_ValidSudoku {
+public class _36_ValidSudoku_hashSet {
     public static boolean isValidSudoku(char[][] board) {
         Set<String> seen = new HashSet<>();
         for (int row = 0; row < 9; row++) {
