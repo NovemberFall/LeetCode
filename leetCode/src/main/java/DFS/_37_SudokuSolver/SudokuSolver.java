@@ -1,9 +1,6 @@
 package DFS._37_SudokuSolver;
 
-import java.util.HashSet;
-import java.util.Set;
-
-public class SudokuSolver_hashSet {
+public class SudokuSolver {
     public void solveSudoku(char[][] board) {
         solve(board);
     }
