@@ -53,7 +53,7 @@ public class topKFrequent {
 
     }
 
-    //convert string array to HashMap
+    //convert String array to HashMap
     private Map<String, Integer> getFreqMap(String[] words) {
         Map<String, Integer> freqMap = new HashMap<>();
         for (String s : words) {

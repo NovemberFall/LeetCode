@@ -9,7 +9,7 @@ public class _71_SimplifyPath {
         StringBuilder res = new StringBuilder();
         String[] p = path.split("/");
         System.out.println(Arrays.toString(p));
-        // Note: first string is ""
+        // Note: first String is ""
         // [, a, ., b, .., .., c]
 
         for (int i = 0; i < p.length; i++) {

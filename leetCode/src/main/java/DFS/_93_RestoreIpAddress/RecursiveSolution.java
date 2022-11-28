@@ -14,7 +14,7 @@ class RecursiveSolution {
     }
 
     // input: "25525511135"
-    //@str 当前剩下的可以取的 string, 假如 已经取了 255，剩余： 25511135
+    //@str 当前剩下的可以取的 String, 假如 已经取了 255，剩余： 25511135
     //@sub 当前取到的数字, 比如 '2',  '25', '255'
     private void dfs(List<String> res, String str, String sub, int index) {
         //str.length() == 0, 所有数字都已经读完

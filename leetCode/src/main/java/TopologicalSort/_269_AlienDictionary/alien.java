@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-public class alien {
+class alien {
     public static String alienOrder(String[] words) {
         Map<Character, Set<Character>> map = new HashMap<Character, Set<Character>>();
         Map<Character, Integer> degree = new HashMap<Character, Integer>();

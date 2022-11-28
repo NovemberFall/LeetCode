@@ -1,4 +1,4 @@
-package String;
+package String.nestedAnagrams;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,7 +16,7 @@ public class nestedAna {
 
     //Time -  NMlogM
     // N - Math.max(count of words in string1, count of words in string2)
-    // M - Math.max(word with largest number of letters in any string)
+    // M - Math.max(word with largest number of letters in any String)
     public static boolean nestedAnagrams(String string1, String string2) {
 
         if (string1.length() != string2.length()) {
@@ -54,7 +54,7 @@ public class nestedAna {
 
     //Time -  NM
     // N - Math.max(count of words in string1, count of words in string2)
-    // M - Math.max(word with largest number of letters in any string)
+    // M - Math.max(word with largest number of letters in any String)
     public static boolean nestedAnagrams2(String string1, String string2) {
 
         if (string1.length() != string2.length()) return false;
