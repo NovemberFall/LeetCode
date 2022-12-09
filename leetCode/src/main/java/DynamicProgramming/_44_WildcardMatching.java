@@ -30,6 +30,6 @@ class _44_WildcardMatching {
         _44_WildcardMatching wm = new _44_WildcardMatching();
         String s = "acdcb", p = "a*c?b";
         boolean res = wm.isMatch(s, p);
-        System.out.println(res);
+        System.out.println(res); // false
     }
 }
