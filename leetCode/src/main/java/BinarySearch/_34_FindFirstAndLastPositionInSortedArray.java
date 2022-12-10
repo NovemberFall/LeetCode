@@ -9,7 +9,7 @@ public class _34_FindFirstAndLastPositionInSortedArray {
         return res;
     }
 
-    private static int findFirst(int[] nums, int target) {
+    private int findFirst(int[] nums, int target) {
         int idx = -1;
         int left = 0, right = nums.length - 1;
         while (left <= right) {
@@ -30,7 +30,7 @@ public class _34_FindFirstAndLastPositionInSortedArray {
         return idx;
     }
 
-    private static int findLast(int[] nums, int target) {
+    private int findLast(int[] nums, int target) {
         int idx = -1;
         int left = 0, right = nums.length - 1;
         while (left <= right) {
@@ -52,9 +52,10 @@ public class _34_FindFirstAndLastPositionInSortedArray {
     }
 
     public static void main(String[] args) {
+        _34_FindFirstAndLastPositionInSortedArray findFirstAndLastPositionInSortedArray = new _34_FindFirstAndLastPositionInSortedArray();
         int[] nums = new int[]{2, 2, 3, 3, 3, 7, 8, 8, 8, 8, 9, 10, 11};
         int target = 8;
-        int[] res = new int[]{findFirst(nums, target), findLast(nums, target)};
+        int[] res = findFirstAndLastPositionInSortedArray.searchRange(nums, target);
         System.out.println(Arrays.toString(res)); // [6, 9]
     }
 }
