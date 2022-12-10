@@ -55,6 +55,6 @@ public class _34_FindFirstAndLastPositionInSortedArray {
         int[] nums = new int[]{2, 2, 3, 3, 3, 7, 8, 8, 8, 8, 9, 10, 11};
         int target = 8;
         int[] res = new int[]{findFirst(nums, target), findLast(nums, target)};
-        System.out.println(Arrays.toString(res));
+        System.out.println(Arrays.toString(res)); // [6, 9]
     }
 }
