@@ -1,7 +1,7 @@
 package BinarySearch;
 import java.util.Arrays;
 
-public class _34_FindFirstAndLastPositionInSortedArray {
+class _34_FindFirstAndLastPositionInSortedArray {
     public int[] searchRange(int[] nums, int target) {
         int[] res = new int[]{-1, -1};
         res[0] = findFirst(nums, target);
