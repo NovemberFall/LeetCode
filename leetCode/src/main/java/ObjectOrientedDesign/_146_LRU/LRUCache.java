@@ -1,4 +1,4 @@
-package ObjectOrientedDesign.LRU;
+package ObjectOrientedDesign._146_LRU;
 
 import java.util.HashMap;
 
