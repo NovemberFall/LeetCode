@@ -38,7 +38,7 @@ class GenericsTester {
 
         //compile time error
         //can not add list of subclass RedCat of Cat class
-        //addCat(redCatList);
+//        addCat(redCatList);
 
         //compile time error
         //can not add list of subclass Dog of Superclass Animal of Cat class

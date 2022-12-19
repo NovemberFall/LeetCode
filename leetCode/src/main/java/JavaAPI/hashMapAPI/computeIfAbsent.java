@@ -16,10 +16,8 @@ class computeIfAbsent {
 
         // provide value for new key which is absent
         // using computeIfAbsent method
-        map.computeIfAbsent("key5",
-                k -> 2000 + 33000);
-        map.computeIfAbsent("key6",
-                k -> 2000 * 34);
+        map.computeIfAbsent("key5", k -> 2000 + 33000);
+        map.computeIfAbsent("key6", k -> 2000 * 34);
 
         // print new mapping
         System.out.println("New HashMap:\n " + map);
