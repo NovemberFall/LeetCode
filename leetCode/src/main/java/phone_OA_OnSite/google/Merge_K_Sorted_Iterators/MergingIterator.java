@@ -6,6 +6,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.PriorityQueue;
 
+/**
+    Google | Onsite | Merge K Sorted Iterators
+    https://leetcode.com/discuss/interview-question/345744
+
+
+    Time: next() -- O(logK)
+    hasNext() -- O(1)
+ */
 class MergingIterator implements Iterator<Integer> {
     private final PriorityQueue<PeekingIterator> priorityQueue;
 
