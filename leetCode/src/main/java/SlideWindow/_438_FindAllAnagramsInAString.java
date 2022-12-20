@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class slideWindow {
+public class _438_FindAllAnagramsInAString {
     public List<Integer> allAnagrams(String sh, String lo) {
         // Write your solution here
         List<Integer> res = new ArrayList<>();
@@ -32,7 +32,7 @@ public class slideWindow {
     }
 
     public static void main(String[] args) {
-        slideWindow sw = new slideWindow();
+        _438_FindAllAnagramsInAString sw = new _438_FindAllAnagramsInAString();
         String l = "abcbac", s = "ab";
         List<Integer> list = sw.allAnagrams(s, l);
         System.out.println(list);
