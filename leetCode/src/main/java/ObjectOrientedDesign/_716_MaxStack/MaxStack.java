@@ -1,4 +1,4 @@
-package ObjectOrientedDesign.MaxStack;
+package ObjectOrientedDesign._716_MaxStack;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

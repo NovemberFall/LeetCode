@@ -1,10 +1,10 @@
-package ObjectOrientedDesign.MaxStack;
+package ObjectOrientedDesign._716_MaxStack;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public class _716_MaxStack {
+public class MaxStack_Optimal {
     static class Node {
         Node prev;
         Node next;
@@ -21,7 +21,7 @@ public class _716_MaxStack {
     Node tail;
     TreeMap<Integer, List<Node>> map;
 
-    public _716_MaxStack() {
+    public MaxStack_Optimal() {
         head = new Node(0);
         tail = new Node(0);
         head.next = tail;
@@ -77,7 +77,7 @@ public class _716_MaxStack {
     }
 
     public static void main(String[] args) {
-        _716_MaxStack maxStack = new _716_MaxStack();
+        MaxStack_Optimal maxStack = new MaxStack_Optimal();
         maxStack.push(1);
         maxStack.push(5);
         maxStack.push(3);
