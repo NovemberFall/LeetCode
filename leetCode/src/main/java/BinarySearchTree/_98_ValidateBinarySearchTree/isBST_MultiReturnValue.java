@@ -2,13 +2,13 @@ package BinarySearchTree._98_ValidateBinarySearchTree;
 
 public class isBST_MultiReturnValue {
     static class ReturnType {
-        long subtreeMax;
         long subtreeMin;
+        long subtreeMax;
         boolean isBST;
 
-        public ReturnType(long subtreeMax, long subtreeMin, boolean isBST) {
-            this.subtreeMax = subtreeMax;
+        public ReturnType(long subtreeMin, long subtreeMax, boolean isBST) {
             this.subtreeMin = subtreeMin;
+            this.subtreeMax = subtreeMax;
             this.isBST = isBST;
         }
     }
@@ -20,7 +20,7 @@ public class isBST_MultiReturnValue {
 
     private ReturnType recursion(TreeNode root) {
         if (root == null) {
-            return new ReturnType(Long.MIN_VALUE, Long.MAX_VALUE, true);
+            return new ReturnType(Long.MAX_VALUE, Long.MIN_VALUE, true);
         }
 
         // leaf Node
@@ -39,9 +39,9 @@ public class isBST_MultiReturnValue {
             return new ReturnType(-1, -1, false);
         }
 
-        long curMax = Math.max(root.val, right.subtreeMax);
         long curMin = Math.min(root.val, left.subtreeMin);
+        long curMax = Math.max(root.val, right.subtreeMax);
 
-        return new ReturnType(curMax, curMin, true);
+        return new ReturnType(curMin, curMax, true);
     }
 }
