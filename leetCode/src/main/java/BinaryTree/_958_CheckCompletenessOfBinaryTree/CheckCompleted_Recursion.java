@@ -39,7 +39,11 @@ class CheckCompleted_Recursion {
 
         // recursive rule
         boolean currentIsPerfect = left.isPerfect && right.isPerfect && left.height == right.height;
+        int currentHeight = Math.max(left.height, right.height) + 1;
+        boolean currentIsComplete =
+                (left.isCompete && right.isPerfect && (left.height == right.height + 1)) ||
+                        (left.isPerfect && right.isCompete && (left.height == right.height));
 
-        return null;
+        return new ReturnType(currentIsPerfect, currentIsComplete, currentHeight);
     }
 }
