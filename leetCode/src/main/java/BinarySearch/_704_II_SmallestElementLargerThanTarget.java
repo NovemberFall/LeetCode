@@ -1,5 +1,7 @@
 package BinarySearch;
 
+import org.junit.jupiter.api.Test;
+
 /**
  Given a target integer T and an integer array A sorted in ascending order,
  find the index of the smallest element in A that is larger than T or
@@ -44,6 +46,20 @@ class _704_II_SmallestElementLargerThanTarget {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 2, 2, 3};
         int res = smallestElementLargerThanTarget(nums, 1);
-        System.out.println(res);
+        System.out.println(res); // 1
+    }
+
+    @Test
+    void test_all_Elements_Are_Same() {
+        int[] nums = new int[]{1, 1, 1, 1, 1};
+        int res = smallestElementLargerThanTarget(nums, 1);
+        System.out.println(res); // -1
+    }
+
+    @Test
+    void test_LeftIndex_Of_Indexes() {
+        int[] nums = new int[]{2, 10, 13, 15, 19, 20, 27};
+        int res = smallestElementLargerThanTarget(nums, 1);
+        System.out.println(res); // 0
     }
 }
