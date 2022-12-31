@@ -17,80 +17,88 @@ public class MaxStack_Optimal {
         }
     }
 
-    Node head;
-    Node tail;
-    TreeMap<Integer, List<Node>> map;
+    private Node head;
+    private Node tail;
+    private TreeMap<Integer, List<Node>> treeMap;
 
     public MaxStack_Optimal() {
-        head = new Node(0);
-        tail = new Node(0);
-        head.next = tail;
-        tail.prev = head;
-        map = new TreeMap<>();
+        this.treeMap = new TreeMap<>();
     }
 
     public void push(int x) {
-        Node newNode = new Node(x);
-        newNode.prev = tail.prev;
-        newNode.next = tail;
-        tail.prev.next = newNode;
-        tail.prev = newNode;
-        map.putIfAbsent(x, new ArrayList<>());
-        map.get(x).add(newNode);
+        Node node = new Node(x);
+        append(node);
+        treeMap.putIfAbsent(x, new ArrayList<>());
+        treeMap.get(x).add(node);
     }
 
     public int pop() {
-        int removed = tail.prev.val;
-        removeNode(tail.prev);
-        int listSize = map.get(removed).size();
-        map.get(removed).remove(listSize - 1);
-        if (listSize == 1) {
-            map.remove(removed);
+        if (head == null) {
+            return Integer.MIN_VALUE;
         }
-        return removed;
+        Node node = head;
+        remove(node);
+        updateMap(node);
+        return node.val;
     }
 
     public int top() {
-        return tail.prev.val;
+        if (head == null) {
+            return Integer.MIN_VALUE;
+        }
+        return head.val;
     }
 
     public int peekMax() {
-        return map.lastKey();
+        if (treeMap.isEmpty()) {
+            return Integer.MIN_VALUE;
+        }
+        return treeMap.lastKey();
     }
 
     public int popMax() {
-        int removedMaxVal = map.lastKey();
-        int listSize = map.get(removedMaxVal).size();
-        Node node = map.get(removedMaxVal).remove(listSize - 1);
-        removeNode(node);
-        if (listSize == 1) {
-            map.remove(removedMaxVal);
+        if (treeMap.isEmpty()) {
+            return Integer.MIN_VALUE;
         }
-        return removedMaxVal;
+        int maxKey = treeMap.lastKey();
+        List<Node> maxList = treeMap.get(maxKey);
+        Node maxNode = maxList.get(maxList.size() - 1);
+        remove(maxNode);
+        updateMap(maxNode);
+        return maxNode.val;
     }
 
-    private void removeNode(Node n) {
-        Node prevNode = n.prev;
-        Node nextNode = n.next;
-        prevNode.next = nextNode;
-        nextNode.prev = prevNode;
+    private void remove(Node node) {
+        if (node.next != null) {
+            node.next.prev = node.prev;
+        }
+        if (node.prev != null) {
+            node.prev.next = node.next;
+        }
+        if (node == head) {
+            head = head.next;
+        }
+        if (node == tail) {
+            tail = tail.prev;
+        }
     }
 
-    public static void main(String[] args) {
-        MaxStack_Optimal maxStack = new MaxStack_Optimal();
-        maxStack.push(1);
-        maxStack.push(5);
-        maxStack.push(3);
-        maxStack.push(15);
-        maxStack.push(5);
-        maxStack.push(5);
-        int para_1 = maxStack.pop();
-        System.out.println(para_1);
-        int para_2 = maxStack.pop();
-        System.out.println(para_2);
-        int para_3 = maxStack.peekMax();
-        System.out.println(para_3);
-        int para_4 = maxStack.popMax();
-        System.out.println(para_4);
+    private void updateMap(Node node) {
+        List<Node> list = treeMap.get(node.val);
+        if (list.size() == 1) {
+            treeMap.remove(node.val);
+        } else {
+            list.remove(list.size() - 1);
+        }
+    }
+
+    private void append(Node node) {
+        if (head == null) {
+            head = tail = node;
+        } else {
+            node.next = head;
+            head.prev = node;
+            head = node;
+        }
     }
 }

@@ -2,7 +2,7 @@ package ObjectOrientedDesign._146_LRU;
 
 import java.util.HashMap;
 
-public class LRUCache1 {
+public class LRUCache_V2 {
     static class Node {
         Node next;
         Node previous;
@@ -32,7 +32,7 @@ public class LRUCache1 {
     private Node head;
     private Node tail;
 
-    public LRUCache1(int capacity) {
+    public LRUCache_V2(int capacity) {
         this.capacity = capacity;
         map = new HashMap<>();
     }
@@ -115,7 +115,7 @@ public class LRUCache1 {
     }
 
     public static void main(String[] args) {
-        LRUCache1 lRUCache = new LRUCache1(5);
+        LRUCache_V2 lRUCache = new LRUCache_V2(5);
         lRUCache.put(1, 1);
         lRUCache.put(2, 2);
         int temp = lRUCache.get(1);

@@ -1,6 +1,6 @@
-package BinarySearch;
+package BinarySearch._74_SearchA2DMatrix;
 
-class _74_SearchA2DMatrix {
+class _74_SearchA2DMatrix_BruteForce {
     public boolean searchMatrix(int[][] matrix, int target) {
         int m = matrix.length, n = matrix[0].length;
         int[] nums = new int[m * n];
