@@ -2,7 +2,7 @@ package ObjectOrientedDesign._146_LRU;
 
 import java.util.HashMap;
 
-public class LRUCache {
+class LRUCache {
     static class Node {
         Node next;
         Node previous;
