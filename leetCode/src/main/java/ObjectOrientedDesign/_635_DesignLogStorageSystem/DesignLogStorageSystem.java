@@ -1,4 +1,4 @@
-package ObjectOrientedDesign.DesignLog;
+package ObjectOrientedDesign._635_DesignLogStorageSystem;
 
 /*
 You are given several logs, where each log contains a unique ID and timestamp.
@@ -32,11 +32,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class _635_DesignLogStorageSystem {
+public class DesignLogStorageSystem {
     private List<String[]> timeStamps;
     private Map<String, Integer> indexes;
 
-    public _635_DesignLogStorageSystem() {
+    public DesignLogStorageSystem() {
         timeStamps = new ArrayList<>();
         indexes = new HashMap<>();
         indexes.put("Year", 4);

@@ -1,4 +1,4 @@
-package ObjectOrientedDesign.HashMap_Implementation;
+package DataStructure_Implementation.HashMap_Implementation;
 
 import java.util.Arrays;
 

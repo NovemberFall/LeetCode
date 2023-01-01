@@ -1,4 +1,4 @@
-package ObjectOrientedDesign.DesignHitCounter;
+package ObjectOrientedDesign;
 
 import java.util.HashMap;
 import java.util.Map;

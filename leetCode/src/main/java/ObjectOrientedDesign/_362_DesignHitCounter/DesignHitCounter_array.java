@@ -1,10 +1,10 @@
-package ObjectOrientedDesign.DesignHitCounter;
+package ObjectOrientedDesign._362_DesignHitCounter;
 
-public class _362_DesignHitCounter_array {
+public class DesignHitCounter_array {
     private int[] times;
     private int[] hits;
 
-    public _362_DesignHitCounter_array() {
+    public DesignHitCounter_array() {
         times = new int[300];
         hits = new int[300];
     }

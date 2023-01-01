@@ -1,12 +1,12 @@
-package ObjectOrientedDesign.DesignHitCounter;
+package ObjectOrientedDesign._362_DesignHitCounter;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class _362_DesignHitCounter {
+public class DesignHitCounter {
     Queue<Integer> queue;
 
-    public _362_DesignHitCounter() {
+    public DesignHitCounter() {
         queue = new LinkedList<>();
     }
 

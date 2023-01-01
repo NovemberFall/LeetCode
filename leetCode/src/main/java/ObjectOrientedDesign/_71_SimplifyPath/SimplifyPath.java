@@ -1,9 +1,9 @@
-package ObjectOrientedDesign.SimplifyPath;
+package ObjectOrientedDesign._71_SimplifyPath;
 
 import java.util.Arrays;
 import java.util.Stack;
 
-public class _71_SimplifyPath {
+public class SimplifyPath {
     public String simplify(String path) {
         Stack<String> s = new Stack<>();
         StringBuilder res = new StringBuilder();
@@ -40,7 +40,7 @@ public class _71_SimplifyPath {
     }
 
     public static void main(String[] args) {
-        _71_SimplifyPath sp = new _71_SimplifyPath();
+        SimplifyPath sp = new SimplifyPath();
 //        String res = sp.simplify("a/./b/../../c/");
         String res = sp.simplify("/a/./b/../../c/");
         System.out.println(res);
