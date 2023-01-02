@@ -1,9 +1,9 @@
-package BFS.KthNum;
+package Sorting;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class kthSmallestNumMatrix {
+public class _378_KthSmallestElement_in_SortedMatrix {
     public int kthSmallest(int[][] matrix, int k) {
         // Write your solution here
         int rows = matrix.length;
@@ -67,7 +67,7 @@ public class kthSmallestNumMatrix {
                 {2, 3, 4, 6, 8},
                 {3, 4, 5, 7, 9},
                 {4, 6, 9, 10, 11}};
-        kthSmallestNumMatrix bfs2 = new kthSmallestNumMatrix();
+        _378_KthSmallestElement_in_SortedMatrix bfs2 = new _378_KthSmallestElement_in_SortedMatrix();
         int res = bfs2.kthSmallest(matrix, 7);
         System.out.println("================= Result =================");
         System.out.println(res);
