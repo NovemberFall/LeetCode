@@ -1,10 +1,8 @@
 package Stack;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Stack;
 
-public class DecodeString {
+public class _394_DecodeString {
     public static String decodeString(String s) {
         String res = "";
         Stack<Integer> countStack = new Stack<>();
