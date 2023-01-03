@@ -4,7 +4,9 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 class BinaryTreePostorderTraversal_Iterator {
     static class TreeNode {
@@ -31,12 +33,12 @@ class BinaryTreePostorderTraversal_Iterator {
     public List<Integer> postorderTraversal(TreeNode root) {
         if (root == null) return new ArrayList<>();
 
-        List<Integer> res = new ArrayList<>();
-        Deque<TreeNode> preOrder = new ArrayDeque<>();
+        LinkedList<Integer> res = new LinkedList<>();
+        Stack<TreeNode> preOrder = new Stack<>();
         preOrder.push(root);
         while (!preOrder.isEmpty()) {
-            TreeNode cur = preOrder.poll();
-            res.add(cur.val);
+            TreeNode cur = preOrder.pop();
+            res.addFirst(cur.val);
             // in pre-order the right subtree will be traversed before the left
             // subtree so pushing left child first.
             if (cur.left != null) {
@@ -46,7 +48,6 @@ class BinaryTreePostorderTraversal_Iterator {
                 preOrder.push(cur.right);
             }
         }
-        Collections.reverse(res);
         return res;
     }
 
