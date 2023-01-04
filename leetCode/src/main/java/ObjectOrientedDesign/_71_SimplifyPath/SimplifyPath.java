@@ -5,37 +5,36 @@ import java.util.Stack;
 
 public class SimplifyPath {
     public String simplify(String path) {
-        Stack<String> s = new Stack<>();
+        Stack<String> stack = new Stack<>();
         StringBuilder res = new StringBuilder();
-        String[] p = path.split("/");
-        System.out.println(Arrays.toString(p));
+        String[] dirs = path.split("/");
+        System.out.println(Arrays.toString(dirs));
         // Note: first String is ""
         // [, a, ., b, .., .., c]
 
-        for (int i = 0; i < p.length; i++) {
-            System.out.println(p[i]);
+        for (int i = 0; i < dirs.length; i++) {
+            System.out.println(dirs[i]);
 
-            if (p[i].equals(".")) {
+            if (dirs[i].equals(".")) {
                 continue;
             }
-            if (!p[i].equals("") && !p[i].equals("..")) {
-                s.push(p[i]);
-            } else if (!s.isEmpty() && p[i].equals("..")) {
-                s.pop();
+            if (!dirs[i].equals("") && !dirs[i].equals("..")) {
+                stack.push(dirs[i]);
+            } else if (!stack.isEmpty() && dirs[i].equals("..")) {
+                stack.pop();
             }
         }
 
-
-        if (s.isEmpty())
+        if (stack.isEmpty()){
             return "/";
+        }
 
-        while (!s.isEmpty()) {
-            String top = s.pop();
+        while (!stack.isEmpty()) {
+            String top = stack.pop();
             System.out.println(top);
             res.insert(0, top).insert(0, "/");
 //            System.out.println(res);
         }
-
         return res.toString();
     }
 
