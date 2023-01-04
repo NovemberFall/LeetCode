@@ -3,7 +3,7 @@ package Design._71_SimplifyPath;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class SimplifyPath {
+public class SimplifyPath_Stack {
     public String simplify(String path) {
         Stack<String> stack = new Stack<>();
         StringBuilder res = new StringBuilder();
@@ -39,9 +39,12 @@ public class SimplifyPath {
     }
 
     public static void main(String[] args) {
-        SimplifyPath sp = new SimplifyPath();
+        SimplifyPath_Stack sp = new SimplifyPath_Stack();
 //        String res = sp.simplify("a/./b/../../c/");
         String res = sp.simplify("/a/./b/../../c/");
         System.out.println(res); //  /c
+
+        res = sp.simplify("/a/b/c/d/../e");
+        System.out.println(res); //   /a/b/c/e
     }
 }
