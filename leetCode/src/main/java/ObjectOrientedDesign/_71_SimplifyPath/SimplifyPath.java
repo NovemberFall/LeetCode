@@ -42,6 +42,6 @@ public class SimplifyPath {
         SimplifyPath sp = new SimplifyPath();
 //        String res = sp.simplify("a/./b/../../c/");
         String res = sp.simplify("/a/./b/../../c/");
-        System.out.println(res);
+        System.out.println(res); //  /c
     }
 }
