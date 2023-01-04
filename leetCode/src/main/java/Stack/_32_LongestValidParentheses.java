@@ -31,5 +31,9 @@ public class _32_LongestValidParentheses {
         str = ")((((())";
         res = longestValidParentheses(str);
         System.out.println(res);
+
+        str = "(((()))";
+        res = longestValidParentheses(str);
+        System.out.println(res);
     }
 }
