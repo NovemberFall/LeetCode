@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.PriorityQueue;
 
-class MaxStack_minHeap {
+class MaxStack_maxHeap {
 
     Deque<Integer> dqStack;
     PriorityQueue<Integer> pqMax;
@@ -12,7 +12,7 @@ class MaxStack_minHeap {
     /**
      * initialize your data structure here.
      */
-    public MaxStack_minHeap() {
+    public MaxStack_maxHeap() {
         dqStack = new ArrayDeque<>();
 
         // Max Heap
@@ -46,7 +46,7 @@ class MaxStack_minHeap {
     }
 
     public static void main(String[] args) {
-        MaxStack_minHeap ms = new MaxStack_minHeap();
+        MaxStack_maxHeap ms = new MaxStack_maxHeap();
         ms.push(5);
         ms.push(1);
         ms.push(5);
