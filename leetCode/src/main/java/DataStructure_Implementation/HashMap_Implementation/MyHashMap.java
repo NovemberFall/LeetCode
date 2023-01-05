@@ -181,7 +181,7 @@ class MyHashMap<K, V> {
         }
         // append the new node before the head and update the new head
         // insert operation
-        Node<K, V> newNode = new Node(key, value);
+        Node<K, V> newNode = new Node<>(key, value);
         newNode.next = head;
         array[index] = newNode; // new head is here.
         size++;
