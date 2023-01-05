@@ -170,6 +170,26 @@ class HashMap_Clone<K, V> {
             }
         }
     }
+
+    public V remove(K key) {
+        int index = getIndex(key);
+        Node<K, V> node = array[index];
+        Node<K, V> prev = null;
+        while (node != null) {
+            if (equalsKey(node.key, key)) {
+                if (prev != null) {
+                    prev.next = node.next;
+                } else {
+                    array[index] = node.next;
+                }
+                size--;
+                return node.value;
+            }
+            prev = node;
+            node = node.next;
+        }
+        return null;
+    }
 }
 
 
