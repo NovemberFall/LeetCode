@@ -236,9 +236,9 @@ class MyHashMap<K, V> {
         Node<K, V> prev = null;
         while (node != null) {
             if (equalsKey(node.key, key)) {
-                if (prev != null) {
+                if (prev != null) { // that means Head is not the removed node
                     prev.next = node.next;
-                } else {
+                } else { // If Head is the removed node, prev is Still null
                     array[index] = node.next;
                 }
                 size--;

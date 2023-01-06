@@ -177,10 +177,11 @@ class HashMap_Clone<K, V> {
         Node<K, V> prev = null;
         while (node != null) {
             if (equalsKey(node.key, key)) {
+                if (prev == null) {
+                    array[index] = node.next;
+                }
                 if (prev != null) {
                     prev.next = node.next;
-                } else {
-                    array[index] = node.next;
                 }
                 size--;
                 return node.value;
@@ -189,6 +190,25 @@ class HashMap_Clone<K, V> {
             node = node.next;
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        HashMap_Clone<String, Integer> map = new HashMap_Clone<>();
+        map.put("google", 1);
+        map.put("yahoo", 2);
+        map.put("apple", 3);
+        map.put("IBM", 15);
+        map.put("Amazon", 22);
+        map.put("Meta", 16);
+        System.out.println(map.get("google")); // 1
+        System.out.println(map.containsKey("google")); // true
+        System.out.println(map.containsValue(15)); // true
+        System.out.println(map.containsValue(17)); // false
+        System.out.println(map.get("IBM")); // 15
+        System.out.println(map.equalsKey("IBM", "IBM")); // true
+        System.out.println(map.size()); // 6
+        System.out.println(map.remove("google")); // 1
+        System.out.println(map.size()); // 5
     }
 }
 
