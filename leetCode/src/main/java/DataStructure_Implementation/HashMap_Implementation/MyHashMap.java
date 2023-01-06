@@ -236,10 +236,13 @@ class MyHashMap<K, V> {
         Node<K, V> prev = null;
         while (node != null) {
             if (equalsKey(node.key, key)) {
-                if (prev != null) { // that means Head is not the removed node
-                    prev.next = node.next;
-                } else { // If Head is the removed node, prev is Still null
+                if (prev == null) {
+                    // If Head is the removed node, prev is Still null
                     array[index] = node.next;
+                }
+                if (prev != null) { // that means Head is not the removed node
+                    // delete current node, and connect prev to next node.
+                    prev.next = node.next;
                 }
                 size--;
                 return node.value;
