@@ -1,4 +1,4 @@
-package DataStructure_Implementation.HashMap_Implementation;
+package DataStructure_Implementation.HashMap;
 
 import java.util.HashMap;
 import java.util.Map;
