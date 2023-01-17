@@ -16,12 +16,12 @@ class MyArrayList<E> {
 
     public void add(E e) {
         if (size == elements.length) {
-            ensureCapa();
+            ensureCapacity();
         }
         elements[size++] = e;
     }
 
-    private void ensureCapa() {
+    private void ensureCapacity() {
         int newSize = elements.length * Load_Factor;
         elements = Arrays.copyOf(elements, newSize);
     }
@@ -29,13 +29,11 @@ class MyArrayList<E> {
 
     @SuppressWarnings("unchecked")
     public E get(int i) {
-        if (i>= size || i <0) {
-            throw new IndexOutOfBoundsException("Index: " + i + ", Size " + i );
+        if (i >= size || i < 0) {
+            throw new IndexOutOfBoundsException("Index: " + i + ", Size " + i);
         }
         return (E) elements[i];
     }
-
-
 
 
     @Test
