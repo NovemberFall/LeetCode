@@ -3,6 +3,7 @@ package DataStructure_Implementation.Queue;
 import org.junit.jupiter.api.Test;
 
 /*
+    Implementation of Queue By LinkedList
     因为queue 是一头进，一头出，所以需要 head, tail
  */
 class MyQueue {

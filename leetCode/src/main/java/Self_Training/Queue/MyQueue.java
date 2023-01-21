@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
     Implementation of Queue By LinkedList
     因为queue 是一头进，一头出，所以需要 head, tail
  */
-class MyQueue_EmptyVersion {
+class MyQueue {
     ListNode head;
     ListNode tail;
 
-    public MyQueue_EmptyVersion() {
+    public MyQueue() {
 
     }
 
@@ -29,7 +29,7 @@ class MyQueue_EmptyVersion {
 
     @Test
     void testOffer() {
-        MyQueue_EmptyVersion queue = new MyQueue_EmptyVersion();
+        MyQueue queue = new MyQueue();
         queue.offer(1);
         queue.offer(3);
         queue.offer(5);
@@ -40,7 +40,7 @@ class MyQueue_EmptyVersion {
 
     @Test
     void testPoll() {
-        MyQueue_EmptyVersion queue = new MyQueue_EmptyVersion();
+        MyQueue queue = new MyQueue();
         queue.offer(1);
         queue.offer(3);
         queue.offer(5);

@@ -34,7 +34,6 @@ package DataStructure_Implementation.Queue.BoundedQueue_via_Array;
  */
 class BoundedQueue_V2 {
 
-
 }
 
 
