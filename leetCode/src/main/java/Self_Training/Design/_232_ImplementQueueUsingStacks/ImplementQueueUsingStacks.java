@@ -37,11 +37,11 @@ Example 1:
     myQueue.empty(); // return false
 
  */
-class ImplementQueueUsingStacks_EmptyVersion {
+class ImplementQueueUsingStacks {
     Stack<Integer> input;
     Stack<Integer> output;
 
-    public ImplementQueueUsingStacks_EmptyVersion() {
+    public ImplementQueueUsingStacks() {
 
     }
 
@@ -67,7 +67,7 @@ class ImplementQueueUsingStacks_EmptyVersion {
     }
 
     public static void main(String[] args) {
-        ImplementQueueUsingStacks_EmptyVersion myQueue = new ImplementQueueUsingStacks_EmptyVersion();
+        ImplementQueueUsingStacks myQueue = new ImplementQueueUsingStacks();
         myQueue.push(1);
         myQueue.push(2);
         myQueue.push(3);

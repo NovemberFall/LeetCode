@@ -38,11 +38,10 @@ Example 1:
     myStack.pop(); // return 2
     myStack.empty(); // return False
  */
-class MyStack_TwoQueues_EmptyVersion {
-    Queue<Integer> q1;
-    Queue<Integer> q2;
+class MyStack_OneQueue {
+    Queue<Integer> queue;
 
-    public MyStack_TwoQueues_EmptyVersion() {
+    public MyStack_OneQueue() {
 
     }
 
@@ -65,22 +64,12 @@ class MyStack_TwoQueues_EmptyVersion {
     }
 
     public static void main(String[] args) {
-        MyStack_TwoQueues_EmptyVersion myStack_twoQueues = new MyStack_TwoQueues_EmptyVersion();
-        myStack_twoQueues.push(1);
-        myStack_twoQueues.push(2);
-        myStack_twoQueues.push(3);
-        myStack_twoQueues.push(4);
-        System.out.println(myStack_twoQueues.top());
-        System.out.println(myStack_twoQueues.pop());
+        MyStack_OneQueue myStack_oneQueue = new MyStack_OneQueue();
+        myStack_oneQueue.push(1);
+        myStack_oneQueue.push(2);
+        myStack_oneQueue.push(3);
+        myStack_oneQueue.push(4);
+        System.out.println(myStack_oneQueue.top());
+        System.out.println(myStack_oneQueue.pop());
     }
 }
-/*
-    q1 [ 1, 2, 3
-    q2 [
- stack [ 1, 2, 3
-
-
-    q1 [ 3
-    q2 [ 1, 2
- stack [ 1, 2, 3
- */

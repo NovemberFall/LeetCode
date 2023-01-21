@@ -38,11 +38,11 @@ Example 1:
     myStack.pop(); // return 2
     myStack.empty(); // return False
  */
-class MyStack_TwoQueues_EmptyVersion {
+class MyStack_TwoQueues {
     Queue<Integer> q1;
     Queue<Integer> q2;
 
-    public MyStack_TwoQueues_EmptyVersion() {
+    public MyStack_TwoQueues() {
 
     }
 
@@ -65,7 +65,7 @@ class MyStack_TwoQueues_EmptyVersion {
     }
 
     public static void main(String[] args) {
-        MyStack_TwoQueues_EmptyVersion myStack_twoQueues = new MyStack_TwoQueues_EmptyVersion();
+        MyStack_TwoQueues myStack_twoQueues = new MyStack_TwoQueues();
         myStack_twoQueues.push(1);
         myStack_twoQueues.push(2);
         myStack_twoQueues.push(3);
