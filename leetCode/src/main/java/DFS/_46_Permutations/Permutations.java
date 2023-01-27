@@ -3,7 +3,7 @@ package DFS._46_Permutations;
 import java.util.ArrayList;
 import java.util.List;
 
-class Permutations_v1 {
+class Permutations {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return res;
@@ -27,7 +27,7 @@ class Permutations_v1 {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 3};
-        Permutations_v1 pv1 = new Permutations_v1();
+        Permutations pv1 = new Permutations();
         List<List<Integer>> res = pv1.permute(nums);
         System.out.println(res);
     }
