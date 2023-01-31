@@ -44,6 +44,6 @@ class Permutations_Final {
         int[] nums = new int[]{1, 2, 3};
         Permutations_Final pvf = new Permutations_Final();
         List<List<Integer>> res = pvf.permute(nums);
-        System.out.println(res);
+        System.out.println(res); //[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]
     }
 }
