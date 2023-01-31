@@ -40,7 +40,7 @@ class _37_SudokuSolver {
             if (board[row][i] == num) {
                 return false;
             }
-            if (board[3 * (row / 3) + i / 3][3 * (col % 3) + i % 3] == num) {
+            if (board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == num) {
                 return false;
             }
         }
@@ -62,5 +62,11 @@ class _37_SudokuSolver {
         _37_SudokuSolver sudokuSolver = new _37_SudokuSolver();
         sudokuSolver.solveSudoku(board);
 //        System.out.println(Arrays.deepToString(board));
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                System.out.print(board[i][j] + ", ");
+            }
+            System.out.println();
+        }
     }
 }
