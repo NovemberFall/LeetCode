@@ -1,4 +1,4 @@
-package DFS._130_SurroundedRegions;
+package Matrix._130_SurroundedRegions;
 
 class surroundedRegions_v2 {
     public void solve(char[][] board) {
