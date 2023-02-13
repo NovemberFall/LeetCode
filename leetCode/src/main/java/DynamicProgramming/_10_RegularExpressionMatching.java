@@ -54,3 +54,30 @@ class _10_RegularExpressionMatching {
         System.out.println(res);
     }
 }
+
+
+/*
+ Induction rule is very similar to edit distance, where we also consider from the end. And it is based on what character in the pattern we meet.
+ 1. if p.charAt(j) == s.charAt(i), M[i][j] = M[i - 1][j - 1]
+    ######a(i)
+    ####a(j)
+ 2. if p.charAt(j) == '.', M[i][j] = M[i - 1][j - 1]
+ 	  #######a(i)
+    ####.(j)
+ 3. if p.charAt(j) == '*':
+    1. if p.charAt(j - 1) != '.' && p.charAt(j - 1) != s.charAt(i), then b* is counted as empty. M[i][j] = M[i][j - 2]
+       #####a(i)
+       ####b*(j)
+    2.if p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i):
+       ######a(i)
+       ####.*(j)
+
+ 	  	 #####a(i)
+    	 ###a*(j)
+      2.1 if p.charAt(j - 1) is counted as empty, then M[i][j] = M[i][j - 2]
+      2.2 if counted as one or multiple, then the pattern can be expanded with one more a*: "####xa*a*", then M[i][j] = M[i - 1][j]
+ 	  	 #####a(i)
+    	 ###a*a*(j)
+
+
+ */
