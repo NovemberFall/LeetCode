@@ -1,10 +1,16 @@
 package DynamicProgramming;
 
+/*
+    '?' Matches any single character
+    '*' Matches any sequence of characters (including the empty sequence).
+
+ */
 class _44_WildcardMatching {
     public boolean isMatch(String s, String p) {
         int m = s.length(), n = p.length();
         boolean[][] dp = new boolean[m + 1][n + 1];
         dp[0][0] = true;
+
         for (int j = 1; j < dp[0].length; j++) {
             if (p.charAt(j - 1) == '*') {
                 dp[0][j] = dp[0][j - 1];
@@ -22,7 +28,6 @@ class _44_WildcardMatching {
                 }
             }
         }
-
         return dp[m][n];
     }
 
