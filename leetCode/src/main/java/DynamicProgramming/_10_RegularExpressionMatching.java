@@ -1,6 +1,11 @@
 package DynamicProgramming;
 
 /**
+    '.' Matches any single character.
+    '*' Matches zero or more of the preceding element
+ ------------------------------------------------
+
+
     How does "ablmy" stand true to "a*b.*y"?
 
     a* ---> a
