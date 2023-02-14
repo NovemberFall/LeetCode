@@ -54,6 +54,6 @@ class LargestRectangleHistogram {
         int[] heights = new int[]{2, 1, 5, 6, 2, 3};
         LargestRectangleHistogram lrh = new LargestRectangleHistogram();
         int res = lrh.largestRectangleArea(heights);
-        System.out.println(res);
+        System.out.println(res); // 10
     }
 }
