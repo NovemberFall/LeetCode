@@ -6,8 +6,8 @@ class LargestRectangleHistogram {
     public int largestRectangleArea(int[] heights) {
         Stack<Integer> stk = new Stack<>();
 
-        int area_with_top;
-        int max_area = -1, i = 0;
+        int areaWithTop;
+        int maxArea = -1, i = 0;
         while (i < heights.length) {
             if (stk.isEmpty() || heights[stk.peek()] <= heights[i]) {
                 stk.push(i);
@@ -15,26 +15,26 @@ class LargestRectangleHistogram {
             } else {
                 int temp = stk.pop();
                 if (stk.isEmpty()) {
-                    area_with_top = heights[temp] * i;
+                    areaWithTop = heights[temp] * i;
                 } else {
-                    area_with_top = heights[temp] * (i - stk.peek() - 1);
+                    areaWithTop = heights[temp] * (i - stk.peek() - 1);
                 }
 
-                max_area = Math.max(max_area, area_with_top);
+                maxArea = Math.max(maxArea, areaWithTop);
             }
         }
 
         while (!stk.isEmpty()) {
             int tp = stk.pop();
             if (stk.isEmpty()) {
-                area_with_top = heights[tp] * i;
+                areaWithTop = heights[tp] * i;
             } else {
-                area_with_top = heights[tp] * (i - stk.peek() - 1);
+                areaWithTop = heights[tp] * (i - stk.peek() - 1);
             }
 
-            max_area = Math.max(max_area, area_with_top);
+            maxArea = Math.max(maxArea, areaWithTop);
         }
-        return max_area;
+        return maxArea;
     }
 
     public static void main(String[] args) {
