@@ -7,11 +7,12 @@ class _91_DecodeWays {
         }
         int n = s.length();
         int[] dp = new int[n + 1];
+        char[] nums = s.toCharArray();
         dp[0] = 1;
-        dp[1] = s.charAt(0) == '0' ? 0 : 1;
+        dp[1] = nums[0] == '0' ? 0 : 1;
         for (int i = 2; i <= n; i++) {
-            int one = Integer.parseInt(s.substring(i - 1, i)) ;
-            int two = Integer.parseInt(s.substring(i - 2, i)) ;
+            int one = nums[i - 1] - '0';
+            int two = (nums[i - 2] - '0') * 10 + (nums[i - 1] - '0');
             if (one >= 1 && one <= 9) {
                 dp[i] += dp[i - 1];
             }
@@ -28,3 +29,44 @@ class _91_DecodeWays {
         System.out.println(res); // 3
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//class _91_DecodeWays {
+//    public int numDecodings(String s) {
+//        if (s == null || s.length() == 0) {
+//            return 0;
+//        }
+//        int n = s.length();
+//        int[] dp = new int[n + 1];
+//        dp[0] = 1;
+//        dp[1] = s.charAt(0) == '0' ? 0 : 1;
+//        for (int i = 2; i <= n; i++) {
+//            int one = Integer.parseInt(s.substring(i - 1, i)) ;
+//            int two = Integer.parseInt(s.substring(i - 2, i)) ;
+//            if (one >= 1 && one <= 9) {
+//                dp[i] += dp[i - 1];
+//            }
+//            if (two >= 10 && two <= 26) {
+//                dp[i] += dp[i - 2];
+//            }
+//        }
+//        return dp[n];
+//    }
+//
+//    public static void main(String[] args) {
+//        _91_DecodeWays decodeWays = new _91_DecodeWays();
+//        int res = decodeWays.numDecodings("226");
+//        System.out.println(res); // 3
+//    }
+//}
