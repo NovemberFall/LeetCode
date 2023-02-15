@@ -1,6 +1,6 @@
-package DynamicProgramming;
+package DynamicProgramming._152_MaximumProductSubarray;
 
-class _152_MaximumProductSubarray {
+class maximumProductSubarray {
     public int maxProduct(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
@@ -22,7 +22,7 @@ class _152_MaximumProductSubarray {
     }
 
     public static void main(String[] args) {
-        _152_MaximumProductSubarray maximumProductSubarray = new _152_MaximumProductSubarray();
+        maximumProductSubarray maximumProductSubarray = new maximumProductSubarray();
         int[] nums = {2, 3, -2, 4};
         System.out.println(maximumProductSubarray.maxProduct(nums)); // 6
 
