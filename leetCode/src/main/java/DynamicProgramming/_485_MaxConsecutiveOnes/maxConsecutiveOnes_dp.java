@@ -1,6 +1,6 @@
-package DynamicProgramming;
+package DynamicProgramming._485_MaxConsecutiveOnes;
 
-public class _485_MaxConsecutiveOnes {
+public class maxConsecutiveOnes_dp {
     public int findMaxConsecutiveOnes(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
@@ -22,7 +22,7 @@ public class _485_MaxConsecutiveOnes {
 
     public static void main(String[] args) {
         int[] nums = {1, 1, 0, 1, 1, 1};
-        _485_MaxConsecutiveOnes maxConsecutiveOnes = new _485_MaxConsecutiveOnes();
+        maxConsecutiveOnes_dp maxConsecutiveOnes = new maxConsecutiveOnes_dp();
         int max = maxConsecutiveOnes.findMaxConsecutiveOnes(nums);
         System.out.println(max); // 3
     }
