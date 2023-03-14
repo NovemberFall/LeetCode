@@ -1,4 +1,4 @@
-package SlideWindow;
+package SlideWindow._76_MinimumWindowSubstring;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Input: s = "ADOBECODEBANC", t = "ABC"
  */
-class _76_MinimumWindowSubstring {
+class MinimumWindowSubstring {
     public String minWindow_BruteForce(String s, String t) {
         int resLen = Integer.MAX_VALUE;
         String res = "";
@@ -74,7 +74,11 @@ class _76_MinimumWindowSubstring {
             // while 当前sliding window满足条件, move slow, 一直移动到第一个不满足条件的slow为止
             // while loop 里所有的sliding window都是满足条件的, 所以每一次都可以更新global min
             while (match == map.size()) {
-                if (shortest > fast - slow + 1) {
+                /*
+                0   1   2   3   4
+                    4 - 1 + 1 = 4
+                 */
+                if (fast - slow + 1 < shortest) {
                     shortest = fast - slow + 1;
                     start = slow;
                 }
