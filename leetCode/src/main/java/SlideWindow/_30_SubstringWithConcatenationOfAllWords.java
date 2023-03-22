@@ -34,17 +34,13 @@ class _30_SubstringWithConcatenationOfAllWords {
 
                         count--;
                     }
-                    if (count == wordNums) {
-                        res.add(start);
-                        tmp = s.substring(start, start + wordLen);
-                        curMap.put(tmp, curMap.get(tmp) - 1);
-                        start += wordLen;
-                        count--;
-                    }
                 } else {
                     curMap.clear();
                     count = 0;
                     start = r + wordLen; //not contain, so move the start
+                }
+                if (count == wordNums) {
+                    res.add(start);
                 }
             }
             curMap.clear();
