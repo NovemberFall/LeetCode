@@ -1,4 +1,4 @@
-package HashTable;
+package SlideWindow._3_LongestSubstrWithoutRepeatChar;
 
 import java.util.HashSet;
 import java.util.Set;
