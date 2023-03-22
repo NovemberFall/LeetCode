@@ -13,7 +13,7 @@ class _30_SubstringWithConcatenationOfAllWords {
         }
         int n = s.length(), m = words.length;
         int wordLen = words[0].length();
-        Map<String, Integer> map = buildMap(words);
+        Map<String, Integer> seen = buildMap(words);
         Map<String, Integer> curMap = new HashMap<>();
         String str = null, tmp = null;
 
@@ -22,19 +22,19 @@ class _30_SubstringWithConcatenationOfAllWords {
             int start = i;
             for (int r = i; r + wordLen <= n; r += wordLen) {
                 str = s.substring(r, r + wordLen);
-                if (map.containsKey(str)) {
+                if (seen.containsKey(str)) {
 
                     curMap.put(str, curMap.getOrDefault(str, 0) + 1);
 
-                    if (curMap.get(str) <= map.get(str)) {
+                    if (curMap.get(str) <= seen.get(str)) {
                         count++;
                     }
-                    while (curMap.get(str) > map.get(str)) {
+                    while (curMap.get(str) > seen.get(str)) {
                         tmp = s.substring(start, start + wordLen);
                         curMap.put(tmp, curMap.get(tmp) - 1);
                         start += wordLen;
 
-                        if (curMap.get(tmp) < map.get(tmp)) {
+                        if (curMap.get(tmp) < seen.get(tmp)) {
                             count--;
                         }
                     }
