@@ -7,45 +7,6 @@ import java.util.Map;
  * Input: s = "ADOBECODEBANC", t = "ABC"
  */
 class MinimumWindowSubstring {
-    public String minWindow_BruteForce(String s, String t) {
-        int resLen = Integer.MAX_VALUE;
-        String res = "";
-        StringBuilder sb = null;
-        Map<Character, Integer> map = new HashMap<>();
-        for (char tc : t.toCharArray()) {
-            map.put(tc, map.getOrDefault(tc, 0) + 1);
-        }
-        for (int i = 0; i < s.length(); i++) {
-            sb = new StringBuilder();
-            for (int j = i; j < s.length(); j++) {
-                sb.append(s.charAt(j));
-                boolean includeTstr = check(map, sb.toString());
-                if (includeTstr) {
-                    if (sb.length() < resLen) {
-                        resLen = sb.length();
-                        res = sb.toString();
-                    }
-                }
-            }
-        }
-        return res;
-    }
-    private boolean check(Map<Character, Integer> map, String sub) {
-        boolean res = true;
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            int count = 0;
-            for (char c : sub.toCharArray()) {
-                if (entry.getKey() == c) {
-                    count++;
-                }
-            }
-            if (count < entry.getValue()) {
-                res = false;
-            }
-        }
-        return res;
-    }
-
     /**
      * Sliding Window
      */
