@@ -23,6 +23,8 @@ k = 3
 
  */
 class _239_SlidingWindowMaximum {
+
+    // Brute Force
     public static int[] maxSlidingWindow_BruteForce(int[] nums, int k) {
         if (nums == null || nums.length == 0 || k == 0) return new int[0];
 
@@ -37,6 +39,8 @@ class _239_SlidingWindowMaximum {
         return res.stream().mapToInt(i -> i).toArray();
     }
 
+
+    // Sliding Window
     public static int[] maxSlidingWindow(int[] nums, int k) {
         if (nums == null || nums.length == 0 || k == 0) return new int[0];
 
