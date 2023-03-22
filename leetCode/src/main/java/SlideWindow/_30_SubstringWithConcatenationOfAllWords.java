@@ -23,11 +23,8 @@ class _30_SubstringWithConcatenationOfAllWords {
             for (int r = i; r + wordLen <= n; r += wordLen) {
                 str = s.substring(r, r + wordLen);
                 if (map.containsKey(str)) {
-                    if (curMap.containsKey(str)) {
-                        curMap.put(str, curMap.get(str) + 1);
-                    } else {
-                        curMap.put(str, 1);
-                    }
+
+                    curMap.put(str, curMap.getOrDefault(str, 0) + 1);
 
                     if (curMap.get(str) <= map.get(str)) {
                         count++;
@@ -62,11 +59,7 @@ class _30_SubstringWithConcatenationOfAllWords {
     private Map<String, Integer> buildMap(String[] words) {
         Map<String, Integer> map = new HashMap<>();
         for (String word : words) {
-            if (map.containsKey(word)) {
-                map.put(word, map.get(word) + 1);
-            } else {
-                map.put(word, 1);
-            }
+            map.put(word, map.getOrDefault(word, 0) + 1);
         }
         return map;
     }
