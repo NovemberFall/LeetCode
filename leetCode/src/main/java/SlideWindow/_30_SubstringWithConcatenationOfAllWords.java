@@ -25,18 +25,14 @@ class _30_SubstringWithConcatenationOfAllWords {
                 if (seen.containsKey(str)) {
 
                     curMap.put(str, curMap.getOrDefault(str, 0) + 1);
+                    count++;
 
-                    if (curMap.get(str) <= seen.get(str)) {
-                        count++;
-                    }
                     while (curMap.get(str) > seen.get(str)) {
                         tmp = s.substring(start, start + wordLen);
                         curMap.put(tmp, curMap.get(tmp) - 1);
                         start += wordLen;
 
-                        if (curMap.get(tmp) < seen.get(tmp)) {
-                            count--;
-                        }
+                        count--;
                     }
                     if (count == wordNums) {
                         res.add(start);
