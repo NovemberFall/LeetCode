@@ -11,7 +11,7 @@ class _30_SubstringWithConcatenationOfAllWords {
         if (words.length == 0 || s.length() < words.length * words[0].length()) {
             return res;
         }
-        int n = s.length(), m = words.length;
+        int n = s.length(), wordNums = words.length;
         int wordLen = words[0].length();
         Map<String, Integer> seen = buildMap(words);
         Map<String, Integer> curMap = new HashMap<>();
@@ -38,7 +38,7 @@ class _30_SubstringWithConcatenationOfAllWords {
                             count--;
                         }
                     }
-                    if (count == m) {
+                    if (count == wordNums) {
                         res.add(start);
                         tmp = s.substring(start, start + wordLen);
                         curMap.put(tmp, curMap.get(tmp) - 1);
