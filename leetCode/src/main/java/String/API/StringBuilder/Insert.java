@@ -1,11 +1,10 @@
 package String.API.StringBuilder;
 
-class Test {
+class Insert {
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
-        sb.append("hello");
-        sb = new StringBuilder();
-        sb.append("World");
-        System.out.println(sb);
+        sb.append("300.");
+        sb.insert(4, "(");
+        System.out.println(sb.toString()); // 300.(
     }
 }
