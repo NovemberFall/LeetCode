@@ -4,33 +4,26 @@ class MajorityVotingAlgorithm {
     public static int majorityElement(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
 
-        int n = nums.length;
-        int count = 0, candidate = -1;
-        for (int i = 0; i < n; i++) {
-            if (count == 0) {
-                candidate = nums[i];
-                count = 1;
-            } else {
-                if (nums[i] == candidate) {
-                    count++;
-                } else {
-                    count--;
-                }
-            }
-        }
-
-        count = 0;
-        for (int i = 0; i < n; i++) {
-            if (nums[i] == candidate) {
+        int count = 0;
+        int majority = nums[0];
+        for (int num : nums) {
+            if (num == majority) {
                 count++;
+            } else {
+                count--;
+            }
+            if (count == 0) {
+                majority = num;
+                count = 1;
             }
         }
-
-        if (count > (n / 2)) {
-            return candidate;
-        } else {
-            return -1;
+        int occurrences = 0;
+        for (int num : nums) {
+            if (num == majority) {
+                occurrences++;
+            }
         }
+        return majority;
     }
 
     public static void main(String[] args) {
