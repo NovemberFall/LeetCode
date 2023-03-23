@@ -17,18 +17,12 @@ class MajorityVotingAlgorithm {
                 count = 1;
             }
         }
-        int occurrences = 0;
-        for (int num : nums) {
-            if (num == majority) {
-                occurrences++;
-            }
-        }
         return majority;
     }
 
     public static void main(String[] args) {
         int arr[] = {1, 1, 1, 1, 2, 3, 4};
         int majority = majorityElement(arr);
-        System.out.println(majority);
+        System.out.println(majority); // 1
     }
 }
