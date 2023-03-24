@@ -1,4 +1,4 @@
-package Rabin_Karp;
+package String.Rabin_Karp;
 
 public class test {
     public static void main(String[] args) {
