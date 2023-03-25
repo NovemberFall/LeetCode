@@ -4,21 +4,20 @@ class bruteForce {
     public String longestPalindrome(String s) {
         int n = s.length();
         int maxLen = Integer.MIN_VALUE;
-        StringBuilder sb = new StringBuilder();
+        String str = "";
         // check for every substring
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
                 String temp = s.substring(i, j + 1);
                 if (isPalindrome(temp)) {
                     if (maxLen < temp.length()) {
-                        sb.setLength(0);
+                        str = temp;
                         maxLen = temp.length();
-                        sb.append(temp);
                     }
                 }
             }
         }
-        return sb.toString();
+        return str.toString();
     }
 
     private boolean isPalindrome(String temp) {
