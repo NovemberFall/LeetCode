@@ -1,6 +1,6 @@
-package Math;
+package Math._7_ReverseInteger;
 
-public class _7_ReverseInteger {
+public class reverseInteger_Long {
     public static int reverse(int x) {
         long res = 0;
         while (x != 0) {
@@ -9,11 +9,7 @@ public class _7_ReverseInteger {
             x /= 10;
         }
 
-        if ((int) res == res) {
-            return (int) res;
-        } else {
-            return 0;
-        }
+        return (int) res == res ? (int) res : 0;
     }
 
     public static void main(String[] args) {
