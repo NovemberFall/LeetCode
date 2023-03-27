@@ -1,4 +1,4 @@
-package TwoPointers;
+package TwoPointers._27_RemoveElement;
 
 /**
  * Using Two Pointers - when elements to remove are rare.
@@ -13,14 +13,13 @@ package TwoPointers;
  *
  * N = Length of input array.
  */
-class _27_RemoveElement {
+class removeElement_v2 {
     public static int removeElement(int[] nums, int val) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
         int len = nums.length;
         int left = 0;
-        int count = 0;
         while (left < len) {
             if (nums[left] == val) {
                 nums[left] = nums[len - 1];
