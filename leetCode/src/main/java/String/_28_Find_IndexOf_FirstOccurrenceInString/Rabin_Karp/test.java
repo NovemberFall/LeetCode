@@ -1,4 +1,4 @@
-package String.Rabin_Karp;
+package String._28_Find_IndexOf_FirstOccurrenceInString.Rabin_Karp;
 
 public class test {
     public static void main(String[] args) {
