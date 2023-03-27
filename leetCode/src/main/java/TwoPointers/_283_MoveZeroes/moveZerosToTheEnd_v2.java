@@ -1,4 +1,4 @@
-package TwoPointers;
+package TwoPointers._283_MoveZeroes;
 
 import java.util.Arrays;
 
@@ -9,7 +9,7 @@ import java.util.Arrays;
                      or {1, 1, 3, 0, 0}
                      or {3, 1, 1, 0, 0}
  */
-public class moveZerosToTheEnd {
+public class moveZerosToTheEnd_v2 {
         public void moveZeroes(int[] nums) {
         if (nums == null || nums.length == 0) {
             return;
@@ -37,7 +37,7 @@ public class moveZerosToTheEnd {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1, 0, 3, 0, 1};
-        moveZerosToTheEnd mztte = new moveZerosToTheEnd();
+        moveZerosToTheEnd_v2 mztte = new moveZerosToTheEnd_v2();
         mztte.moveZeroes(nums);
         System.out.println(Arrays.toString(nums));
     }

@@ -48,7 +48,7 @@ public class ThreadExample {
     }
 
     // This class has a list, producer (adds items to list
-    // and consumber (removes items).
+    // and consumer (removes items).
     public static class PC {
 
         // Create a list shared by producer and consumer
