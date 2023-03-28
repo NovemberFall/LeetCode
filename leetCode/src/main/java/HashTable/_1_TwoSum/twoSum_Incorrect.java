@@ -1,8 +1,8 @@
-package TwoPointers._1_TwoSum;
+package HashTable._1_TwoSum;
 
 import java.util.Arrays;
 
-class _1_TwoSum_Incorrect {
+class twoSum_Incorrect {
     public static int[] twoSum(int[] nums, int target) {
         System.out.println(Arrays.toString(nums));
         int n = nums.length;
