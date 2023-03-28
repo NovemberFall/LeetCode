@@ -14,19 +14,23 @@ public class _35_SearchInsertPosition {
             } else {
                 left = mid + 1;
             }
+            System.out.println(mid);
         }
         return left;
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,3,5,6};
-        int target = 5;
-        int res = searchInsert(nums, target);
 
-        System.out.println(res);
+//        int[] nums = {1,3,5,6};
+//        int target = 5;
+//        int res = searchInsert(nums, target);
+//        System.out.println(res);
 
-        nums = new int[]{1, 2, 3, 4, 5, 7, 9, 11};
-        res = searchInsert(nums, 10);
-        System.out.println(res);
+        int[] nums2 = new int[]{1, 2, 3, 4, 5, 7, 9, 11};
+        int res2 = searchInsert(nums2, 10);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(res2);
     }
 }

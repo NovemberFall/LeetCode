@@ -24,7 +24,7 @@ class _18_4Sum_without_Set {
                 int third = second + 1;
                 int fourth = n - 1;
                 while (third < fourth) {
-                    int curSum = nums[first] + nums[second] + nums[third] + nums[fourth];
+                    long curSum = (long) nums[first] + nums[second] + nums[third] + nums[fourth];
                     if (curSum == tar) {
                         res.add(Arrays.asList(nums[first], nums[second], nums[third], nums[fourth]));
                         third++;
@@ -49,5 +49,6 @@ class _18_4Sum_without_Set {
     public static void main(String[] args) {
         int[] nums = {1,0,-1,0,-2,2};
         System.out.println(fourSum(nums, 0));
+        // [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
     }
 }
