@@ -18,6 +18,7 @@ class _43_MultiplyStrings {
         StringBuilder sb = new StringBuilder();
         boolean seen = false;
         for (int num : res) {
+            System.out.println(num);
             if (num == 0 && !seen) {
                 continue;
             }
@@ -28,11 +29,11 @@ class _43_MultiplyStrings {
     }
 
     public static void main(String[] args) {
-        String res = "";
-        res = multiply("123", "456");
-        System.out.println(res);
+//        String res = "";
+//        res = multiply("123", "456");
+//        System.out.println(res);
 
-        res = multiply("2", "3");
-        System.out.println(res);
+        String res2 = multiply("2", "3");
+//        System.out.println(res2);
     }
 }
