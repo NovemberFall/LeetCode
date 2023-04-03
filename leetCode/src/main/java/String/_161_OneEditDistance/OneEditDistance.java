@@ -1,4 +1,4 @@
-package String;
+package String._161_OneEditDistance;
 
 /*
    There're 3 possibilities to satisfy one edit distance apart:
@@ -14,7 +14,7 @@ package String;
           t: a D b c
 
  */
-class _161_OneEditDistance {
+class OneEditDistance {
     public boolean isOneEditDistance(String s, String t) {
         for (int i = 0; i < Math.min(s.length(), t.length()); i++) {
             if (s.charAt(i) != t.charAt(i)) {
