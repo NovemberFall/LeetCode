@@ -1,4 +1,4 @@
-package Monotonic_Stack._84_LargestRectangleInHistogram;
+package Monotonic_Stack._84_LargestRectangleHistogram;
 
 import java.util.Stack;
 
@@ -15,7 +15,7 @@ import java.util.Stack;
     do step (2.2 and 2.3) for every removed bar
 
  */
-class LargestRectangleHistogram {
+class largestRectangleHistogram {
     public int largestRectangleArea(int[] heights) {
         Stack<Integer> stk = new Stack<>();
 
@@ -52,7 +52,7 @@ class LargestRectangleHistogram {
 
     public static void main(String[] args) {
         int[] heights = new int[]{2, 1, 5, 6, 2, 3};
-        LargestRectangleHistogram lrh = new LargestRectangleHistogram();
+        largestRectangleHistogram lrh = new largestRectangleHistogram();
         int res = lrh.largestRectangleArea(heights);
         System.out.println(res); // 10
     }
