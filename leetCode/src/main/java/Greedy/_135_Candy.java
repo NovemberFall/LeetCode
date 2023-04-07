@@ -12,7 +12,7 @@ public class _135_Candy {
         Arrays.fill(left, 1);
         Arrays.fill(right, 1);
         for (int i = 1; i < n; i++) {
-            if (ratings[i] > ratings[i - 1]) {
+            if (ratings[i - 1] < ratings[i]) {
                 left[i] = left[i - 1] + 1;
             }
         }
