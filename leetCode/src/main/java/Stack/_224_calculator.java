@@ -1,8 +1,8 @@
-package Design.Calculator;
+package Stack;
 
 import java.util.Stack;
 
-public class calculator {
+public class _224_calculator {
     public static int calculate(String s) {
         int len = s.length();
         if (s == null || len == 0) return 0;

@@ -1,9 +1,9 @@
-package Design.Calculator;
+package Stack;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class calculatorII {
+public class _227_calculatorII {
     public static int calculate(String s) {
         int len = s.length();
         if (s == null || len == 0)  return 0;

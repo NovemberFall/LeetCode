@@ -1,4 +1,4 @@
-package BitOperation.Basic.Bit;
+package BitOperation.Basic.BitOperator;
 
 public class Bit {
     //print binary representation of an int value

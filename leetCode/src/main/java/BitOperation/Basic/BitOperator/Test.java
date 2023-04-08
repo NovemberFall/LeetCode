@@ -1,4 +1,4 @@
-package BitOperation.Basic.Bit;
+package BitOperation.Basic.BitOperator;
 
 public class Test {
     public static void main(String[] args) {
