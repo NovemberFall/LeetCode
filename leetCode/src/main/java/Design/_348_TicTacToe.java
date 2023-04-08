@@ -1,13 +1,13 @@
-package Design.TicTacToe;
+package Design;
 
-public class TicTacToe {
+public class _348_TicTacToe {
     int size;
     int [] rows;
     int [] cols;
     int diagonal;
     int antiDiagonal;
 
-    public TicTacToe(int n) {
+    public _348_TicTacToe(int n) {
         size = n;
         rows = new int[n];
         cols = new int[n];
@@ -40,7 +40,7 @@ public class TicTacToe {
     }
 
     public static void main(String[] args) {
-        TicTacToe ticTacToe = new TicTacToe(3);
+        _348_TicTacToe ticTacToe = new _348_TicTacToe(3);
         ticTacToe.move(0, 0, 1); // return 0 (no one wins)
         ticTacToe.move(0, 2, 2); // return 0 (no one wins)
         ticTacToe.move(2, 2, 1); // return 0 (no one wins)
