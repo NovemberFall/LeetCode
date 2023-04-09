@@ -10,7 +10,7 @@ package BinarySearch._33_SearchInRotatedSortedArray;
         [-inf, -inf, -inf, -inf, -inf, 0, 1, 2, 3, 4]
 
  */
-class BinarySearchInRotatedSortedArray {
+class binarySearchInRotatedSortedArray_inf {
     public int search(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {

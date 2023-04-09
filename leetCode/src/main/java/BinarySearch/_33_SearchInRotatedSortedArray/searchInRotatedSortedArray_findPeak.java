@@ -1,6 +1,6 @@
 package BinarySearch._33_SearchInRotatedSortedArray;
 
-class searchInRotatedSortedArray {
+class searchInRotatedSortedArray_findPeak {
     public int search(int[] nums, int target) {
         if (nums==null || nums.length ==0) return -1;
 
@@ -27,7 +27,7 @@ class searchInRotatedSortedArray {
                 return mid;
             } else if (nums[left] <= nums[mid]) {
                 left = mid + 1;
-            } else {
+            } else if (nums[right] > nums[mid]){
                 right = mid - 1;
             }
         }

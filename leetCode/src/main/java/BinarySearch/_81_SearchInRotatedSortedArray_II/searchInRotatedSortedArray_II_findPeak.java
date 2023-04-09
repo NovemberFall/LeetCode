@@ -1,6 +1,6 @@
-package BinarySearch;
+package BinarySearch._81_SearchInRotatedSortedArray_II;
 
-class _81_SearchInRotatedSortedArray_II {
+class searchInRotatedSortedArray_II_findPeak {
     public boolean search(int[] nums, int target) {
         // corner case:
         if (nums.length == 1) {
