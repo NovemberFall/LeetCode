@@ -38,7 +38,7 @@ public class topKFrequent {
             }
         }
 
-        //concurrency example:
+        //concurrency Data:
         for (Map.Entry<String, Integer> entry : freqMap.entrySet()) {
             if (!entry.getKey().equals("is")) {
                 freqMap.remove(entry.getKey());

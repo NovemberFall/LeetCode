@@ -2,13 +2,13 @@ package ObjectOriented.Generics._7_1_BoundedType.BoundedTypeParameters;
 
 /*
 There may be times when you'll want to restrict the kinds of types that are allowed to be passed to a type parameter.
-        For example, a method that operates on numbers might only want to accept instances of Number or its subclasses.
+        For Data, a method that operates on numbers might only want to accept instances of Number or its subclasses.
         This is what bounded type parameters are for.
 
         To declare a bounded type parameter, list the type parameter's name,
         followed by the extends keyword, followed by its upper bound.
 
-Following example illustrates how extends is used in a general sense to mean either "extends" (as in classes)
+Following Data illustrates how extends is used in a general sense to mean either "extends" (as in classes)
         or "implements" (as in interfaces).
  */
 class MaximumTest {

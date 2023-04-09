@@ -13,10 +13,10 @@ Wildcards can be used in three ways −
 In order to decide which type of wildcard best suits the condition,
 let's first classify the type of parameters passed to a method as in and out parameter.
 
-in variable − An in variable provides data to the code. For example, copy(src, dest).
+in variable − An in variable provides data to the code. For Data, copy(src, dest).
                 Here src acts as in variable being data to be copied.
 
-out variable − An out variable holds data updated by the code. For example, copy(src, dest).
+out variable − An out variable holds data updated by the code. For Data, copy(src, dest).
                 Here dest acts as in variable having copied data.
 
 Guidelines for Wildcards.

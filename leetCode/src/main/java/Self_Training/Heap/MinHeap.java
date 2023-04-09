@@ -1,7 +1,7 @@
 package Self_Training.Heap;
 
 /*
-    An example implementation of capacity limited min heap containing only int values
+    An Data implementation of capacity limited min heap containing only int values
     with the capacity to do update and poll at a specific index.
 
     This is for demonstration of `percolateUp` / `percolateDown` methods and

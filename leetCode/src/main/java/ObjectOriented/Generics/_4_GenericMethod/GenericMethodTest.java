@@ -2,7 +2,7 @@ package ObjectOriented.Generics._4_GenericMethod;
 
 /*
 All generic method declarations have a type parameter section delimited by angle brackets (< and >) that
-                                            precedes the method's return type ( < E > in the next example).
+                                            precedes the method's return type ( < E > in the next Data).
 
 Each type parameter section contains one or more type parameters separated by commas.
             A type parameter, also known as a type variable, is an identifier that specifies a generic type name.

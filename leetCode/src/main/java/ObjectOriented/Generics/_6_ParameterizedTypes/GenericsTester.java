@@ -5,7 +5,7 @@ import java.util.List;
 
 /*
 A Generic class can have parameterized types where a type parameter can be substituted with a parameterized type.
-Following example will showcase above mentioned concept.
+Following Data will showcase above mentioned concept.
 */
 public class GenericsTester {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
 package ObjectOriented.Generics._5_MultipleType;
 
 /*
-A Generic class can have multiple type parameters. Following example will showcase above mentioned concept.
+A Generic class can have multiple type parameters. Following Data will showcase above mentioned concept.
 */
 class GenericsTester {
     public static void main(String[] args) {

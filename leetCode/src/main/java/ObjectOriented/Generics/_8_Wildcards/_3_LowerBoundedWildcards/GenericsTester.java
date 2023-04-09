@@ -3,7 +3,7 @@ package ObjectOriented.Generics._8_Wildcards._3_LowerBoundedWildcards;
 /*
 The question mark (?), represents the wildcard, stands for unknown type in generics.
 There may be times when you'll want to restrict the kinds of types that are allowed to be passed to a type parameter.
-For example, a method that operates on numbers might only want to accept instances of Integer or its superclasses like Number.
+For Data, a method that operates on numbers might only want to accept instances of Integer or its superclasses like Number.
 
 To declare a lower bounded Wildcard parameter, list the ?, followed by the super keyword, followed by its lower bound.
  */
