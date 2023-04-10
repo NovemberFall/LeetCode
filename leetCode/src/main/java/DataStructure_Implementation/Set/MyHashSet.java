@@ -1,7 +1,7 @@
 package DataStructure_Implementation.Set;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -9,26 +9,26 @@ import org.junit.jupiter.api.Test;
 
 class MyHashSet {
     private static class MySet<E> {
-        private final Set<E> set;
+        private final List<E> list;
 
         private MySet() {
-            this.set = new HashSet<>();
+            this.list = new ArrayList<>();
         }
 
         public void add(E element) {
-            set.add(element);
+            list.add(element);
         }
 
         public boolean remove(E element) {
-            return set.remove(element);
+            return list.remove(element);
         }
 
         public int size() {
-            return set.size();
+            return list.size();
         }
 
         public boolean contains(E element) {
-            return set.contains(element);
+            return list.contains(element);
         }
     }
 
