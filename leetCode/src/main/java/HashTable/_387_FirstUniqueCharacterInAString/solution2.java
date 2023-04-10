@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 class solution2 {
-    public static int firstUniqChar(String s) {
-        Map<Character, Integer> freq = new HashMap<>();
+    public int firstUniqChar(String s) {
+        int[] freq = new int[26];
         char[] arr = s.toCharArray();
-        for (int i = 0; i < arr.length; i++) {
-            freq.put(arr[i], freq.getOrDefault(arr[i], 1) + 1);
+        for (char c : arr) {
+            freq[c - 'a']++;
         }
         for (int i = 0; i < arr.length; i++) {
-            if (freq.get(arr[i]) == 1) {
+            if (freq[arr[i] - 'a'] == 1) {
                 return i;
             }
         }
