@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-class MyHashSet {
+class MyHashSet_withArrayList {
     private static class MySet<E> {
         private final List<E> list;
 
