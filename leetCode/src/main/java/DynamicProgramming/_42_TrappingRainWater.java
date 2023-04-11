@@ -3,8 +3,8 @@ package DynamicProgramming;
 public class _42_TrappingRainWater {
     public int trap(int[] height) {
         int n = height.length;
-        int[] left = new int[n + 1];
-        int[] right = new int[n + 1];
+        int[] left = new int[n];
+        int[] right = new int[n];
         int count = 0;
         int leftMax = 0, rightMax = 0;
 
