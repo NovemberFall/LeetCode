@@ -1,4 +1,4 @@
-package Self_Training.Queue;
+package Self_Training;
 
 public class ListNode {
     int val;

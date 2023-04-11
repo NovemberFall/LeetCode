@@ -1,4 +1,4 @@
-package Self_Training.Sort;
+package Self_Training.Sort.QuickSort;
 
 import java.util.Arrays;
 

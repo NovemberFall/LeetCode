@@ -1,5 +1,6 @@
 package Self_Training.Queue;
 
+import Self_Training.ListNode;
 import org.junit.jupiter.api.Test;
 
 /*

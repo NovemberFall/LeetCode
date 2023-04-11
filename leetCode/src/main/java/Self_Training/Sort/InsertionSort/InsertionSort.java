@@ -1,4 +1,4 @@
-package Self_Training.Sort;
+package Self_Training.Sort.InsertionSort;
 
 import java.util.Arrays;
 
