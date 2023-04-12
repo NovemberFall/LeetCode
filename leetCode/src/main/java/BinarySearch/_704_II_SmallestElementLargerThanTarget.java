@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  Assumptions
  There can be duplicate elements in the array.
 
- Examples
+ Concepts_Examples
 
  A = {1, 2, 3}, T = 1, return 1
 
