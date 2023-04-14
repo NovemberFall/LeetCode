@@ -40,7 +40,7 @@ class MyHashMap<K, V> {
 
     private Node<K, V>[] array;
     private int size; // how many key-value pairs are actually stored int the HashMap
-    private float loadFactor; // determine when to rehash
+    private final float loadFactor; // determine when to rehash
     private final int SCALE_FACTOR = 2;
 
     public MyHashMap() {

@@ -28,7 +28,7 @@ class BinaryTreePostorderTraversal_Iterator {
         }
     }
 
-    // Post-Order is the reverse order of pre-order with traversing
+    // Post-OrderProcess is the reverse order of pre-order with traversing
     // right subtree before traversing left subtree.
     public List<Integer> postorderTraversal(TreeNode root) {
         if (root == null) return new ArrayList<>();
