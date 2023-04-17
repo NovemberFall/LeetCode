@@ -53,7 +53,6 @@ class MyHashMap<K, V> {
     public MyHashMap() {
         this(DEFAULT_CAPACITY, DEFAULT_LOAD_FACTOR);
     }
-
     public MyHashMap(int capacity, float loadFactor) {
         if (capacity <= 0) {
             throw new IllegalArgumentException("capacity can not be <= 0");
@@ -67,11 +66,9 @@ class MyHashMap<K, V> {
     public int size() {
         return size;
     }
-
     public boolean isEmpty() {
         return size == 0;
     }
-
     public void clear() {
         Arrays.fill(this.array, null);
         size = 0;
@@ -83,7 +80,6 @@ class MyHashMap<K, V> {
         if (key == null) {
             return 0;
         }
-
         return key.hashCode() & 0X7FFFFFFF; // guarantee non-negative
         // 01111111 11111111 11111111 11111111
         // Reason: Java's % return remainder rather than modulus. The remainder can be negative
