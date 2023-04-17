@@ -27,11 +27,10 @@ class MyHashMap<K, V> {
 
     // static final variable are global constants
     private static final int DEFAULT_CAPACITY = 16;
-    /*
-       The default load factor of HashMap used in java, for instance, is 0.75f (75% of the map size).
-       That means if we have a HashTable with an array size of 100, then whenever we have 75 elements stored,
-       we will increase the size of the array to double of its previous size i.e. to 200 now, in this case.
-    */
+
+    // The default load factor of HashMap used in java, for instance, is 0.75f (75% of the map size).
+    // That means if we have a HashTable with an array size of 100, then whenever we have 75 elements stored,
+    //   we will increase the size of the array to double of its previous size i.e. to 200 now, in this case.
     private static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
     private Node<K, V>[] array;
