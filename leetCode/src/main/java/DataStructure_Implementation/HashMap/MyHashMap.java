@@ -3,14 +3,12 @@ package DataStructure_Implementation.HashMap;
 import java.util.Arrays;
 
 class MyHashMap<K, V> {
-
     // Node is a static class of MyHashMap, since it is: very closely bonded to MyHashMap class.
     // we probably need to access this class outside from MyHashMap class.
     public static class Node<K, V> {
         final K key;
         V value;
         Node<K, V> next;
-
         Node(K key, V value) {
             this.key = key;
             this.value = value;
@@ -19,11 +17,9 @@ class MyHashMap<K, V> {
         public K getKey() {
             return key;
         }
-
         public V getValue() {
             return value;
         }
-
         public void setValue(V value) {
             this.value = value;
         }
@@ -80,10 +76,8 @@ class MyHashMap<K, V> {
         return key.hashCode() & 0X7FFFFFFF; // guarantee non-negative
         // 01111111 11111111 11111111 11111111
         // Reason: Java's % return remainder rather than modulus. The remainder can be negative
-        /*
-        * @link https://stackoverflow.com/questions/49592995/i-dont-understand-what-is-0x7fffffff-mean-is-there-any-other-way-to-code-gethas
-}       */
-
+        //
+        // @link https://stackoverflow.com/questions/49592995/i-dont-understand-what-is-0x7fffffff-mean-is-there-any-other-way-to-code-gethas
         // OR:
         // return key.hashCode() >>> 1 ;   // however this is slower.
     }
