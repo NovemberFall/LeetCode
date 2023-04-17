@@ -2,6 +2,18 @@ package DataStructure_Implementation.HashMap;
 
 import java.util.Arrays;
 
+/**
+ * A hashtable implementation of map, demonstration purpose,
+ * generic type is provided.
+ * supported operations:
+ * size()
+ * isEmpty()
+ * clear()
+ * put(K key, V value)
+ * get(K key)
+ * containsKey(K key)
+ * remove(K key)
+ */
 class MyHashMap<K, V> {
     // Node is a static class of MyHashMap, since it is: very closely bonded to MyHashMap class.
     // we probably need to access this class outside from MyHashMap class.
