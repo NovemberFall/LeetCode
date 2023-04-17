@@ -224,10 +224,8 @@ class MyHashMap<K, V> {
         */
     }
 
-    /*
-        N1 -> N2 -> N3         # assume delete N2
-        N1 -> N3
-    */
+    //   N1 -> N2 -> N3         # assume delete N2
+    //   N1 -> N3
     public V remove(K key) {
         // get index
         // delete operation on the linked list.
