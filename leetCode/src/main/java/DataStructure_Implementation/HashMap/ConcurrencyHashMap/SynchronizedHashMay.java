@@ -81,7 +81,6 @@ class SynchronizedHashMay<K, V> {
         //The remainder can be integer
     }
 
-
     private int getIndex(K key) {
         return hash(key) % array.length;
     }
