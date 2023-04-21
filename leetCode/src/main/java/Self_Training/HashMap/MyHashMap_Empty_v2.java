@@ -2,7 +2,7 @@ package Self_Training.HashMap;
 
 import java.util.Arrays;
 
-class MyHashMap_EmptyVersion<K, V> {
+class MyHashMap_Empty_v2<K, V> {
 
     // Node is a static class of MyHashMap, since it is: very closely bonded to MyHashMap class.
     // we probably need to access this class outside from MyHashMap class.
@@ -43,34 +43,41 @@ class MyHashMap_EmptyVersion<K, V> {
     private float loadFactor; // determine when to rehash
     private final int SCALE_FACTOR = 2;
 
-    public MyHashMap_EmptyVersion() {
-
+    public MyHashMap_Empty_v2() {
+        this(DEFAULT_CAPACITY, DEFAULT_LOAD_FACTOR);
     }
 
-    public MyHashMap_EmptyVersion(int capacity, float loadFactor) {
-
+    public MyHashMap_Empty_v2(int capacity, float loadFactor) {
+        if (capacity <= 0) {
+            throw new IllegalArgumentException("capacity can not be <= 0");
+        }
         // 为什么这里要cast? 因为java 默认无法 new 一个 generic array, 所以必须要 cast
-
+        this.array = (Node<K, V>[]) (new Node[capacity]);
+        this.size = 0;
+        this.loadFactor = loadFactor;
     }
 
     public int size() {
-        return 0;
+        return size;
     }
 
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     public void clear() {
-
+        Arrays.fill(this.array, null);
+        size = 0;
     }
 
     // non-negative
     private int hash(K key) {
         // 1. null key
+        if (key == null) {
+            return 0;
+        }
 
-
-        return 0; // guarantee non-negative
+        return key.hashCode() & 0X7FFFFFFF; // guarantee non-negative
         // 01111111 11111111 11111111 11111111
         // Reason: Java's % return remainder rather than modulus. The remainder can be negative
         //
@@ -81,7 +88,7 @@ class MyHashMap_EmptyVersion<K, V> {
     }
 
     private int getIndex(K key) {
-        return 0;
+        return hash(key) % array.length;
     }
 
     private boolean equalsValue(V v1, V v2) {
@@ -97,23 +104,60 @@ class MyHashMap_EmptyVersion<K, V> {
     // O(n), traverse the whole array, and traverse each of the linked list in the array
     public boolean containsValue(V value) {
         // special case
-
-
+        if (isEmpty()) {
+            return false;
+        }
+        for (Node<K, V> node : array) {
+            while (node != null) {
+                // check if the value equals()
+                // value, node.getValue() all possible to be null
+                if (equalsValue(node.value, value)) {
+                    return true;
+                }
+                node = node.next;
+            }
+        }
         return false;
     }
 
     private boolean equalsKey(K k1, K k2) {
-        return false;
+        // k1, k2 all possibly to be null
+        if (k1 == null && k2 == null) {
+            return true;
+        }
+        if (k1 == null || k2 == null) {
+            return false;
+        }
+        return k1.equals(k2);
     }
 
     public boolean containsKey(K key) {
-
+        // get the index of the key
+        int index = getIndex(key);
+        Node<K, V> node = array[index];
+        while (node != null) {
+            // check if the key equals() key,
+            // node.key() all possible to be null
+            if (equalsKey(node.key, key)) {
+                return true;
+            }
+            node = node.next;
+        }
         return false;
     }
 
     // if key does not exist in the HashMap, return null
     public V get(K key) {
-
+        int index = getIndex(key);
+        Node<K, V> node = array[index];
+        while (node != null) {
+            // check if the key equals()
+            // key, node.key() all possible to be null
+            if (equalsKey(node.key, key)) {
+                return node.value;
+            }
+            node = node.next;
+        }
         return null;
     }
 
@@ -161,7 +205,7 @@ class MyHashMap_EmptyVersion<K, V> {
     }
 
     public static void main(String[] args) {
-        MyHashMap_EmptyVersion<String, Integer> map = new MyHashMap_EmptyVersion<>();
+        MyHashMap_Empty_v2<String, Integer> map = new MyHashMap_Empty_v2<>();
         map.put("google", 1);
         map.put("yahoo", 2);
         map.put("apple", 3);
