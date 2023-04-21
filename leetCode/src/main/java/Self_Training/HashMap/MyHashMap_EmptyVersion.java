@@ -85,7 +85,13 @@ class MyHashMap_EmptyVersion<K, V> {
     }
 
     private boolean equalsValue(V v1, V v2) {
-        return false;
+        if (v1 == null && v2 == null) {
+            return true;
+        }
+        if (v1 == null || v2 == null) {
+            return false;
+        }
+        return v1.equals(v2);
     }
 
     // O(n), traverse the whole array, and traverse each of the linked list in the array
