@@ -73,10 +73,9 @@ class MyHashMap_EmptyVersion<K, V> {
         return 0; // guarantee non-negative
         // 01111111 11111111 11111111 11111111
         // Reason: Java's % return remainder rather than modulus. The remainder can be negative
-        /*
-        * @link https://stackoverflow.com/questions/49592995/i-dont-understand-what-is-0x7fffffff-mean-is-there-any-other-way-to-code-gethas
-}       */
-
+        //
+        // @link https://stackoverflow.com/questions/49592995/i-dont-understand-what-is-0x7fffffff-mean-is-there-any-other-way-to-code-gethas
+        //
         // OR:
         // return key.hashCode() >>> 1 ;   // however this is slower.
     }
