@@ -1,7 +1,5 @@
 package Self_Training.HashMap;
 
-import java.util.Arrays;
-
 class MyHashMap<K, V> {
 
     // Node is a static class of MyHashMap, since it is: very closely bonded to MyHashMap class.
@@ -44,38 +42,33 @@ class MyHashMap<K, V> {
     private final int SCALE_FACTOR = 2;
 
     public MyHashMap() {
-        this(DEFAULT_CAPACITY, DEFAULT_LOAD_FACTOR);
+
     }
 
     public MyHashMap(int capacity, float loadFactor) {
 
         // 为什么这里要cast? 因为java 默认无法 new 一个 generic array, 所以必须要 cast
-        this.array = (Node<K, V>[]) (new Node[capacity]);
-        this.size = 0;
-        this.loadFactor = loadFactor;
+
     }
 
     public int size() {
-        return size;
+        return 0;
     }
 
     public boolean isEmpty() {
-        return size == 0;
+        return false;
     }
 
     public void clear() {
-        Arrays.fill(this.array, null);
-        size = 0;
+
     }
 
     // non-negative
     private int hash(K key) {
         // 1. null key
-        if (key == null) {
-            return 0;
-        }
 
-        return key.hashCode() & 0X7FFFFFFF; // guarantee non-negative
+
+        return 0; // guarantee non-negative
         // 01111111 11111111 11111111 11111111
         // Reason: Java's % return remainder rather than modulus. The remainder can be negative
         /*
@@ -87,55 +80,27 @@ class MyHashMap<K, V> {
     }
 
     private int getIndex(K key) {
-        return hash(key) % array.length;
+        return 0;
     }
 
     private boolean equalsValue(V v1, V v2) {
-        if (v1 == null && v2 == null) {
-            return true;
-        }
-        if (v1 == null || v2 == null) {
-            return false;
-        }
-        return v1.equals(v2);
+        return false;
     }
 
     // O(n), traverse the whole array, and traverse each of the linked list in the array
     public boolean containsValue(V value) {
         // special case
-        if (isEmpty()) {
-            return false;
-        }
-        for (Node<K, V> node : array) {
-            while (node != null) {
-                if (equalsValue(node.value, value)) {
-                    return true;
-                }
-                node = node.next;
-            }
-        }
+
+
         return false;
     }
 
     private boolean equalsKey(K k1, K k2) {
-        if (k1 == null && k2 == null) {
-            return true;
-        }
-        if (k1 == null || k2 == null) {
-            return false;
-        }
-        return k1.equals(k2);
+        return false;
     }
 
     public boolean containsKey(K key) {
-        int index = getIndex(key);
-        Node<K, V> node = array[index];
-        while (node != null) {
-            if (equalsKey(node.key, key)) {
-                return true;
-            }
-            node = node.next;
-        }
+
         return false;
     }
 
@@ -155,7 +120,8 @@ class MyHashMap<K, V> {
 
     private boolean needRehashing() {
         // float loadFactor;
-        return false;
+        float ration = (size + 0.0f) / array.length;
+        return ration >= loadFactor;
     }
 
 
