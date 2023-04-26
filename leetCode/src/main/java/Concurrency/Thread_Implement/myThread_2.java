@@ -1,6 +1,6 @@
-package Concurrency;
+package Concurrency.Thread_Implement;
 
-public class myThread extends Thread{
+class myThread extends Thread{
 
 //    public static void main(String[] args) throws InterruptedException {
 //        myThread t = new myThread(){
@@ -28,5 +28,4 @@ public class myThread extends Thread{
         t.start();
         System.out.println("Hello2");
     }
-
 }
