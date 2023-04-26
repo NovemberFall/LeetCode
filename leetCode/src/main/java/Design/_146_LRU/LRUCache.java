@@ -48,12 +48,6 @@ class LRUCache {
             this.key = key;
             this.value = val;
         }
-
-        // update my node's value
-        void update(int key, int value) {
-            this.key = key;
-            this.value = value;
-        }
     }
 
     private final int capacity;

@@ -53,6 +53,7 @@ class LRUCache_EmptyVersion {
 
     public LRUCache_EmptyVersion(int capacity) {
         this.capacity = capacity;
+        map = new HashMap<>();
     }
 
     public int get(int key) {
