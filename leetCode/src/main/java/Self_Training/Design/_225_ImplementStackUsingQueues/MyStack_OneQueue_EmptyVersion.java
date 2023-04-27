@@ -69,7 +69,8 @@ class MyStack_OneQueue_EmptyVersion {
         myStack_oneQueue.push(2);
         myStack_oneQueue.push(3);
         myStack_oneQueue.push(4);
-        System.out.println(myStack_oneQueue.top());
-        System.out.println(myStack_oneQueue.pop());
+        System.out.println(myStack_oneQueue.top());// 4
+        System.out.println(myStack_oneQueue.pop());// 4
+        System.out.println(myStack_oneQueue.top());// 3
     }
 }
