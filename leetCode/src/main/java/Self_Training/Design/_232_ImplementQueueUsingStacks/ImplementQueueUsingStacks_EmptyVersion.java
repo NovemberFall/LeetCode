@@ -73,9 +73,9 @@ class ImplementQueueUsingStacks_EmptyVersion {
         myQueue.push(3);
         myQueue.push(5);
         myQueue.push(16);
-        System.out.println(myQueue.peek());
-        System.out.println(myQueue.pop());
-        System.out.println(myQueue.empty());
+        System.out.println(myQueue.peek());// 1
+        System.out.println(myQueue.pop());// 1
+        System.out.println(myQueue.empty());// false
     }
 }
 
