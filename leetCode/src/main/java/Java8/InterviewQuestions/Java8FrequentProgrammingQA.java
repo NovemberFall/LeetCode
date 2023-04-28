@@ -8,11 +8,11 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 /**
-     https://www.youtube.com/watch?v=1Ps5F1PU72M&list=PLVz2XdJiJQxzrdrpglCv_nWIO5CDIqOVj&index=18
+ <a href="https://www.youtube.com/watch?v=1Ps5F1PU72M&list=PLVz2XdJiJQxzrdrpglCv_nWIO5CDIqOVj&index=18">youTube video</a>
 
 
-     1. Java program to count the occurrence of each character in a string
-            Ex: ilovejavaprogram
+ 1. Java program to count the occurrence of each character in a string
+ Ex: ilovejavaprogram
 
  */
 class Java8FrequentProgrammingQA {
