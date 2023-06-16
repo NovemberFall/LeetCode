@@ -2,6 +2,7 @@ package BFS;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Queue;
 
@@ -26,12 +27,9 @@ class _107_BinaryTreeLevelOrderTraversal_II {
                     queue.offer(cur.right);
                 }
             }
-            res.add(0, level);
+            res.add(level);
         }
+        Collections.reverse(res);
         return res;
-        /* OR:
-         Collections.reverse(res);
-         return res;
-         */
     }
 }
