@@ -52,5 +52,7 @@ public class _224_calculator {
         System.out.println(calculate(s)); // 23
         s = "15 + 35 + (5 - 4)";
         System.out.println(calculate(s)); // 51
+        s = "-45 + 45 + (10 - 5)";
+        System.out.println(calculate(s)); // 5
     }
 }
