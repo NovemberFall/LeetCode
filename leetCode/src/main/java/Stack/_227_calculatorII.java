@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class _227_calculatorII {
-    public static int calculate(String s) {
+    public int calculate(String s) {
         int len = s.length();
         if (s == null || len == 0)  return 0;
 
@@ -42,11 +42,13 @@ public class _227_calculatorII {
     }
 
     public static void main(String[] args) {
+        _227_calculatorII calculatorII = new _227_calculatorII();
+
         String s = "3+2*2";
-        System.out.println(calculate(s)); // 7
-        s = " 3/2 ";
-        System.out.println(calculate(s)); // 1
+        System.out.println(calculatorII.calculate(s)); // 7
         s = " 3+5 / 2 ";
-        System.out.println(calculate(s)); // 5
+        System.out.println(calculatorII.calculate(s)); // 5
+        s = "5 - 3 - 2";
+        System.out.println(calculatorII.calculate(s));
     }
 }
