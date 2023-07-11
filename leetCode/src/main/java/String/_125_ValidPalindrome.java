@@ -27,6 +27,7 @@ class _125_ValidPalindrome {
     }
 
 
+    // method 2
     public boolean isPalindrome_regularExpression(String s) {
         String res = s.replaceAll("[^a-zA-Z0-9]", "");
         int l = 0, r = res.length() - 1;
