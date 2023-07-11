@@ -1,6 +1,6 @@
 package Matrix._200_NumOfIslands;
 
-public class numOfIsland {
+class numOfIsland {
     public static int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0) return 0;
 
