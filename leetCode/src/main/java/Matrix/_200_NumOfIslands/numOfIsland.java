@@ -1,7 +1,7 @@
 package Matrix._200_NumOfIslands;
 
 class numOfIsland {
-    public static int numIslands(char[][] grid) {
+    public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0) return 0;
 
         int m = grid.length;
@@ -18,7 +18,7 @@ class numOfIsland {
         return count;
     }
 
-    private static void dfs(int i, int j, char[][] grid) {
+    private void dfs(int i, int j, char[][] grid) {
         if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length ||
                 grid[i][j] == '0') {
             return;
@@ -33,13 +33,14 @@ class numOfIsland {
     }
 
     public static void main(String[] args) {
+        numOfIsland island = new numOfIsland();
         char[][] grid = {
                 {'1','1','0','0','0'},
                 {'1','1','0','0','0'},
                 {'0','0','1','0','0'},
                 {'0','0','0','1','1'}
         };
-        int res = numIslands(grid);
+        int res = island.numIslands(grid);
         System.out.println(res);
     }
 }
