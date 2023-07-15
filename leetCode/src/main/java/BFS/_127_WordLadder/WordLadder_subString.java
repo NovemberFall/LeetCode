@@ -1,4 +1,4 @@
-package BFS;
+package BFS._127_WordLadder;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
-class _127_WordLadder {
+class WordLadder_subString {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> dict = new HashSet<>(wordList);
         if (dict.isEmpty() || !dict.contains(endWord)) {
@@ -41,7 +41,7 @@ class _127_WordLadder {
     }
 
     public static void main(String[] args) {
-        _127_WordLadder wordLadder = new _127_WordLadder();
+        WordLadder_subString wordLadder = new WordLadder_subString();
         List<String> wordList = Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
         String beginWord = "hit", endWord = "cog";
         int res = wordLadder.ladderLength(beginWord, endWord, wordList);
