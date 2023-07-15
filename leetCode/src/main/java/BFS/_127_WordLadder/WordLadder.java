@@ -24,10 +24,12 @@ public class WordLadder {
                 if (curWord.equals(endWord)) {
                     return level;
                 }
-                char[] chars = curWord.toCharArray();
-                for (int i = 0; i < chars.length; i++) {
+
+                for (int j = 0; j < curWord.length(); j++) {
+                    char[] chars = curWord.toCharArray();
+
                     for (char c = 'a'; c < 'z'; c++) {
-                        chars[i] = c;
+                        chars[j] = c;
                         String word = new String(chars);
                         if (dict.contains(word)) {
                             queue.offer(word);
@@ -38,5 +40,6 @@ public class WordLadder {
                 level++;
             }
         }
+        return level;
     }
 }
