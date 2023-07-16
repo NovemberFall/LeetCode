@@ -28,11 +28,7 @@ class UnionFind {
     public boolean connected(int x, int y) {
         return find(x) == find(y);
     }
-}
 
-// App.java
-// Test Case
-class App {
     public static void main(String[] args) throws Exception {
         UnionFind uf = new UnionFind(10);
         // 1-2-5-6-7 3-8-9 4
