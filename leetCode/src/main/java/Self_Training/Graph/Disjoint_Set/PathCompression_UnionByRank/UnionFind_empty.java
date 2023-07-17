@@ -1,7 +1,7 @@
 package Self_Training.Graph.Disjoint_Set.PathCompression_UnionByRank;
 
 class UnionFind_empty {
-    private int[] root;
+    private int[] parent;
     // Use a rank array to record the height of each vertex, i.e., the "rank" of each vertex.
     private int[] rank;
 
@@ -11,7 +11,7 @@ class UnionFind_empty {
 
     // The find function here is the same as that in the disjoint set with path compression.
     public int find(int x) {
-        return  -1;
+        return -1;
     }
 
     // The union function with union by rank

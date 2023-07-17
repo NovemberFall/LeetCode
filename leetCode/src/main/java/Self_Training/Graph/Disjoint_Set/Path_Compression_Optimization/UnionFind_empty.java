@@ -1,7 +1,7 @@
 package Self_Training.Graph.Disjoint_Set.Path_Compression_Optimization;
 
 class UnionFind_empty {
-    private int[] root;
+    private int[] parent;
 
     public UnionFind_empty(int size) {
 

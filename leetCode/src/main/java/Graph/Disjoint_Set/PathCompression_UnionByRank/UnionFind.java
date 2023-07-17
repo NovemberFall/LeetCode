@@ -1,15 +1,15 @@
 package Graph.Disjoint_Set.PathCompression_UnionByRank;
 
 class UnionFind {
-    private int[] root;
+    private int[] parent;
     // Use a rank array to record the height of each vertex, i.e., the "rank" of each vertex.
     private int[] rank;
 
     public UnionFind(int size) {
-        root = new int[size];
+        parent = new int[size];
         rank = new int[size];
         for (int i = 0; i < size; i++) {
-            root[i] = i;
+            parent[i] = i;
             rank[i] = 1; // The initial "rank" of each vertex is 1, because each of them is
             // a standalone vertex with no connection to other vertices.
         }
@@ -17,10 +17,10 @@ class UnionFind {
 
     // The find function here is the same as that in the disjoint set with path compression.
     public int find(int x) {
-        if (root[x] != x) {
-            root[x] = find(root[x]);
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]);
         }
-        return root[x];
+        return parent[x];
     }
 
     // The union function with union by rank
@@ -32,11 +32,11 @@ class UnionFind {
         }
 
         if (rank[rootX] > rank[rootY]) {
-            root[rootY] = rootX;
+            parent[rootY] = rootX;
         } else if (rank[rootX] < rank[rootY]) {
-            root[rootX] = rootY;
+            parent[rootX] = rootY;
         } else {
-            root[rootY] = rootX;
+            parent[rootY] = rootX;
             rank[rootX] += 1;
         }
     }
