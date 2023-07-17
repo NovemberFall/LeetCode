@@ -1,31 +1,39 @@
-package Graph.QuickFind;
+package Graph.Disjoint_Set.UnionByRank;
 
-/*
-    Find : O(1)
-    Union: O(N)
- */
 class UnionFind {
     private int[] root;
+    private int[] rank;
 
     public UnionFind(int size) {
         root = new int[size];
+        rank = new int[size];
         for (int i = 0; i < size; i++) {
             root[i] = i;
+            rank[i] = 1;
         }
     }
 
     public int find(int x) {
-        return root[x];
+        while (x != root[x]) {
+            x = root[x];
+        }
+        return x;
     }
 
     public void union(int x, int y) {
         int rootX = find(x);
         int rootY = find(y);
+        if (rootX == rootY) {
+            return;
+        }
         if (rootX != rootY) {
-            for (int i = 0; i < root.length; i++) {
-                if (root[i] == rootY) {
-                    root[i] = rootX;
-                }
+            if (rank[rootX] > rank[rootY]) {
+                root[rootY] = rootX;
+            } else if (rank[rootX] < rank[rootY]) {
+                root[rootX] = rootY;
+            } else {
+                root[rootY] = rootX;
+                rank[rootX] += 1;
             }
         }
     }
@@ -36,7 +44,7 @@ class UnionFind {
 
     public static void main(String[] args) throws Exception {
         UnionFind uf = new UnionFind(10);
-        // 1-2-5-6-7   3-8-9   4
+        // 1-2-5-6-7 3-8-9 4
         uf.union(1, 2);
         uf.union(2, 5);
         uf.union(5, 6);

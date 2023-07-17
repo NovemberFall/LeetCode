@@ -1,4 +1,4 @@
-package Graph.QuickUnion;
+package Graph.Disjoint_Set.Path_Compression_Optimization;
 
 class UnionFind {
     private int[] root;
@@ -11,10 +11,10 @@ class UnionFind {
     }
 
     public int find(int x) {
-        while (x != root[x]) {
-            x = root[x];
+        if (x == root[x]) {
+            return x;
         }
-        return x;
+        return root[x] = find(root[x]);
     }
 
     public void union(int x, int y) {
@@ -29,7 +29,7 @@ class UnionFind {
         return find(x) == find(y);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         UnionFind uf = new UnionFind(10);
         // 1-2-5-6-7 3-8-9 4
         uf.union(1, 2);
