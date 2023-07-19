@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-public class AlienDictionary {
+class AlienDictionary {
     public static String alienOrder(String[] words) {
         int[] indegree = new int[26];
         Map<Character, Set<Character>> graph = new HashMap<>();
