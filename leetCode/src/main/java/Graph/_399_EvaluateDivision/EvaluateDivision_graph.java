@@ -1,6 +1,7 @@
 package Graph._399_EvaluateDivision;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -20,61 +21,81 @@ queries are: a / c = ?, b / a = ?, a / e = ?, a / a = ?, x / x = ?
 return: [6.0, 0.5, -1.0, 1.0, -1.0 ]
 */
 
-public class EvaluateDivision_graph {
-    static class Edge {
-        double weight;
-        String to;
+class EvaluateDivision_graph {
+    class Node {
+        String key;
+        double val;
 
-        public Edge(String t, double w) {
-            to = t;
-            weight = w;
+        public Node(String key, double val) {
+            this.key = key;
+            this.val = val;
         }
     }
 
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-        Map<String, List<Edge>> map = new HashMap<>();
-        int i = 0;
-        for (List<String> e : equations) {
-            List<Edge> edges0 = map.getOrDefault(e.get(0), new ArrayList<>());
-            List<Edge> edges1 = map.getOrDefault(e.get(1), new ArrayList<>());
-            Edge e0 = new Edge(e.get(1), values[i]);
-            Edge e1 = new Edge(e.get(0), 1 / values[i]);
-            edges0.add(e0);
-            edges1.add(e1);
-            map.put(e.get(0), edges0);
-            map.put(e.get(1), edges1);
-            i++;
-        }
+        Map<String, List<Node>> graph = buildGraph(equations, values);
 
         double[] res = new double[queries.size()];
-        for (i = 0; i < queries.size(); i++) {
-            String begin = queries.get(i).get(0);
-            String end = queries.get(i).get(1);
-            Set<String> visited = new HashSet<>();
-            visited.add(begin);
-            res[i] = helper(map, visited, begin, end, 1.0);
+        Arrays.fill(res, -1.0);
+        for (int i = 0; i < queries.size(); i++) {
+            res[i] = dfs(queries.get(i).get(0), queries.get(i).get(1), new HashSet<>(), graph);
         }
         return res;
     }
 
-    private double helper(Map<String, List<Edge>> map, Set<String> visited, String begin, String end, double distance) {
-        if (!map.containsKey(begin)) {
+    private double dfs(String src, String des, HashSet<String> visited, Map<String, List<Node>> graph) {
+        if (!(graph.containsKey(src) && graph.containsKey(des))) {
             return -1.0;
         }
-        if (begin.equals(end)) {
-            return distance;
+        if (src.equals(des)) {
+            return 1.0;
         }
-        List<Edge> edges = map.get(begin);
-        for (Edge e : edges) {
-            if (!visited.contains(e.to)) {
-                visited.add(e.to);
-                double res = helper(map, visited, e.to, end, distance * e.weight);
-                if (res != -1.0) {
-                    return res;
-                }
+        visited.add(src);
+        for (Node node : graph.get(src)) {
+            String next = node.key;
+            if (visited.contains(next)) {
+                continue;
             }
+            double ans = dfs(next, des, visited, graph);
+            if (ans == -1.0) {
+                continue;
+            }
+
+            return ans * node.val;
         }
         return -1.0;
     }
 
+    private Map<String, List<Node>> buildGraph(List<List<String>> equations, double[] values) {
+        Map<String, List<Node>> graph = new HashMap<>();
+        for (int i = 0; i < values.length; i++) {
+            String src = equations.get(i).get(0);
+            String des = equations.get(i).get(1);
+            graph.putIfAbsent(src, new ArrayList<>());
+            graph.putIfAbsent(des, new ArrayList<>());
+            graph.get(src).add(new Node(des, values[i]));
+            graph.get(des).add(new Node(src, 1 / values[i]));
+        }
+        return graph;
+    }
+
+    public static void main(String[] args) {
+        List<List<String>> equations = Arrays.asList(
+                Arrays.asList("a", "b"),
+                Arrays.asList("b", "c")
+        );
+
+        List<List<String>> queries = Arrays.asList(
+                Arrays.asList("a", "c"),
+                Arrays.asList("b", "a"),
+                Arrays.asList("a", "e"),
+                Arrays.asList("a", "a"),
+                Arrays.asList("x", "x")
+        );
+        double[] values = new double[]{2.0, 3.0};
+
+        EvaluateDivision_graph ed = new EvaluateDivision_graph();
+        double[] ans = ed.calcEquation(equations, values, queries);
+        System.out.println(Arrays.toString(ans));
+    }
 }
