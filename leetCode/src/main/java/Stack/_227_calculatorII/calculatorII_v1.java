@@ -1,9 +1,9 @@
-package Stack;
+package Stack._227_calculatorII;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class _227_calculatorII {
+class calculatorII_v1 {
     public int calculate(String s) {
         int len = s.length();
         if (s == null || len == 0)  return 0;
@@ -42,7 +42,7 @@ public class _227_calculatorII {
     }
 
     public static void main(String[] args) {
-        _227_calculatorII calculatorII = new _227_calculatorII();
+        calculatorII_v1 calculatorII = new calculatorII_v1();
 
         String s = "3+2*2";
         System.out.println(calculatorII.calculate(s)); // 7

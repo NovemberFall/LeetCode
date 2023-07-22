@@ -1,8 +1,8 @@
-package Stack;
+package Stack._224_calculator;
 
 import java.util.Stack;
 
-public class _224_calculator {
+class calculator_v1 {
     public int calculate(String s) {
         int len = s.length();
         if (s == null || len == 0) return 0;
@@ -39,7 +39,7 @@ public class _224_calculator {
     }
 
     public static void main(String[] args) {
-        _224_calculator calculator = new _224_calculator();
+        calculator_v1 calculator = new calculator_v1();
         String s = " 2-1 + 2 ";
         System.out.println(calculator.calculate(s)); // 3
         String s2 = "(1+(4+5+2)-3)+(6+8)";
