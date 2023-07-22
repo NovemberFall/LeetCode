@@ -2,7 +2,7 @@ package Stack._394_DecodeString;
 
 import java.util.Stack;
 
-public class DecodeString_v0 {
+class DecodeString_v0 {
     public static String decodeString(String s) {
         String res = "";
         Stack<Integer> countStack = new Stack<>();

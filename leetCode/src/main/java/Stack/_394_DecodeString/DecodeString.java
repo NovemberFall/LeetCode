@@ -13,7 +13,7 @@ import java.util.Stack;
 
         stk[ "3", "[",
  */
-public class DecodeString {
+class DecodeString {
     public String decodeString(String s) {
         if (s.length() == 0) return "";
         Stack<String> stk = new Stack<>();
