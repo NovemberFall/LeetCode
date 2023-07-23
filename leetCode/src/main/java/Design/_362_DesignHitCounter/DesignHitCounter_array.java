@@ -1,6 +1,6 @@
 package Design._362_DesignHitCounter;
 
-public class DesignHitCounter_array {
+class DesignHitCounter_array {
     private int[] times;
     private int[] hits;
 
@@ -35,5 +35,21 @@ public class DesignHitCounter_array {
             }
         }
         return total;
+    }
+
+    public static void main(String[] args) {
+        DesignHitCounter_array designHitCounter = new DesignHitCounter_array();
+        designHitCounter.hit(1);
+        designHitCounter.hit(1);
+        designHitCounter.hit(1);
+        designHitCounter.hit(2);
+        designHitCounter.hit(3);
+        System.out.println(designHitCounter.getHist(4)); // 5
+
+        designHitCounter.hit(300);
+        designHitCounter.hit(300);
+        designHitCounter.hit(300);
+        System.out.println(designHitCounter.getHist(300)); // 8
+        System.out.println(designHitCounter.getHist(301)); // 5
     }
 }

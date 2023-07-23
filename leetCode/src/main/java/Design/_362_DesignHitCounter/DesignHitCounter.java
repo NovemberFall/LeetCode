@@ -3,7 +3,7 @@ package Design._362_DesignHitCounter;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class DesignHitCounter {
+class DesignHitCounter {
     Queue<Integer> queue;
 
     public DesignHitCounter() {
