@@ -3,7 +3,7 @@ package DFS;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _131_PalindromePartitioning {
+class _131_PalindromePartitioning {
     public List<List<String>> partition(String s) {
         List<List<String>> res = new ArrayList<>();
         if (s == null || s.length() == 0) {
