@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.Set;
 
 class alien {
-    public static String alienOrder(String[] words) {
+    public String alienOrder(String[] words) {
         Map<Character, Set<Character>> map = new HashMap<Character, Set<Character>>();
         Map<Character, Integer> degree = new HashMap<Character, Integer>();
         String result = "";
@@ -57,7 +57,8 @@ class alien {
     }
 
     public static void main(String[] args) {
+        alien al = new alien();
         String [] words = {"wrt","wrf","er","ett","rftt"};
-        String str = alienOrder(words);
+        String str = al.alienOrder(words);
     }
 }

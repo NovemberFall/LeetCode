@@ -8,14 +8,14 @@ import java.util.Queue;
 import java.util.Set;
 
 class AlienDictionary {
-    public static String alienOrder(String[] words) {
+    public String alienOrder(String[] words) {
         int[] indegree = new int[26];
         Map<Character, Set<Character>> graph = new HashMap<>();
         buildGraph(graph, words, indegree);
         return bfs(graph, indegree);
     }
 
-    private static void buildGraph(Map<Character, Set<Character>> graph, String[] words, int[] indegree) {
+    private void buildGraph(Map<Character, Set<Character>> graph, String[] words, int[] indegree) {
         for (String word : words) {
             for (char c : word.toCharArray()) {
                 graph.putIfAbsent(c, new HashSet<>());
@@ -45,7 +45,7 @@ class AlienDictionary {
         }
     }
 
-    private static String bfs(Map<Character, Set<Character>> graph, int[] indegree) {
+    private String bfs(Map<Character, Set<Character>> graph, int[] indegree) {
         StringBuilder sb = new StringBuilder();
         Queue<Character> queue = new ArrayDeque<>();
         int totalChars = graph.size();
@@ -68,8 +68,9 @@ class AlienDictionary {
         return sb.length() == totalChars ? sb.toString() : "";
     }
     public static void main(String[] args) {
+        AlienDictionary alienDictionary = new AlienDictionary();
         String[] words = {"abc", "ab"};
-        String str = alienOrder(words);
+        String str = alienDictionary.alienOrder(words);
         System.out.println(str);
     }
 }

@@ -8,14 +8,14 @@ import java.util.Map;
 import java.util.Queue;
 
 class alienByList {
-    public static String alienOrder(String[] words) {
+    public String alienOrder(String[] words) {
         int[] indegree = new int[26];
         Map<Character, List<Character>> graph = new HashMap<>();
         buildGraph(graph, words, indegree);
         return bfs(graph, indegree);
     }
 
-    private static void buildGraph(Map<Character, List<Character>> graph, String[] words, int[] indegree) {
+    private void buildGraph(Map<Character, List<Character>> graph, String[] words, int[] indegree) {
         for (String word : words) {
             for (char c : word.toCharArray()) {
                 graph.putIfAbsent(c, new ArrayList<>());
@@ -38,7 +38,7 @@ class alienByList {
         }
     }
 
-    private static String bfs(Map<Character, List<Character>> graph, int[] indegree) {
+    private String bfs(Map<Character, List<Character>> graph, int[] indegree) {
         StringBuilder sb = new StringBuilder();
         Queue<Character> queue = new ArrayDeque<>();
         int totalChars = graph.size();
@@ -71,8 +71,9 @@ class alienByList {
         zb
     */
     public static void main(String[] args) {
+        alienByList al = new alienByList();
         String [] words = {"ac","ab","zc","zb"};
-        String res = alienOrder(words);
+        String res = al.alienOrder(words);
         System.out.println(res);
     }
 }
