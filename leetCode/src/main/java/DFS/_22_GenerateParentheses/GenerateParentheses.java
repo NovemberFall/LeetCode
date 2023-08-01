@@ -1,4 +1,4 @@
-package DFS;
+package DFS._22_GenerateParentheses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
                             (())                     ()()
                             l=2 r=2                  l=2 r=2
  */
-public class _22_GenerateParentheses {
+class GenerateParentheses {
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
         if (n == 0) {
@@ -45,7 +45,7 @@ public class _22_GenerateParentheses {
     }
 
     public static void main(String[] args) {
-        _22_GenerateParentheses generateParentheses = new _22_GenerateParentheses();
+        GenerateParentheses generateParentheses = new GenerateParentheses();
         List<String> res = generateParentheses.generateParenthesis(3);
         System.out.println(res);// [ ((())), (()()), (())(), ()(()), ()()() ]
     }
