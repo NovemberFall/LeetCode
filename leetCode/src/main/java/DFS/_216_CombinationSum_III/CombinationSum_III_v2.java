@@ -11,19 +11,19 @@ class CombinationSum_III_v2 {
         return res;
     }
 
-    private void dfs(List<List<Integer>> res, List<Integer> list, int startIndex, int sum, int k) {
-        if (sum < 0) {
+    private void dfs(List<List<Integer>> res, List<Integer> list, int startIndex, int targetSum, int k) {
+        if (targetSum < 0) {
             return;
         }
 
-        if (list.size() == k && sum == 0) {
+        if (list.size() == k && targetSum == 0) {
             res.add(new ArrayList<>(list));
             return;
         }
 
         for (int i = startIndex; i <= 9; i++) {
             list.add(i);
-            dfs(res, list, i + 1, sum - i, k - 1);
+            dfs(res, list, i + 1, targetSum - i, k - 1);
             list.remove(list.size() - 1);
         }
     }
