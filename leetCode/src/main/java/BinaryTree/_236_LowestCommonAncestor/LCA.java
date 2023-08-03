@@ -1,4 +1,4 @@
-package DFS._236_LowestCommonAncestor;
+package BinaryTree._236_LowestCommonAncestor;
 
 class LCA {
     static class TreeNode {
