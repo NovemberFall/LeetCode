@@ -1,7 +1,7 @@
 package Sorting._169_MajorityElement;
 
 class MajorityVotingAlgorithm {
-    public static int majorityElement(int[] nums) {
+    public int majorityElement(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
 
         int count = 0;
@@ -21,8 +21,12 @@ class MajorityVotingAlgorithm {
     }
 
     public static void main(String[] args) {
+        MajorityVotingAlgorithm mva = new MajorityVotingAlgorithm();
         int[] arr = {1, 1, 1, 1, 2, 3, 4};
-        int majority = majorityElement(arr);
+        int majority = mva.majorityElement(arr);
         System.out.println(majority); // 1
+
+        arr = new int[]{1, 1, 2, 3};
+        System.out.println(mva.majorityElement(arr));
     }
 }
