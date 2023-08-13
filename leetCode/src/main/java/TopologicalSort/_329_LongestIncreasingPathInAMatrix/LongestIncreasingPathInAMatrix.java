@@ -37,7 +37,7 @@ class LongestIncreasingPathInAMatrix {
             for (int j = 0; j < n; j++) {
                 if (indegrees[i][j] == 0) {
                     queue.offer(new int[]{i, j});
-//                    System.out.println("indegree: 0 ==> " + "[" + i + " " + j + "]" + " " + matrix[i][j]);
+                    System.out.println("indegree: 0 ==> " + "[" + i + " " + j + "]" + " " + matrix[i][j]);
                 }
             }
         }
@@ -54,7 +54,7 @@ class LongestIncreasingPathInAMatrix {
                     int ny = y + dir[1];
                     if (nx >= 0 && nx < m && ny >= 0 && ny < n && matrix[x][y] < matrix[nx][ny]) {
                         indegrees[nx][ny]--;
-//                        System.out.println("[" + nx + " " + ny + "] " + matrix[nx][ny] + " " + "indegree: ==> " + indegrees[nx][ny]);
+                        System.out.println("[" + nx + " " + ny + "] " + matrix[nx][ny] + " " + "indegree: ==> " + indegrees[nx][ny]);
                         if (indegrees[nx][ny] == 0) {
                             queue.offer(new int[]{nx, ny});
                         }
