@@ -3,10 +3,11 @@ package TopologicalSort._329_LongestIncreasingPathInAMatrix;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class LongestIncreasingPathInAMatrix {
-    static int[][] dirs = new int[][]{
+class LongestIncreasingPathInAMatrix {
+    private int[][] dirs = new int[][]{
             {-1, 0}, {1, 0}, {0, 1}, {0, -1}
     };
+
     public int longestIncreasingPath(int[][] matrix) {
         if (matrix == null || matrix.length == 0) return 0;
 
@@ -20,10 +21,10 @@ public class LongestIncreasingPathInAMatrix {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 for (int[] dir : dirs) {
-                    int x = i + dir[0];
-                    int y = j + dir[1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && matrix[i][j] < matrix[x][y]) {
-                        indegrees[x][y]++;
+                    int nx = i + dir[0];
+                    int ny = j + dir[1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n && matrix[i][j] < matrix[nx][ny]) {
+                        indegrees[nx][ny]++;
                     }
                 }
             }
@@ -36,6 +37,7 @@ public class LongestIncreasingPathInAMatrix {
             for (int j = 0; j < n; j++) {
                 if (indegrees[i][j] == 0) {
                     queue.offer(new int[]{i, j});
+//                    System.out.println("indegree: 0 ==> " + "[" + i + " " + j + "]" + " " + matrix[i][j]);
                 }
             }
         }
@@ -52,6 +54,7 @@ public class LongestIncreasingPathInAMatrix {
                     int ny = y + dir[1];
                     if (nx >= 0 && nx < m && ny >= 0 && ny < n && matrix[x][y] < matrix[nx][ny]) {
                         indegrees[nx][ny]--;
+//                        System.out.println("[" + nx + " " + ny + "] " + matrix[nx][ny] + " " + "indegree: ==> " + indegrees[nx][ny]);
                         if (indegrees[nx][ny] == 0) {
                             queue.offer(new int[]{nx, ny});
                         }
@@ -66,9 +69,9 @@ public class LongestIncreasingPathInAMatrix {
     public static void main(String[] args) {
         LongestIncreasingPathInAMatrix longest = new LongestIncreasingPathInAMatrix();
         int[][] matrix = new int[][]{
-                {3, 4, 5}, {3, 2, 6}, {2, 2, 1}
+                {9, 9, 4}, {6, 6, 8}, {2, 1, 1}
         };
         int res = longest.longestIncreasingPath(matrix);
-        System.out.println(res);
+        System.out.println(res); // 4
     }
 }
