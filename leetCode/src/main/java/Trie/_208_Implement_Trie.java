@@ -1,6 +1,9 @@
 package Trie;
 
-public class Trie {
+class _208_Implement_Trie {
+
+    private TrieNode root;
+
     static class TrieNode {
         char val;
         TrieNode[] children;
@@ -12,9 +15,8 @@ public class Trie {
             val = c;
         }
     }
-    private TrieNode root;
 
-    public Trie() {
+    public _208_Implement_Trie() {
         root = new TrieNode(' ');
     }
 
@@ -55,7 +57,7 @@ public class Trie {
     }
 
     public static void main(String[] args) {
-        Trie trie = new Trie();
+        _208_Implement_Trie trie = new _208_Implement_Trie();
         trie.insert("apple");
         boolean res = trie.search("apple");
         System.out.println(res);
