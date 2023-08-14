@@ -1,6 +1,6 @@
-package String;
+package String._14_LongestCommonPrefix;
 
-class _14_LongestCommonPrefix {
+class LongestCommonPrefix_indexOf {
     public String longestCommonPrefix(String[] strs) {
         if (strs.length == 0) return "";
 
@@ -15,7 +15,7 @@ class _14_LongestCommonPrefix {
     }
 
     public static void main(String[] args) {
-        _14_LongestCommonPrefix lcp = new _14_LongestCommonPrefix();
+        LongestCommonPrefix_indexOf lcp = new LongestCommonPrefix_indexOf();
         String[] strs = new String[]{"flower", "flight"};
         String res = lcp.longestCommonPrefix(strs);
         System.out.println("**************************************");
