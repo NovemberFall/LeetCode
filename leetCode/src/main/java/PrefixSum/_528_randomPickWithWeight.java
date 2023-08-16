@@ -1,4 +1,4 @@
-package PreSum;
+package PrefixSum;
 
 import java.util.Random;
 import java.util.Arrays;
