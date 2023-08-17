@@ -8,11 +8,10 @@ class searchInRotatedSortedArray_II {
             if (nums[mid] == target) {
                 return true;
             }
-            // 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1
-            while (left <= mid && nums[left] == nums[mid]) {
+            //  1 0 1 1 1   or
+            //  1 1 1 0 1
+            while (nums[left] == nums[mid]) {
                 left++;
-            }
-            if (left > mid) {
                 continue;
             }
 
