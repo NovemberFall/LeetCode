@@ -1,6 +1,6 @@
-package BinarySearch;
+package BinarySearch._35_SearchInsertPosition;
 
-public class _35_SearchInsertPosition {
+class SearchInsertPosition_v1 {
     public static int searchInsert(int[] nums, int target) {
         if (nums == null || nums.length == 0) return -1;
 

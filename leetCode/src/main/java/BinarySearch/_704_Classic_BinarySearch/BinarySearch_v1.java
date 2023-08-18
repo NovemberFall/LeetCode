@@ -1,6 +1,6 @@
-package BinarySearch;
+package BinarySearch._704_Classic_BinarySearch;
 
-class _704_ClassicalBinarySearch {
+class BinarySearch_v1 {
     public int binarySearch(int[] array, int target){
         if (array == null || array.length == 0) {
             return -1;
@@ -20,7 +20,7 @@ class _704_ClassicalBinarySearch {
     }
 
     public static void main(String[] args) {
-        _704_ClassicalBinarySearch search = new _704_ClassicalBinarySearch();
+        BinarySearch_v1 search = new BinarySearch_v1();
         int[] nums = new int[]{-1,0,3,5,9,12};
         System.out.println(search.binarySearch(nums, 9));
     }
