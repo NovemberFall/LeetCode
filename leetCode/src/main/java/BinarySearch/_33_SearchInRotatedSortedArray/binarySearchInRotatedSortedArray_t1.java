@@ -1,6 +1,6 @@
 package BinarySearch._33_SearchInRotatedSortedArray;
 
-class BinarySearchRotatedSortedArray_t1 {
+class binarySearchInRotatedSortedArray_t1 {
     public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) return -1;
 
@@ -29,7 +29,7 @@ class BinarySearchRotatedSortedArray_t1 {
 
     public static void main(String[] args) {
         int[] nums = new int[]{4, 5, 6, 7, 0, 1, 2};
-        BinarySearchRotatedSortedArray_t1 searchInRotatedSortedArray = new BinarySearchRotatedSortedArray_t1();
+        binarySearchInRotatedSortedArray_t1 searchInRotatedSortedArray = new binarySearchInRotatedSortedArray_t1();
         int idx = searchInRotatedSortedArray.search(nums, 0);
         System.out.println(idx); // 4
     }

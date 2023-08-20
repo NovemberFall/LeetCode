@@ -21,11 +21,6 @@ class SearchInsertPosition_v1 {
 
     public static void main(String[] args) {
 
-//        int[] nums = {1,3,5,6};
-//        int target = 5;
-//        int res = searchInsert(nums, target);
-//        System.out.println(res);
-
         int[] nums2 = new int[]{1, 2, 3, 4, 5, 7, 9, 11};
         int res2 = searchInsert(nums2, 10);
         System.out.println();

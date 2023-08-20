@@ -1,6 +1,6 @@
 package BinarySearch._153_FindMinimumInRotatedSortedArray;
 
-class findMinimumInRotatedSortedArray {
+class findMinimumInRotatedSortedArray_t1 {
     public int findMin(int[] nums) {
         if (nums.length == 1) return nums[0];
 

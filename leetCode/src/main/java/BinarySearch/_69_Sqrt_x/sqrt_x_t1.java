@@ -1,6 +1,6 @@
 package BinarySearch._69_Sqrt_x;
 
-class sqrt_x_tmp1 {
+class sqrt_x_t1 {
     public int mySqrt(int x) {
         int left = 0, right = x, ans = x;
         while (left <= right) {

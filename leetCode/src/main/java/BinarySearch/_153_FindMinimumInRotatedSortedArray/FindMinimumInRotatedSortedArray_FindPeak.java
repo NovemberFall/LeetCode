@@ -1,6 +1,6 @@
 package BinarySearch._153_FindMinimumInRotatedSortedArray;
 
-class findMinimumInRotatedSortedArray_findPeak {
+class FindMinimumInRotatedSortedArray_FindPeak {
     public int findMin(int[] nums) {
         int peakIdx = findPeakIndex(nums);
         return nums[peakIdx];

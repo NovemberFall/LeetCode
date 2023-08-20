@@ -1,6 +1,6 @@
-package Sorting;
+package BinarySearch._4_MedianOfTwoSortedArrays;
 
-class _4_MedianOfTwoSortedArrays {
+class MedianOfTwoSortedArrays_merge {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int[] res = merge(nums1, nums2);
         int n = res.length;
@@ -32,7 +32,7 @@ class _4_MedianOfTwoSortedArrays {
     }
 
     public static void main(String[] args) {
-        _4_MedianOfTwoSortedArrays medianOfTwoSortedArrays = new _4_MedianOfTwoSortedArrays();
+        MedianOfTwoSortedArrays_merge medianOfTwoSortedArrays = new MedianOfTwoSortedArrays_merge();
         int[] nums1 = {1, 2}, nums2 = {3, 4};
         System.out.println(medianOfTwoSortedArrays.findMedianSortedArrays(nums1, nums2)); // 2.5
     }

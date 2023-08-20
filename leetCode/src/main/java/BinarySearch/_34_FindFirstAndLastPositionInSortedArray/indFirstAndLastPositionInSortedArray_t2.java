@@ -1,6 +1,6 @@
 package BinarySearch._34_FindFirstAndLastPositionInSortedArray;
 
-class indFirstAndLastPositionInSortedArray_v2 {
+class indFirstAndLastPositionInSortedArray_t2 {
     public int[] searchRange(int[] nums, int target) {
         int len = nums.length;
         if (len == 0) {
