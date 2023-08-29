@@ -1,10 +1,13 @@
 package BFS._126_WordLadder_II;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 class WordLadder_II {
@@ -14,70 +17,75 @@ class WordLadder_II {
         if (!dict.contains(endWord)) {
             return res;
         }
-        Map<String, List<String>> map = new HashMap<>();
-        Set<String> startSet = new HashSet<>();
-        startSet.add(beginWord);
-        bfs(startSet, endWord, map, dict);
+        dict.remove(beginWord);
 
-        List<String> list = new ArrayList<>();
-        list.add(beginWord);
-        dfs(res, list, beginWord, endWord, map);
+        Map<String, Integer> steps = new HashMap<>();
+        steps.put(beginWord, 0);
+        Map<String, Set<String>> from = new HashMap<>();
+        boolean found = bfs(beginWord, endWord, dict, steps, from);
+
+        if (found) {
+            Deque<String> path = new ArrayDeque<>();
+            path.add(endWord);
+            dfs(from, path, beginWord, endWord, res);
+        }
         return res;
     }
 
-    private void dfs(List<List<String>> res, List<String> list, String word, String endWord,
-                     Map<String, List<String>> map) {
+    private boolean bfs(String beginWord, String endWord, Set<String> dict, Map<String, Integer> steps,
+                        Map<String, Set<String>> from) {
+        int wordLen = beginWord.length();
+        int step = 0;
+        boolean found = false;
 
-        if (word.equals(endWord)) {
-            res.add(new ArrayList<>(list));
-            return;
-        }
-        if (map.get(word) == null) {
-            return;
-        }
-        for (String nextWord : map.get(word)) {
-            list.add(nextWord);
-            dfs(res, list, nextWord, endWord, map);
-            list.remove(list.size() - 1);
-        }
-    }
-
-    private void bfs(Set<String> startSet, String endWord, Map<String, List<String>> map, Set<String> dict) {
-        if (startSet.size() == 0) {
-            return;
-        }
-        Set<String> levelSet = new HashSet<>();
-
-        dict.removeAll(startSet);
-        // 为什么这里要删除startSet's elements? 因为不这样做，就会一直重复把字典里的元素添加到startSet里,
-        // 造成重复遍历 startSet's elements.
-
-        boolean finish = false;
-
-        for (String word : startSet) {
-            char[] chs = word.toCharArray();
-            for (int i = 0; i < chs.length; i++) {
-                char old = chs[i];
-                for (char c = 'a'; c <= 'z'; c++) {
-                    chs[i] = c;
-                    String newWord = new String(chs);
-                    if (dict.contains(newWord)) {
-                        if (newWord.equals(endWord)) {
-                            finish = true;
-                        } else {
-                            levelSet.add(newWord);
+        Queue<String> queue = new ArrayDeque<>();
+        queue.offer(beginWord);
+        while (!queue.isEmpty()) {
+            step++;
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                String curWord = queue.poll();
+                char[] chars = curWord.toCharArray();
+                for (int j = 0; j < wordLen; j++) {
+                    char old = chars[j];
+                    for (char c = 'a'; c <= 'z'; c++) {
+                        chars[j] = c;
+                        String nextWord = String.valueOf(chars);
+                        if (steps.containsKey(nextWord) && steps.get(nextWord) == step) {
+                            from.get(nextWord).add(curWord);
                         }
-
-                        map.putIfAbsent(word, new ArrayList<>());
-                        map.get(word).add(newWord);
+                        if (!dict.contains(nextWord)) {
+                            continue;
+                        }
+                        dict.remove(nextWord);
+                        queue.offer(nextWord);
+                        from.putIfAbsent(nextWord, new HashSet<>());
+                        from.get(nextWord).add(curWord);
+                        steps.put(nextWord, step);
+                        if (nextWord.equals(endWord)) {
+                            found = true;
+                        }
                     }
+                    chars[j] = old;
                 }
-                chs[i] = old;
+            }
+            if (found) {
+                break;
             }
         }
+        return found;
+    }
 
-        if (!finish) {
-            bfs(levelSet, endWord, map, dict);
+    private void dfs(Map<String, Set<String>> from, Deque<String> path, String beginWord, String cur, List<List<String>> res) {
+        if (cur.equals(beginWord)) {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+
+        for (String previous : from.get(cur)) {
+            path.addFirst(previous);
+            dfs(from, path, beginWord, previous, res);
+            path.removeFirst();
         }
     }
 }
