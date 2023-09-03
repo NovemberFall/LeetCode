@@ -1,6 +1,6 @@
-package DynamicProgramming;
+package TwoPointers._42_TrappingRainWater;
 
-public class _42_TrappingRainWater {
+class TrappingRainWater_DP {
     public int trap(int[] height) {
         int n = height.length;
         int[] left = new int[n];
@@ -26,7 +26,7 @@ public class _42_TrappingRainWater {
     }
 
     public static void main(String[] args) {
-        _42_TrappingRainWater trappingRainWater = new _42_TrappingRainWater();
+        TrappingRainWater_DP trappingRainWater = new TrappingRainWater_DP();
         int[] rain = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         int count = trappingRainWater.trap(rain);
         System.out.println(count); // 6

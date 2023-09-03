@@ -10,7 +10,7 @@ class MinimumWindowSubstring {
     /**
      * Sliding Window
      */
-    public static String minWindow(String s, String t) {
+    public String minWindow(String s, String t) {
         if (s == null || t == null || t.length() > s.length()) {
             return "";
         }
@@ -57,7 +57,7 @@ class MinimumWindowSubstring {
         return shortest == Integer.MAX_VALUE ? "" : s.substring(start, start + shortest);
     }
 
-    private static Map<Character, Integer> buildMap(String t) {
+    private Map<Character, Integer> buildMap(String t) {
         Map<Character, Integer> map = new HashMap<>();
         for (char c : t.toCharArray()) {
             map.put(c, map.getOrDefault(c, 0) + 1);
@@ -66,8 +66,9 @@ class MinimumWindowSubstring {
     }
 
     public static void main(String[] args) {
+        MinimumWindowSubstring minimumWindowSubstring = new MinimumWindowSubstring();
         String s = "ADOBECODEBANC", t = "ABC";
-        String res = minWindow(s, t);
+        String res = minimumWindowSubstring.minWindow(s, t);
         System.out.println(res); // BANC
     }
 }
