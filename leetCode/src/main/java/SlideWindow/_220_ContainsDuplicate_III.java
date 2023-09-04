@@ -3,7 +3,7 @@ package SlideWindow;
 import java.util.TreeSet;
 
 class _220_ContainsDuplicate_III {
-    public static boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
         if (nums == null || nums.length == 0) return true;
 
         TreeSet<Integer> treeSet = new TreeSet<>();
@@ -26,8 +26,9 @@ class _220_ContainsDuplicate_III {
     }
 
     public static void main(String[] args) {
+        _220_ContainsDuplicate_III containsDuplicateIii = new _220_ContainsDuplicate_III();
         int[] nums = new int[]{1, 5, 9, 1, 5, 9};
-        boolean res = containsNearbyAlmostDuplicate(nums, 2, 3);
+        boolean res = containsDuplicateIii.containsNearbyAlmostDuplicate(nums, 2, 3);
         System.out.println(res); // false
     }
 }
