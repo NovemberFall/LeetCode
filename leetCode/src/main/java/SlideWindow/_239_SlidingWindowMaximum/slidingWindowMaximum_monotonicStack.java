@@ -29,19 +29,26 @@ class slidingWindowMaximum_monotonicStack {
         if (nums == null || nums.length == 0 || k == 0) return new int[0];
 
         List<Integer> res = new ArrayList<>();
-        Deque<Integer> dq = new ArrayDeque<>();
+
+        // 双端队列 保存当前窗口最大值的数组位置 保证队列中数组位置的数值按从大到小排序
+        Deque<Integer> deque = new ArrayDeque<>();
         for (int i = 0; i < nums.length; i++) {
-            while (!dq.isEmpty() && nums[dq.peekLast()] <= nums[i]) {
-                dq.pollLast();
+            // 保证从大到小 如果前面数小则需要依次弹出，直至满足要求
+            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+                deque.pollLast();
             }
-            while (!dq.isEmpty() && dq.peekFirst() <= i - k) {
-                dq.pollFirst();
+            // 添加当前值对应的数组下标
+            deque.offerLast(i);
+
+            // 如果当前队列最左侧存储的下标等于 i-k 的值，代表目前队列已满。
+            // 但是新元素需要进来，所以列表最左侧的下标出队列
+            if (deque.peekFirst() == i - k) {
+                deque.pollFirst();
             }
 
-            dq.offerLast(i);
-
+            // 当窗口长度为k时 保存当前窗口中最大值
             if (i + 1 >= k) {
-                res.add(nums[dq.peekFirst()]);
+                res.add(nums[deque.peekFirst()]);
             }
         }
         return res.stream().mapToInt(Integer::intValue).toArray();
