@@ -25,7 +25,7 @@ k = 3
 class slidingWindowMaximum_monotonicStack {
 
     // Sliding Window
-    public static int[] maxSlidingWindow(int[] nums, int k) {
+    public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums == null || nums.length == 0 || k == 0) return new int[0];
 
         List<Integer> res = new ArrayList<>();
@@ -48,8 +48,9 @@ class slidingWindowMaximum_monotonicStack {
     }
 
     public static void main(String[] args) {
+        slidingWindowMaximum_monotonicStack slidingWindowMaximumMonotonicStack = new slidingWindowMaximum_monotonicStack();
         int[] nums = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
-        int[] res = maxSlidingWindow_BruteForce(nums, 3);
+        int[] res = slidingWindowMaximumMonotonicStack.maxSlidingWindow(nums, 3);
         System.out.println(Arrays.toString(res));
     }
 }
