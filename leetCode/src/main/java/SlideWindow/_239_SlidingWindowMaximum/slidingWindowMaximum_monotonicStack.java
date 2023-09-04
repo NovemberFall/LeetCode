@@ -1,4 +1,4 @@
-package SlideWindow;
+package SlideWindow._239_SlidingWindowMaximum;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -22,23 +22,7 @@ k = 3
     DQ:                          7           List[3, 3, 5, 5, 6, 7]
 
  */
-class _239_SlidingWindowMaximum {
-
-    // Brute Force
-    public static int[] maxSlidingWindow_BruteForce(int[] nums, int k) {
-        if (nums == null || nums.length == 0 || k == 0) return new int[0];
-
-        List<Integer> res = new ArrayList<>();
-        for (int i = k - 1; i < nums.length; i++) {
-            int curMax = nums[i];
-            for (int j = 0; j < k; j++) {
-                curMax = Math.max(curMax, nums[i - j]);
-            }
-            res.add(curMax);
-        }
-        return res.stream().mapToInt(i -> i).toArray();
-    }
-
+class slidingWindowMaximum_monotonicStack {
 
     // Sliding Window
     public static int[] maxSlidingWindow(int[] nums, int k) {
