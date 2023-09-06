@@ -1,8 +1,8 @@
-package SlideWindow;
+package SlideWindow._220_ContainsDuplicate_III;
 
 import java.util.TreeSet;
 
-class _220_ContainsDuplicate_III {
+class containsDuplicate_III_treeSet {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
         if (nums == null || nums.length == 0) return true;
 
@@ -26,7 +26,7 @@ class _220_ContainsDuplicate_III {
     }
 
     public static void main(String[] args) {
-        _220_ContainsDuplicate_III containsDuplicateIii = new _220_ContainsDuplicate_III();
+        containsDuplicate_III_treeSet containsDuplicateIii = new containsDuplicate_III_treeSet();
         int[] nums = new int[]{1, 5, 9, 1, 5, 9};
         boolean res = containsDuplicateIii.containsNearbyAlmostDuplicate(nums, 2, 3);
         System.out.println(res); // false
