@@ -20,36 +20,36 @@ class _30_SubstringWithConcatenationOfAllWords {
         int n = s.length();
         int wordLen = words[0].length();
         Map<String, Integer> seen = buildMap(words);
-        Map<String, Integer> curSeen = new HashMap<>();
-        String str = null, tmp = null;
 
         for (int i = 0; i < wordLen; i++) {
+            int left = i, right = i;
             int count = 0; // remark: reset count
-            int start = i;
-            for (int r = i; r + wordLen <= n; r += wordLen) {
-                str = s.substring(r, r + wordLen);
-                if (seen.containsKey(str)) {
+            Map<String, Integer> curSeen = new HashMap<>();
 
-                    curSeen.put(str, curSeen.getOrDefault(str, 0) + 1);
+            while (right + wordLen <= n) {
+                String cur = s.substring(right, right + wordLen);
+                right += wordLen;
+
+                if (seen.containsKey(cur)) {
+                    curSeen.put(cur, curSeen.getOrDefault(cur, 0) + 1);
                     count++;
 
-                    while (curSeen.get(str) > seen.get(str)) {
-                        tmp = s.substring(start, start + wordLen);
-                        curSeen.put(tmp, curSeen.get(tmp) - 1);
-                        start += wordLen;
-
+                    while (curSeen.get(cur) > seen.get(cur)) {
+                        String delete = s.substring(left, left + wordLen);
+                        curSeen.put(delete, curSeen.get(delete) - 1);
+                        left += wordLen;
                         count--;
                     }
                 } else {
+                    left = right;
                     curSeen.clear();
                     count = 0;
-                    start = r + wordLen; //not contain, so move the start
                 }
                 if (count == words.length) {
-                    res.add(start);
+                    res.add(left);
                 }
             }
-            curSeen.clear();
+
         }
         return res;
     }
