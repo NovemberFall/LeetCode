@@ -19,12 +19,15 @@ class _567_PermutationInString {
             return true;
         }
 
-        for (int i = len1; i < len2; i++) {
-            count2[s2.charAt(i) - 'a']++;
-            count2[s2.charAt(i - len1) - 'a']--;
+        int left = 0, right = s1.length();
+        while (right < s2.length()) {
+            count2[s2.charAt(right) - 'a']++;
+            count2[s2.charAt(left) - 'a']--;
             if (Arrays.equals(count1, count2)) {
                 return true;
             }
+            left++;
+            right++;
         }
         return false;
     }
