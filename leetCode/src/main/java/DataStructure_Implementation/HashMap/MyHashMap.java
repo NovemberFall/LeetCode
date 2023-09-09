@@ -174,9 +174,9 @@ class MyHashMap<K, V> {
             // check if the key equals()
             // key, node.key() all possible to be null.
             if (equalsKey(node.key, key)) {
-                V result = node.value;
-                node.value = value;
-                return result;
+                V result = node.value;// since we return the old corresponding value, keep the old value firstly.
+                node.value = value;// update new value
+                return result; // return the old value
             }
             node = node.next;
         }
