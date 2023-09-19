@@ -1,11 +1,11 @@
-package DynamicProgramming;
+package DynamicProgramming._44_WildcardMatching;
 
 /*
     '?' Matches any single character
     '*' Matches any sequence of characters (including the empty sequence).
 
  */
-class _44_WildcardMatching {
+class wildcardMatching_dp {
     public boolean isMatch(String s, String p) {
         int m = s.length(), n = p.length();
         boolean[][] dp = new boolean[m + 1][n + 1];
@@ -32,7 +32,7 @@ class _44_WildcardMatching {
     }
 
     public static void main(String[] args) {
-        _44_WildcardMatching wm = new _44_WildcardMatching();
+        wildcardMatching_dp wm = new wildcardMatching_dp();
         String s = "acdcb", p = "a*c?b";
         boolean res = wm.isMatch(s, p);
         System.out.println(res); // false
