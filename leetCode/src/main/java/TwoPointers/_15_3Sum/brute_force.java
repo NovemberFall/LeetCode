@@ -25,6 +25,8 @@ class brute_force {
                 }
             }
         }
-        return set.stream().collect(Collectors.toList());
+//        return set.stream().collect(Collectors.toList());
+
+        return new ArrayList<>(res);
     }
 }
