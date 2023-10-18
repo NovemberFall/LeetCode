@@ -17,7 +17,7 @@ class _981_TimeBased_KeyValue_Store {
     }
 
     Map<String, List<Data>> map;
-    public TimeMap() {
+    public _981_TimeBased_KeyValue_Store() {
         map = new HashMap<>();
     }
 
