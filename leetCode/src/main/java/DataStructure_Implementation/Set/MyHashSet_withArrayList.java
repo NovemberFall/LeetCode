@@ -59,7 +59,7 @@ class MyHashSet_withArrayList {
     }
 
     @Test
-    void testContians() {
+    void testContains() {
         MySet<Character> set = new MySet<>();
         set.add('a');
         set.add('b');
