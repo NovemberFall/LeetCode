@@ -7,6 +7,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
+/*
+TODO:
+   6. [Coding] [Ford] Implement a set using Test-Driven-Development
+
+@link https://docs.google.com/document/d/1XR0mqHUjI6oCJOfvuj88H_5wSmLYopSPXMf-YVUiDvI/edit#bookmark=id.6moipo9mbeh6
+*/
 class MyHashSet_withArrayList {
     private static class MySet<E> {
         private final List<E> list;
