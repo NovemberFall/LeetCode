@@ -1,6 +1,6 @@
-package BinarySearchTree._235_LowestCommonAncestorOfABinarySearchTree;
+package BinarySearchTree._235_LowestCommonAncestorOfBinarySearchTree;
 
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;

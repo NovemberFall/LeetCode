@@ -1,4 +1,4 @@
-package BinarySearchTree._235_LowestCommonAncestorOfABinarySearchTree;
+package BinarySearchTree._235_LowestCommonAncestorOfBinarySearchTree;
 
 class LCA_BST_dfs {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
