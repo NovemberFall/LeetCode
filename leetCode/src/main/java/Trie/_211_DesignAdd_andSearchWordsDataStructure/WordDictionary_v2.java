@@ -1,7 +1,7 @@
-package Trie._211_.DesignAdd_andSearchWordsDataStructure;
+package Trie._211_DesignAdd_andSearchWordsDataStructure;
 
 
-class WordDictionary {
+class WordDictionary_v2 {
     TrieNode root;
     class TrieNode {
         boolean isWord;
@@ -12,7 +12,7 @@ class WordDictionary {
             children = new TrieNode[26];
         }
     }
-    public WordDictionary() {
+    public WordDictionary_v2() {
         root = new TrieNode();
     }
 
