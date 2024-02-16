@@ -39,7 +39,8 @@ class _133_CloneGraph {
         }
         Map<Node, Node> map = new HashMap<>();
         Queue<Node> queue = new ArrayDeque<>();
-        map.put(node, new Node(node.val));
+        Node newNode = new Node(node.val);
+        map.put(node, newNode);
         queue.offer(node);
         while (!queue.isEmpty()) {
             Node oldNode = queue.poll();
@@ -48,14 +49,10 @@ class _133_CloneGraph {
                     map.put(oldNeiNode, new Node(oldNeiNode.val));
                     queue.offer(oldNeiNode);
                 }
-
-//                Node copyOldNeiNode = map.get(oldNeiNode);
-//                map.get(oldNode).neighbors.add(copyOldNeiNode);
-
                 map.get(oldNode).neighbors.add(map.get(oldNeiNode));
             }
         }
-        return map.get(node);
+        return newNode;
     }
 
     public static void main(String[] args) {
