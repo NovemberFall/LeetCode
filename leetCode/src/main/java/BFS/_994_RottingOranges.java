@@ -6,6 +6,7 @@ import java.util.Queue;
 class _994_RottingOranges {
     // directions
     int[][] dirs = new int[][]{{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+
     public int orangesRotting(int[][] grid) {
         int m = grid.length, n = grid[0].length;
         Queue<int[]> queue = new ArrayDeque<>();
@@ -19,7 +20,7 @@ class _994_RottingOranges {
                 if (grid[i][j] == 1) {
                     // count all fresh oranges
                     fresh++;
-                } else if (grid[i][j] == 2){
+                } else if (grid[i][j] == 2) {
                     //push rotten oranges into queue
                     queue.offer(new int[]{i, j});
                 }
@@ -40,8 +41,7 @@ class _994_RottingOranges {
                 for (int[] dir : dirs) {
                     int row = cell[0] + dir[0];
                     int col = cell[1] + dir[1];
-                    if (row < 0 || row >= m || col < 0 || col >= n || grid[row][col] == 2 ||
-                            grid[row][col] == 0) {
+                    if (row < 0 || row >= m || col < 0 || col >= n || grid[row][col] == 2 || grid[row][col] == 0) {
                         continue;
                     }
                     grid[row][col] = 2;
