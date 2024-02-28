@@ -15,6 +15,7 @@
         <language minSize="164" name="Java" />
       </Languages>
     </inspection_tool>
+    <inspection_tool class="JUnit5AssertionsConverter" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="OptionalOfNullableMisuseMerged" />
     <inspection_tool class="UNCHECKED_WARNING" enabled="false" level="WARNING" enabled_by_default="false" />
   </profile>
