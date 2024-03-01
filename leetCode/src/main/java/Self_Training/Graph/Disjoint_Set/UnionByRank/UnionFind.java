@@ -1,43 +1,40 @@
-package Graph.Disjoint_Set.PathCompression_UnionByRank;
+package Self_Training.Graph.Disjoint_Set.UnionByRank;
 
 class UnionFind {
-    private int[] parent;
-    // Use a rank array to record the height of each vertex, i.e., the "rank" of each vertex.
+    private int[] root;
     private int[] rank;
 
     public UnionFind(int size) {
-        parent = new int[size];
+        root = new int[size];
         rank = new int[size];
         for (int i = 0; i < size; i++) {
-            parent[i] = i;
-            rank[i] = 1; // The initial "rank" of each vertex is 1, because each of them is
-            // a standalone vertex with no connection to other vertices.
+            root[i] = i;
+            rank[i] = 1;
         }
     }
 
-    // The find function here is the same as that in the disjoint set with path compression.
     public int find(int x) {
-        if (x == parent[x]) {
-            return x;
+        while (x != root[x]) {
+            x = root[x];
         }
-        return parent[x] = find(parent[x]);
+        return x;
     }
 
-    // The union function with union by rank
     public void union(int x, int y) {
         int rootX = find(x);
         int rootY = find(y);
         if (rootX == rootY) {
             return;
         }
-
-        if (rank[rootX] > rank[rootY]) {
-            parent[rootY] = rootX;
-        } else if (rank[rootX] < rank[rootY]) {
-            parent[rootX] = rootY;
-        } else {
-            parent[rootY] = rootX;
-            rank[rootX] += 1;
+        if (rootX != rootY) {
+            if (rank[rootX] > rank[rootY]) {
+                root[rootY] = rootX;
+            } else if (rank[rootX] < rank[rootY]) {
+                root[rootX] = rootY;
+            } else {
+                root[rootY] = rootX;
+                rank[rootX] += 1;
+            }
         }
     }
 
@@ -45,7 +42,7 @@ class UnionFind {
         return find(x) == find(y);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         UnionFind uf = new UnionFind(10);
         // 1-2-5-6-7 3-8-9 4
         uf.union(1, 2);
@@ -62,4 +59,3 @@ class UnionFind {
         System.out.println(uf.connected(4, 9)); // true
     }
 }
-
