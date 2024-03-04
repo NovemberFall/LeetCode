@@ -26,9 +26,8 @@ class WordLadder {
                 }
 
                 for (int j = 0; j < curWord.length(); j++) {
-                    char[] chars = curWord.toCharArray();
-
-                    for (char c = 'a'; c < 'z'; c++) {
+                    for (char c = 'a'; c <= 'z'; c++) {
+                        char[] chars = curWord.toCharArray();
                         chars[j] = c;
                         String word = new String(chars);
                         if (dict.contains(word)) {
@@ -37,9 +36,9 @@ class WordLadder {
                         }
                     }
                 }
-                level++;
             }
+            level++;
         }
-        return level;
+        return 0;
     }
 }

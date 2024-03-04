@@ -1,6 +1,6 @@
-package Graph;
+package Graph._323_NumberOfConnectedComponentsInA_UndirectedGraph;
 
-class _323_NumberOfConnectedComponentsIn_UndirectedGraph {
+class numberOfConnectedComponents_byRank {
     public int countComponents(int n, int[][] edges) {
         int numOfComponents = n;
         int unionNum = 0;
@@ -10,7 +10,9 @@ class _323_NumberOfConnectedComponentsIn_UndirectedGraph {
                 continue;
             }
             uf.union(edge[0], edge[1]);
+            System.out.println("edge: " + edge[0] + " edge: " +  +  edge[1]);
             unionNum++;
+            System.out.println("Union Num: " + unionNum);
         }
         return numOfComponents - unionNum;
     }
@@ -53,5 +55,14 @@ class _323_NumberOfConnectedComponentsIn_UndirectedGraph {
         public boolean isConnected(int x, int y) {
             return find(x) == find(y);
         }
+    }
+
+    public static void main(String[] args) {
+        numberOfConnectedComponents_byRank ncci = new numberOfConnectedComponents_byRank();
+        int[][] edges = new int[][]{{0, 1}, {1, 2}, {3, 4}};
+        int res = ncci.countComponents(5, edges);
+        System.out.println();
+        System.out.println();
+        System.out.println(res);
     }
 }
