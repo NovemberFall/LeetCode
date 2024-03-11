@@ -2,28 +2,28 @@ package DFS;
 
 class _130_SurroundedRegions {
     public void solve(char[][] board) {
-        int rows = board.length, cols = board[0].length;
+        int m = board.length, n = board[0].length;
 
-        for (int i = 0; i < rows; i++) {
-            if (board[i][0] == 'O') {
-                dfs(board, i, 0);
+        for (int row = 0; row < m; row++) {
+            if (board[row][0] == 'O') {
+                dfs(board, row, 0);
             }
-            if (board[i][cols - 1] == 'O') {
-                dfs(board, i, cols - 1);
+            if (board[row][n - 1] == 'O') {
+                dfs(board, row, n - 1);
             }
         }
 
-        for (int i = 0; i < cols; i++) {
-            if (board[0][i] == 'O') {
-                dfs(board, 0, i);
+        for (int col = 0; col < n;col++) {
+            if (board[0][col] == 'O') {
+                dfs(board, 0, col);
             }
-            if (board[rows - 1][i] == 'O') {
-                dfs(board, rows - 1, i);
+            if (board[m - 1][col] == 'O') {
+                dfs(board, m - 1, col);
             }
         }
 
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (board[i][j] == 'O') {
                     board[i][j] = 'X';
                 }
