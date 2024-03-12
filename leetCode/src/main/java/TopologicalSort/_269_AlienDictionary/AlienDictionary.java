@@ -37,10 +37,15 @@ class AlienDictionary {
                     break; // ett, rftt 只有在出现第一个不相同的字符 e, r 才做比较，剩下就不再比较所以 break
                 }
                 // test case: ["abc","ab"], Expected: ""
+                // since it is claimed that the strings in words are sorted lexicographically by the rules of this new language.
                 if (j + 1 == len && first.length() > second.length()) {
                     graph.clear();
                     return;
                 }
+                /*  Why do we need `j + 1 == len`, look at this test case:
+                ["qb","qts","qs","qa","s"]
+                without `j + 1 == len`, qts.len() > qs.len(), it will return "", but "qts" come before "qs", that is correct!
+                */
             }
         }
     }
