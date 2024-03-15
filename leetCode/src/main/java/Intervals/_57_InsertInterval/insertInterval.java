@@ -1,4 +1,4 @@
-package Sorting._57_InsertInterval;
+package Intervals._57_InsertInterval;
 
 import java.util.ArrayList;
 import java.util.Arrays;
