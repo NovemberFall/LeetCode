@@ -1,8 +1,6 @@
-package Sorting;
+package Intervals;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.PriorityQueue;
 
 class _253_MeetingRooms_II {
