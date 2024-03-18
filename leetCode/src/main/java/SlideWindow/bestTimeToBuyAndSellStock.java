@@ -1,14 +1,15 @@
-package DynamicProgramming._121_BestTimeToBuyAndSellStock_I;
+package SlideWindow;
 
-class bestTimeToBuyAndSellStock_twoPointers {
+class bestTimeToBuyAndSellStock {
     public int maxProfit(int[] prices) {
+        int left = 0, right = 1; // left=buy, right=sell
         int maxProfit = 0;
-        int left = 0, right = 1;
         while (right < prices.length) {
             if (prices[left] < prices[right]) {
-                maxProfit = Math.max(maxProfit, prices[right] - prices[left]);
+                int profit = prices[right] - prices[left];
+                maxProfit = Math.max(maxProfit, profit);
             } else {
-                left = right;
+                left++;
             }
             right++;
         }
