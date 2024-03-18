@@ -21,8 +21,8 @@ class MinimumWindowSubstring_v2 {
         int left = 0, right = 0;
         int minLen = Integer.MAX_VALUE;
 
-        // distance 表示滑动窗口内部包含`T`中字符的个数,(也可以说包含T的size)，窗口内单个字符个数等于`T`中对应的字符个数的时候不再增加
-        int distance = 0;
+        // matchingCharsCount 表示滑动窗口内部包含`T`中字符的个数,(也可以说包含T的size)，窗口内单个字符个数等于`T`中对应的字符个数的时候不再增加
+        int matchingCharsCount = 0;
         int start = 0;
 
         // [left, right)
@@ -33,16 +33,16 @@ class MinimumWindowSubstring_v2 {
                 continue;
             }
 
-            //当右边界向右滑动时，且 winFreq[s[right]] < tFreq[s[right]] 时, distance + 1
+            //当右边界向右滑动时，且 winFreq[s[right]] < tFreq[s[right]] 时, matchingCharsCount + 1
             if (winFreq[s.charAt(right)] < tFreq[s.charAt(right)]) {
-                distance++;
+                matchingCharsCount++;
             }
 
             //已有字符串中目标字符出现的次数+1
             winFreq[s.charAt(right)]++;
 
             //当且仅当已有字符串已经包含了所有目标字符串的字符的个数，且出现频次一定大于或等于指定频次
-            while (distance == t.length()) {
+            while (matchingCharsCount == t.length()) {
 
                 //当窗口的长度比已有的最短值小时，更改最小值，并记录起始位置
                 if (right - left + 1 < minLen) {
@@ -56,9 +56,9 @@ class MinimumWindowSubstring_v2 {
                     continue;
                 }
 
-                //当左边界向右滑动时，且 winFreq[s[left]] == tFreq[s[left]] 时, distance-1
+                //当左边界向右滑动时，且 winFreq[s[left]] == tFreq[s[left]] 时, matchingCharsCount-1
                 if (winFreq[s.charAt(left)] == tFreq[s.charAt(left)]) {
-                    distance--;
+                    matchingCharsCount--;
                 }
 
                 //已有字符串中目标字符出现的次数-1
