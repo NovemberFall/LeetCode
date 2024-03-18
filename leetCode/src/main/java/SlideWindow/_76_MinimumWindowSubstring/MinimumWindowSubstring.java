@@ -15,13 +15,13 @@ class MinimumWindowSubstring {
             return "";
         }
         Map<Character, Integer> map = buildMap(t);
-        int slow = 0;
+        int left = 0;
         int start = -1;
         int match = 0;
         int shortest = Integer.MAX_VALUE;
-        for (int fast = 0; fast < s.length(); fast++) {
-            // step 1: Add fast
-            char cur = s.charAt(fast);
+        for (int right = 0; right < s.length(); right++) {
+            // step 1: Add right
+            char cur = s.charAt(right);
             Integer count = map.get(cur);
             // count == null 的情况，当前这个char如果根本不在T 中,
             // 那么以当前fast结尾一定不是最短的 (最短的substring两头的char肯定都在t中)
@@ -31,19 +31,19 @@ class MinimumWindowSubstring {
                 }
                 map.put(cur, count - 1);
             }
-            // Step 2: move slow
-            // while 当前sliding window满足条件, move slow, 一直移动到第一个不满足条件的slow为止
+            // Step 2: move left
+            // while 当前sliding window满足条件, move left, 一直移动到第一个不满足条件的left为止
             // while loop 里所有的sliding window都是满足条件的, 所以每一次都可以更新global min
             while (match == map.size()) {
                 /*
                 0   1   2   3   4
                     4 - 1 + 1 = 4
                  */
-                if (fast - slow + 1 < shortest) {
-                    shortest = fast - slow + 1;
-                    start = slow;
+                if (right - left + 1 < shortest) {
+                    shortest = right - left + 1;
+                    start = left;
                 }
-                cur = s.charAt(slow);
+                cur = s.charAt(left);
                 count = map.get(cur);
                 if (count != null) {
                     if (count == 0) {
@@ -51,8 +51,8 @@ class MinimumWindowSubstring {
                     }
                     map.put(cur, count + 1);
                 }
-                slow++;
-            } // slow 在第一个不满足要求的位置
+                left++;
+            } // left 在第一个不满足要求的位置
         }
         return shortest == Integer.MAX_VALUE ? "" : s.substring(start, start + shortest);
     }
