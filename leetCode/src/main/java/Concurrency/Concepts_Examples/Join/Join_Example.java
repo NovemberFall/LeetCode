@@ -22,8 +22,8 @@ class Join_Example {
             }
         });
 
-        t1.start();
-        t2.start();
         t3.start();
+        t2.start();
+        t1.start();
     }
 }

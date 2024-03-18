@@ -27,3 +27,21 @@ abstract class Vehicle {
 
     public abstract void stopEngine();
 }
+
+
+class Car extends Vehicle {
+
+    public Car(String make, String model, int year) {
+        super(make, model, year);  // Call the superclass constructor
+    }
+
+    @Override
+    public void startEngine() {
+        System.out.println("Car engine started.");
+    }
+
+    @Override
+    public void stopEngine() {
+        System.out.println("Car engine stopped.");
+    }
+}

@@ -3,7 +3,7 @@ package DFS;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _51_NQueens {
+class _51_NQueens {
     public List<List<String>> solveNQueens(int n) {
         List<List<String>> res = new ArrayList<>();
         char[][] board = new char[n][n];

@@ -2,7 +2,7 @@ package SlideWindow._76_MinimumWindowSubstring;
 
 class MinimumWindowSubstring_v2 {
     public String minWindow(String s, String t) {
-        if (s == null || s.length() == 0 || t == null || t.length() == 0 || s.length() < t.length()) {
+        if (s == null || t == null || s.length() < t.length()) {
             return "";
         }
         //维护两个数组，记录已有字符串指定字符的出现次数，和目标字符串指定字符的出现次数

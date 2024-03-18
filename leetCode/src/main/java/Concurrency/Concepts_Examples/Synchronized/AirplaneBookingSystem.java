@@ -43,6 +43,7 @@ class PassengerThread extends Thread {
         this.bookingSystem = bookingSystem;
     }
 
+    @Override
     public void run() {
         bookingSystem.bookSeat(seat, passengerName);
     }
