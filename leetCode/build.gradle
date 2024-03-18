@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
     implementation 'com.google.code.gson:gson:2.8.9' // Use the latest version
     implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     implementation 'junit:junit:4.13.1'

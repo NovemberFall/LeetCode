@@ -19,10 +19,10 @@ class MinimumWindowSubstring_v2 {
         //分别为左指针，右指针，最小长度(初始值为一定不可达到的长度)
         //已有字符串中目标字符串指定字符的出现总频次以及最小覆盖子串在原字符串中的起始位置
         int left = 0, right = 0;
-        int minLen = s.length() + 1;
+        int minLen = Integer.MAX_VALUE;
 
-        // matchCount 表示滑动窗口内部包含 T 中字符的个数，窗口内单个字符个数等于 T 中对应的字符个数的时候不再增加
-        int matchCount = 0;
+        // distance 表示滑动窗口内部包含`T`中字符的个数,(也可以说包含T的size)，窗口内单个字符个数等于`T`中对应的字符个数的时候不再增加
+        int distance = 0;
         int start = 0;
 
         // [left, right)
@@ -33,20 +33,19 @@ class MinimumWindowSubstring_v2 {
                 continue;
             }
 
-            //当且仅当已有字符串目标字符出现的次数小于目标字符串字符的出现次数时，count才会+1
-            //是为了后续能直接判断已有字符串是否已经包含了目标字符串的所有字符，不需要挨个比对字符出现的次数
+            //当右边界向右滑动时，且 winFreq[s[right]] < tFreq[s[right]] 时, distance + 1
             if (winFreq[s.charAt(right)] < tFreq[s.charAt(right)]) {
-                matchCount++;
+                distance++;
             }
 
             //已有字符串中目标字符出现的次数+1
             winFreq[s.charAt(right)]++;
 
-            //当且仅当已有字符串已经包含了所有目标字符串的字符，且出现频次一定大于或等于指定频次
-            while (matchCount == t.length()) {
+            //当且仅当已有字符串已经包含了所有目标字符串的字符的个数，且出现频次一定大于或等于指定频次
+            while (distance == t.length()) {
 
                 //当窗口的长度比已有的最短值小时，更改最小值，并记录起始位置
-                if (right - left + 1< minLen) {
+                if (right - left + 1 < minLen) {
                     minLen = right - left + 1;
                     start = left;
                 }
@@ -57,10 +56,9 @@ class MinimumWindowSubstring_v2 {
                     continue;
                 }
 
-                //如果左边即将要去掉的字符被目标字符串需要，且出现的频次正好等于指定频次，那么如果去掉了这个字符，
-                //就不满足覆盖子串的条件，此时要破坏循环条件跳出循环，即控制目标字符串指定字符的出现总频次(count）-1
+                //当左边界向右滑动时，且 winFreq[s[left]] == tFreq[s[left]] 时, distance-1
                 if (winFreq[s.charAt(left)] == tFreq[s.charAt(left)]) {
-                    matchCount--;
+                    distance--;
                 }
 
                 //已有字符串中目标字符出现的次数-1
@@ -74,7 +72,7 @@ class MinimumWindowSubstring_v2 {
         }
 
         //如果最小长度还为初始值，说明没有符合条件的子串
-        if (minLen == s.length() + 1) {
+        if (minLen == Integer.MAX_VALUE) {
             return "";
         }
 
