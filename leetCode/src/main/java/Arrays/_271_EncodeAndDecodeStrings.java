@@ -1,15 +1,16 @@
-package Arrays._271_EncodeAndDecodeStrings;
+package Arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class Codec {
+class _271_EncodeAndDecodeStrings {
     // Encodes a list of strings to a single string.
     public String encode(List<String> strs) {
         StringBuilder sb = new StringBuilder();
         for (String str : strs) {
             sb.append(str.length()).append('/').append(str);
+            System.out.println(sb.toString());
         }
         return sb.toString();
     }
@@ -31,7 +32,7 @@ class Codec {
 
     public static void main(String[] args) {
         List<String> strs = Arrays.asList("Hello", "World", "python");
-        Codec codec = new Codec();
+        _271_EncodeAndDecodeStrings codec = new _271_EncodeAndDecodeStrings();
         String encode = codec.encode(strs);
         System.out.println(encode);
 
