@@ -1,9 +1,9 @@
-package HashTable;
+package Arrays._128_LongestConsecutiveSequence;
 
 import java.util.HashSet;
 import java.util.Set;
 
-class _128_LongestConsecutiveSequence {
+class longestConsecutiveSequence {
     public int longestConsecutive(int[] nums) {
         Set<Integer> set = new HashSet<>();
         int longest = 0;
@@ -11,11 +11,11 @@ class _128_LongestConsecutiveSequence {
             set.add(num);
         }
 
-        for (int n : nums) {
+        for (int num : nums) {
             // check if its the start of a sequence
-            if (!set.contains(n - 1)) {
+            if (!set.contains(num - 1)) {
                 int length = 0;
-                while (set.contains(n + length)) {
+                while (set.contains(num + length)) {
                     length++;
                 }
                 longest = Math.max(longest, length);
