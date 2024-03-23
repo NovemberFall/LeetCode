@@ -1,4 +1,4 @@
-package HashTable;
+package Arrays._49_GroupAnagrams;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class _49_GroupAnagrams {
+class groupAnagrams_v1 {
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> res = new ArrayList<>();
         if (strs == null || strs.length == 0) {
@@ -29,7 +29,7 @@ class _49_GroupAnagrams {
     }
 
     public static void main(String[] args) {
-        _49_GroupAnagrams ga = new _49_GroupAnagrams();
+        groupAnagrams_v1 ga = new groupAnagrams_v1();
         String[] strs = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> res = ga.groupAnagrams(strs);
         System.out.println(res);

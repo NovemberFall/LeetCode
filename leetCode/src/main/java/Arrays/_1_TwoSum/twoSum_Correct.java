@@ -1,4 +1,4 @@
-package HashTable._1_TwoSum;
+package Arrays._1_TwoSum;
 
 import java.util.Arrays;
 
@@ -9,7 +9,7 @@ class twoSum_Correct {
         for (int i = 0; i < n; i++) {
             original[i] = i;
         }
-        Arrays.sort(original, (a, b) -> (nums[a] - nums[b]));
+        Arrays.sort(original, (index_a, index_b) -> (nums[index_a] - nums[index_b]));
         int left = 0, right = n - 1;
         while (left < right) {
             int curSum = nums[original[left]] + nums[original[right]];
