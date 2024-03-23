@@ -1,4 +1,4 @@
-package String._271_EncodeAndDecodeStrings;
+package Arrays._271_EncodeAndDecodeStrings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
