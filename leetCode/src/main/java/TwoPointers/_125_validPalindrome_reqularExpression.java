@@ -1,6 +1,6 @@
 package TwoPointers;
 
-class _125_ValidPalindrome {
+class _125_validPalindrome_reqularExpression {
     public boolean isPalindrome(String s) {
         s = s.toLowerCase();
         StringBuilder sb = new StringBuilder();
