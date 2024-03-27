@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-class cheapestFlightsWithinKStops {
+class cheapestFlightsWithinKStops_Dijkstra {
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
         Map<Integer, List<int[]>> fmap = new HashMap<>();
         for (int[] flight : flights) { // flights[i] = [from, to, price]
