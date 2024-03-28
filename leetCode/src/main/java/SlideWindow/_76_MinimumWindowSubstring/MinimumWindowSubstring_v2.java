@@ -21,7 +21,7 @@ class MinimumWindowSubstring_v2 {
         int left = 0, right = 0;
         int minLen = Integer.MAX_VALUE;
 
-        // matchingCharsCount 表示滑动窗口内部包含`T`中字符的个数,(也可以说包含T的size)，窗口内单个字符个数等于`T`中对应的字符个数的时候不再增加
+        // matchingCharsCount 表示滑动窗口内部包含`T`中字符的个数,(也可以说包含T的size)
         int matchingCharsCount = 0;
         int start = 0;
 
@@ -33,6 +33,10 @@ class MinimumWindowSubstring_v2 {
                 continue;
             }
 
+            /*    s = F F A D D B A C C D E N C        t = A A B
+                  when it was first time that meet 'A'
+                  winFreq[A] = 0,  tFreq[A] = 2   =>      winFreq[s[right]] <  tFreq[s[right]]
+            */
             //当右边界向右滑动时，且 winFreq[s[right]] < tFreq[s[right]] 时, matchingCharsCount + 1
             if (winFreq[s.charAt(right)] < tFreq[s.charAt(right)]) {
                 matchingCharsCount++;
