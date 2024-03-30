@@ -21,7 +21,7 @@ class _295_FindMedianFromDataStream {
         if (maxHeap.size() == minHeap.size() + 2) {
             minHeap.offer(maxHeap.poll());
         }
-        if (minHeap.size() == maxHeap.size() + 1) {
+        if (maxHeap.size() + 1 == minHeap.size()) {
             maxHeap.offer(minHeap.poll());
         }
     }
