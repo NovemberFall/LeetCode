@@ -1,6 +1,6 @@
 package BinarySearchTree._98_ValidateBinarySearchTree;
 
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;

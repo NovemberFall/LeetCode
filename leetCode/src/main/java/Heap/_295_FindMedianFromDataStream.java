@@ -3,8 +3,8 @@ package Heap;
 import java.util.PriorityQueue;
 
 class _295_FindMedianFromDataStream {
-    private PriorityQueue<Integer> maxHeap;
-    private PriorityQueue<Integer> minHeap;
+    private final PriorityQueue<Integer> maxHeap;
+    private final PriorityQueue<Integer> minHeap;
 
     public _295_FindMedianFromDataStream() {
         maxHeap = new PriorityQueue<>((a, b) -> b - a);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class isBST_BruteForce {
+class isBST_BruteForce {
     public boolean isValidBST_ForLoop(TreeNode root) {
         if (root == null) {
             return true;

@@ -1,6 +1,7 @@
 package Design._146_LRU;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /*
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
@@ -53,7 +54,7 @@ class LRUCache {
     private final int capacity;
     //HashMap contain such every a element that contains:
     //<key, Node>, Node => <Node.key, value>
-    protected HashMap<Integer, Node> map;
+    private Map<Integer, Node> map;
 
     // maintain all the time that the head and tail of
     //current doubly LinkedList

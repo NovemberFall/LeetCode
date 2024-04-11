@@ -1,8 +1,5 @@
 package BinarySearchTree._98_ValidateBinarySearchTree;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
 
                         10(min=-inf, max =+inf) == root
@@ -24,7 +21,7 @@ import java.util.List;
     Space = O(height)
 
  */
-public class isBST_Recursion {
+class isBST_Recursion {
     public static boolean isValidBST(TreeNode root) {
         return isBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }

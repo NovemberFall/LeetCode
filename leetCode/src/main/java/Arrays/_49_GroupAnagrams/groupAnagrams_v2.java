@@ -17,6 +17,7 @@ class groupAnagrams_v2 {
                 freq[c - 'a']++;
             }
             String keyStr = Arrays.toString(freq);
+            System.out.println(keyStr);
             dict.putIfAbsent(keyStr, new ArrayList<>());
             dict.get(keyStr).add(str);
         }
@@ -25,5 +26,11 @@ class groupAnagrams_v2 {
             res.add(list);
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        groupAnagrams_v2 gag = new groupAnagrams_v2();
+        String[] strs = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
+        List<List<String>> res = gag.groupAnagrams(strs);
     }
 }
