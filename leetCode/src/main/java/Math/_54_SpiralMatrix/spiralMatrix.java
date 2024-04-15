@@ -1,9 +1,9 @@
-package Matrix;
+package Math._54_SpiralMatrix;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class _54_SpiralMatrix {
+class spiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> res = new ArrayList<>();
         if (matrix == null || matrix.length == 0) {

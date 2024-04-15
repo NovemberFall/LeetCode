@@ -1,10 +1,9 @@
-package BFS;
+package BFS._297_SerializeAndDeserializeBinaryTree;
 
-import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class _297_SerializeAndDeserializeBinaryTree {
+class SerializeAndDeserializeBinaryTree {
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         //corner case
