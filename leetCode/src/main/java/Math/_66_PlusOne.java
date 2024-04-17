@@ -15,8 +15,9 @@ class _66_PlusOne {
                       [ 6,0 ]-->[ 6,1 ]
                  and will directly return array
                 */
+            } else {
+                digits[i] = 0;
             }
-            digits[i] = 0;
             /*
              if array[i] is not less than 9, means it have to be 9 only then digit is changed to 0,
              and we again revolve around loop to check for number if less than 9 or not
