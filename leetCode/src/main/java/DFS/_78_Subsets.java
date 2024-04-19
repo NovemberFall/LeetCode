@@ -18,7 +18,7 @@ import java.util.List;
 
        {1,2,3}
  */
-public class _78_Subsets {
+class _78_Subsets {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) {
@@ -32,9 +32,6 @@ public class _78_Subsets {
     private void dfs(List<List<Integer>> res, List<Integer> subset, int startIndex, int[] nums) {
 
         res.add(new ArrayList<>(subset));
-        if (startIndex == nums.length) {
-            return;
-        }
 
         for (int i = startIndex; i < nums.length; i++) {
             subset.add(nums[i]);
