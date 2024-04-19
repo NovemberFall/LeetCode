@@ -29,11 +29,12 @@ public class _78_Subsets {
         return res;
     }
 
-    private void dfs(List<List<Integer>> res,
-                     List<Integer> subset,
-                     int startIndex, int[] nums) {
+    private void dfs(List<List<Integer>> res, List<Integer> subset, int startIndex, int[] nums) {
 
         res.add(new ArrayList<>(subset));
+        if (startIndex == nums.length) {
+            return;
+        }
 
         for (int i = startIndex; i < nums.length; i++) {
             subset.add(nums[i]);
