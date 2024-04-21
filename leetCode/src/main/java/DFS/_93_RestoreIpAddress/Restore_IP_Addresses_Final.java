@@ -15,13 +15,11 @@ class Restore_IP_Addresses_Final {
         return res;
     }
 
-    //优化：使用stringBuilder，故优化时间、空间复杂度，因为向字符串插入字符时无需复制整个字符串，从而减少了操作的时间复杂度，
+    // 优化：使用stringBuilder，故优化时间、空间复杂度，因为向字符串插入字符时无需复制整个字符串，从而减少了操作的时间复杂度，
     // 也不用开新空间存subString，从而减少了空间复杂度。
     private void dfs(List<String> res, StringBuilder sb, int startIndex, int pointNum) {
-        if (pointNum == 3) {
-            if (isValid(sb.substring(startIndex))) {
-                res.add(sb.toString());
-            }
+        if (pointNum == 3 && isValid(sb.substring(startIndex))) {
+            res.add(sb.toString());
             return;
         }
 
@@ -52,5 +50,11 @@ class Restore_IP_Addresses_Final {
             return false;
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        Restore_IP_Addresses_Final restore_ip_addresses = new Restore_IP_Addresses_Final();
+        List<String> res = restore_ip_addresses.restoreIpAddresses("25525511135");
+        System.out.println(res);// [255.255.11.135, 255.255.111.35]
     }
 }
