@@ -43,7 +43,8 @@ class WordDictionary {
             }
             return false;
         } else {
-            return cur.children[c - 'a'] != null && find(word, cur.children[c - 'a'], index + 1);
+            TrieNode nextNode = cur.children[c - 'a'];
+            return nextNode != null && find(word, cur.children[c - 'a'], index + 1);
         }
     }
 }
