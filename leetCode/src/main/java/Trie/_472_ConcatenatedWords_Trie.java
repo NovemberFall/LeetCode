@@ -1,10 +1,10 @@
-package Trie._472_ConcatenatedWords;
+package Trie;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class ConcatenatedWords_Trie_dfs_v0 {
+class _472_ConcatenatedWords_Trie {
     class TrieNode{
         TrieNode[] children = new TrieNode[26];
         String word;
@@ -14,8 +14,10 @@ class ConcatenatedWords_Trie_dfs_v0 {
         if (words == null || words.length == 0) return res;
 
         Arrays.sort(words, (a, b) -> a.length() - b.length());
-        TrieNode root = buildTrie(words);
-        for (String word : words) {
+
+        TrieNode root = buildTrie(words); // construct Trie tree
+
+        for (String word : words) { // test word is a concatenated word or not
             if (word.length() == 0) {
                 continue;
             }
@@ -63,8 +65,10 @@ class ConcatenatedWords_Trie_dfs_v0 {
     }
 
     public static void main(String[] args) {
-        ConcatenatedWords_Trie_dfs_v0 concatenatedWords = new ConcatenatedWords_Trie_dfs_v0();
-        String[] words = new String[]{"cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"};
+        _472_ConcatenatedWords_Trie concatenatedWords = new _472_ConcatenatedWords_Trie();
+        String[] words = new String[]{
+                "cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"};
+
         List<String> res = concatenatedWords.findAllConcatenatedWordsInADict(words);
         System.out.println(res);
     }
