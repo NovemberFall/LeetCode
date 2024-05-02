@@ -20,19 +20,16 @@ class _286_WallsAndGates {
         }
 
         while (!queue.isEmpty()) {
-            int size = queue.size(); //level traversal, make sure get the shortest distance
-            for (int i = 0; i < size; i++) {
-                int[] cell = queue.poll();
-                for (int[] dir : dirs) {
-                    int row = cell[0] + dir[0];
-                    int col = cell[1] + dir[1];
-                    if (row < 0 || row >= m || col < 0 || col >= n) {
-                        continue;
-                    }
-                    if (rooms[row][col] == Integer.MAX_VALUE) {
-                        rooms[row][col] = rooms[cell[0]][cell[1]] + 1;
-                        queue.offer(new int[]{row, col});
-                    }
+            int[] cell = queue.poll();
+            for (int[] dir : dirs) {
+                int row = cell[0] + dir[0];
+                int col = cell[1] + dir[1];
+                if (row < 0 || row >= m || col < 0 || col >= n) {
+                    continue;
+                }
+                if (rooms[row][col] == Integer.MAX_VALUE) {
+                    rooms[row][col] = rooms[cell[0]][cell[1]] + 1;
+                    queue.offer(new int[]{row, col});
                 }
             }
         }
