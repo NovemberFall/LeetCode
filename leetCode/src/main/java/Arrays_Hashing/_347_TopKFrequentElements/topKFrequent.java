@@ -1,10 +1,10 @@
-package Arrays._347_TopKFrequentElements;
+package Arrays_Hashing._347_TopKFrequentElements;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-class _347_TopKFrequentElements {
+class topKFrequent {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> freqMap = new HashMap<>();
         for (int num : nums) {

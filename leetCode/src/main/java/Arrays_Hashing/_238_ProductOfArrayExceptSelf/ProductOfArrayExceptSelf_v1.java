@@ -1,4 +1,4 @@
-package Arrays._238_ProductOfArrayExceptSelf;
+package Arrays_Hashing._238_ProductOfArrayExceptSelf;
 
 class ProductOfArrayExceptSelf_v1 {
     public int[] productExceptSelf(int[] nums) {

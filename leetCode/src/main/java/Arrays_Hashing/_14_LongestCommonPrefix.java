@@ -1,4 +1,4 @@
-package Arrays;
+package Arrays_Hashing;
 
 class _14_LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {

@@ -1,11 +1,11 @@
-package Arrays._347_TopKFrequentElements;
+package Arrays_Hashing._347_TopKFrequentElements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class TopKFrequentElements_followUp {
+class topKFrequentElements_followUp {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> count = new HashMap<>();
         List<Integer>[] freq = new List[nums.length + 1];

@@ -1,4 +1,4 @@
-package Arrays._242_ValidAnagram;
+package Arrays_Hashing._242_ValidAnagram;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package Arrays._36_ValidSudoku;
+package Arrays_Hashing._36_ValidSudoku;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package Arrays._1_TwoSum;
+package Arrays_Hashing._1_TwoSum;
 
 class bruteForce {
     public int[] twoSum(int[] nums, int target) {

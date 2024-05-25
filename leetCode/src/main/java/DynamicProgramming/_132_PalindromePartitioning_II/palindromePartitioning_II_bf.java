@@ -1,7 +1,5 @@
 package DynamicProgramming._132_PalindromePartitioning_II;
 
-import com.sun.scenario.effect.Brightpass;
-
 class palindromePartitioning_II_bf {
     public int minCut(String s) {
         return minCutFrom(s, 0, s.length() - 1);
