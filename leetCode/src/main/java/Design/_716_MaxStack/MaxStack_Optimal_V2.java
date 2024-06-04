@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public class MaxStack_Optimal_V2 {
+class MaxStack_Optimal_V2 {
     static class Node {
         Node prev;
         Node next;
@@ -94,3 +94,4 @@ public class MaxStack_Optimal_V2 {
         System.out.println(para_4);
     }
 }
+

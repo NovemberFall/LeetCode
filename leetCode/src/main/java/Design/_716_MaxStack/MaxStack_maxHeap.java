@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 class MaxStack_maxHeap {
 
     Deque<Integer> dqStack;
-    PriorityQueue<Integer> pqMax;
+    PriorityQueue<Integer> maxHeap;
 
     /**
      * initialize your data structure here.
@@ -16,17 +16,17 @@ class MaxStack_maxHeap {
         dqStack = new ArrayDeque<>();
 
         // Max Heap
-        pqMax = new PriorityQueue<>((a, b) -> (b - a));
+        maxHeap = new PriorityQueue<>((a, b) -> (b - a));
     }
 
     public void push(int x) {
         dqStack.addLast(x);
-        pqMax.offer(x);
+        maxHeap.offer(x);
     }
 
     public int pop() {
         int deleteE = dqStack.removeLast();
-        pqMax.remove(deleteE);
+        maxHeap.remove(deleteE);
         return deleteE;
     }
 
@@ -35,11 +35,11 @@ class MaxStack_maxHeap {
     }
 
     public int peekMax() {
-        return pqMax.peek();
+        return maxHeap.peek();
     }
 
     public int popMax() {
-        int deleteE = pqMax.poll();
+        int deleteE = maxHeap.poll();
         dqStack.removeLastOccurrence(deleteE);
         System.out.println(dqStack);
         return deleteE;
