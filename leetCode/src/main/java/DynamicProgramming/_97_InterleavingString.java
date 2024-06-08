@@ -8,12 +8,12 @@ class _97_InterleavingString {
         }
 
         /*
-        dp[i][j] -> true if s1[0..i-1] and s2[0..j-1] interleaves s3[0..i+j-1]
+            dp[i][j] -> true if s1[0..i-1] and s2[0..j-1] interleaves s3[0..i+j-1]
         */
         boolean[][] dp = new boolean[len1 + 1][len2 + 1];
 
         /*
-        EMPTY s1,s2 can surely interleave to form EMPTY s3
+            EMPTY s1,s2 can surely interleave to form EMPTY s3
         */
         dp[0][0] = true;
 
