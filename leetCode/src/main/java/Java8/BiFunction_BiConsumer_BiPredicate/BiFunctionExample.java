@@ -1,5 +1,7 @@
 package Java8.BiFunction_BiConsumer_BiPredicate;
 
+import org.testng.annotations.Test;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,7 +9,6 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.junit.jupiter.api.Test;
 
 
 public class BiFunctionExample implements BiFunction<List<Integer>, List<Integer>, List<Integer>> {

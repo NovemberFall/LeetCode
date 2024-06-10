@@ -3,11 +3,12 @@ package Java8.sort;
 
 import Java8.Data.DataBase;
 import Java8.Data.Employee;
+import org.testng.annotations.Test;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import org.junit.jupiter.api.Test;
 
 
 public class SortListDemo {

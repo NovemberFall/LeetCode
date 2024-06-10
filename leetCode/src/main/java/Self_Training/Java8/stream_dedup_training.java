@@ -1,6 +1,7 @@
 package Self_Training.Java8;
 
-import org.junit.jupiter.api.Test;
+
+import org.testng.annotations.Test;
 
 class stream_dedup_training {
     @Test

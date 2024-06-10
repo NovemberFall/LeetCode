@@ -1,10 +1,12 @@
 package Java8.Examples;
 
+import org.testng.annotations.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
+
 
 class stream_dedup {
     public static void main(String[] args) {

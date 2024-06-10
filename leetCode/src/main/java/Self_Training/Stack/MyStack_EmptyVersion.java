@@ -2,7 +2,8 @@ package Self_Training.Stack;
 
 
 import Self_Training.ListNode;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+
 
 /**
     - Use "head" as "head"

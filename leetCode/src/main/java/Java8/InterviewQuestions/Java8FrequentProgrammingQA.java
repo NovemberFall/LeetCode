@@ -1,11 +1,12 @@
 package Java8.InterviewQuestions;
 
+import org.testng.annotations.Test;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
 
 /**
  <a href="https://www.youtube.com/watch?v=1Ps5F1PU72M&list=PLVz2XdJiJQxzrdrpglCv_nWIO5CDIqOVj&index=18">youTube video</a>

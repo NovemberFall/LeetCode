@@ -1,9 +1,10 @@
 package Java8.BiFunction_BiConsumer_BiPredicate;
 
+import org.testng.annotations.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
-import org.junit.jupiter.api.Test;
 
 
 public class BiConsumerExample implements BiConsumer<String, Integer> {

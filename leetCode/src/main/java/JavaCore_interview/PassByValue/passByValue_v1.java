@@ -1,6 +1,7 @@
 package JavaCore_interview.PassByValue;
 
-import org.junit.jupiter.api.Test;
+
+import org.testng.annotations.Test;
 
 class passByValue_v1 {
 

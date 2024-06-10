@@ -1,10 +1,11 @@
 package JavaAPI.hashMapAPI;
 
+import org.testng.annotations.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.jupiter.api.Test;
 
 class getOrDefault {
     public static void main(String[] args) {

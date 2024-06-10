@@ -1,8 +1,9 @@
 package Java8.Data;
 
+import org.testng.annotations.Test;
+
 import java.util.List;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
 
 
 public class TaxService {

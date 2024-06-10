@@ -1,11 +1,12 @@
 package Java8.Examples.Functional_Interface_Examples;
 
+import org.testng.annotations.Test;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
 
 class test {
     @Test

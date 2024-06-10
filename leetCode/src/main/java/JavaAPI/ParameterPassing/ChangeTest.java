@@ -1,6 +1,7 @@
 package JavaAPI.ParameterPassing;
 
-import org.junit.jupiter.api.Test;
+
+import org.testng.annotations.Test;
 
 public class ChangeTest {
     private static void changeIntValue(int x) {

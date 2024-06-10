@@ -1,6 +1,7 @@
 package JavaAPI.Reference;
 
-import org.junit.jupiter.api.Test;
+
+import org.testng.annotations.Test;
 
 class TreeNode_Reference {
     static class TreeNode {

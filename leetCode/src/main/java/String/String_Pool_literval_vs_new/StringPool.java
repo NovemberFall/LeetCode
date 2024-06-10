@@ -1,6 +1,7 @@
 package String.String_Pool_literval_vs_new;
 
-import org.junit.jupiter.api.Test;
+
+import org.testng.annotations.Test;
 
 public class StringPool {
 

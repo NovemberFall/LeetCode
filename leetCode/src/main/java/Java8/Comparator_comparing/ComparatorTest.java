@@ -3,10 +3,11 @@ package Java8.Comparator_comparing;
 
 import Java8.Data.DataBase;
 import Java8.Data.Employee;
+import org.testng.annotations.Test;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import org.junit.jupiter.api.Test;
 
 
 public class ComparatorTest {

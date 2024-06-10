@@ -1,7 +1,8 @@
 package Java8.BiFunction_BiConsumer_BiPredicate;
 
+import org.testng.annotations.Test;
+
 import java.util.function.BiPredicate;
-import org.junit.jupiter.api.Test;
 
 
 public class BiPredicateExample {

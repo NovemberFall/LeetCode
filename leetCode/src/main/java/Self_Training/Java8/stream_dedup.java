@@ -1,10 +1,11 @@
 package Self_Training.Java8;
 
+import org.testng.annotations.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
 
 class stream_dedup {
 

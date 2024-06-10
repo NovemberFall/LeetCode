@@ -1,7 +1,8 @@
 package Self_Training.Queue;
 
 import Self_Training.ListNode;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+
 
 /*
     Implementation of Queue By LinkedList

@@ -2,7 +2,6 @@ package JavaAPI.Set.RemoveAll;
 
 import java.util.HashSet;
 import java.util.Set;
-import org.junit.jupiter.api.Test;
 
 class hashSet {
     public static void main(String[] args) {
