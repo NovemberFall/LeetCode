@@ -38,32 +38,35 @@ Example 1:
     lRUCache.get(4);    // return 4
  */
 class LRUCache {
-    static class Node {
-        Node next;
-        Node previous;
+    class Node {
         int key;
-        int value;
+        int val;
+        Node next;
+        Node prev;
 
-        //current node hold key and val
         Node(int key, int val) {
             this.key = key;
-            this.value = val;
+            this.val = val;
         }
     }
 
     private final int capacity;
-    //HashMap contain such every a element that contains:
+    private int size;
     //<key, Node>, Node => <Node.key, value>
     private Map<Integer, Node> map;
 
-    // maintain all the time that the head and tail of
-    //current doubly LinkedList
+    // maintain all the time that the head and tail of current doubly LinkedList
     private Node head;
     private Node tail;
 
     public LRUCache(int capacity) {
-        this.capacity = capacity;
+        head = new Node(0, 0);
+        tail = new Node(0, 0);
+        head.next = tail;
+        tail.prev = head;
         map = new HashMap<>();
+        this.capacity = capacity;
+        size = 0;
     }
 
     public int get(int key) {
@@ -71,74 +74,44 @@ class LRUCache {
         if (node == null) {
             return -1;
         }
-        //Even though we just read from linkedList,
-        //but we still need to move node to the head
-        remove(node);
-        appendToHead(node);
-        return node.value;
+        //Even though we just read from linkedList, but we still need to move node to the head
+        remove(key);
+        appendToHead(key, node.val);
+        return node.val;
     }
 
-    public void put(int key, int value) {
-        Node node = null;
-        //1. if the key already in the cache,
-        //we need to update its value
-        //and move it to head (most recently used position)
-        if (map.containsKey(key)) { //(1, 1) -> (1, 100)
-            node = map.get(key);
-            node.value = value;
-            remove(node);
-            appendToHead(node);
-        } else { // no key exists
-            node = new Node(key, value);
-            if (map.size() < capacity) {
-                //2. if the key is not in the cache,
-                //assume we have enough space
-                // we just need to add new node into the head
-                appendToHead(node);
-            } else { // map.size() >= capacity
-                //3. if the key is not in the cache,
-                // even we don't have enough space
-                // we need to evict the tail
-                // move the new node<Node.key, value> into the head
-                remove(tail);
-                appendToHead(node);
-            }
-        }
-    }
-
-    private void appendToHead(Node node) {
-        map.put(node.key, node);
-        if (head == null) {
-            head = tail = node;
+    public void put(int key, int val) {
+        if (map.containsKey(key)) {
+            remove(key);
+            appendToHead(key, val);
         } else {
-            node.next = head;
-            head.previous = node;
-            head = node;
+            appendToHead(key, val);
         }
     }
 
-    /**
-     * there are 4 cases for doubly linkedList
-     * to maintain its order
-     * @param node the current node that
-     *  we need to remove from double LinkedList
-     */
-    private void remove(Node node) {
-        map.remove(node.key);
-        if (node == tail) {
-            tail = tail.previous;
+    private void appendToHead(int key, int val) {
+        Node node = new Node(key, val);
+        Node next = head.next;
+        head.next = node;
+        node.prev = head;
+        node.next = next;
+        next.prev = node;
+        map.put(key, node);
+        size++;
+        if (size > capacity) {
+            Node preTail = tail.prev;
+            remove(preTail.key);
         }
-        if (node.previous != null) {
-            node.previous.next = node.next;
-        }
-        if (node.next != null) {
-            node.next.previous = node.previous;
-        }
-        if (node == head) {
-            head = head.next;
-        }
-        node.previous = null;
-        node.next = null;
+    }
+
+    private void remove(int key) {
+        Node cur = map.get(key);
+        Node prev = cur.prev;
+        Node next = cur.next;
+        prev.next = next;
+        next.prev = prev;
+        size--;
+        map.remove(key);
     }
 
     public static void main(String[] args) {
@@ -155,7 +128,7 @@ class LRUCache {
         // evicts key 2, cache is {1=1, 3=3, 4=4, 5=5, 6=6}
 
         lRUCache.map.forEach(
-                (key, node) -> System.out.println(key + " => " + node.value)
+                (key, node) -> System.out.println(key + " => " + node.val)
         );
 
         temp = lRUCache.get(2);
@@ -164,7 +137,7 @@ class LRUCache {
         lRUCache.put(7, 7);
         // evicts key 1, cache is {3=3, 4=4, 5=5, 6=6, 7=7}
         lRUCache.map.forEach(
-                (key, node) -> System.out.println(key + " => " + node.value)
+                (key, node) -> System.out.println(key + " => " + node.val)
         );
 
         temp = lRUCache.get(3);
