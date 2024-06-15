@@ -24,6 +24,7 @@ class _2263_MakeArray_Non_decreasing_Or_Non_ncreasing {
             //just set the new sea level to nums[i]
             maxHeap.add(nums[i]);
         }
+        System.out.println(res1);
 
         // vice versa
         PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> a - b);
@@ -43,6 +44,6 @@ class _2263_MakeArray_Non_decreasing_Or_Non_ncreasing {
         _2263_MakeArray_Non_decreasing_Or_Non_ncreasing ndna = new _2263_MakeArray_Non_decreasing_Or_Non_ncreasing();
         int[] nums = new int[]{3, 2, 4, 5, 0};
         int res = ndna.convertArray(nums);
-        System.out.println(res);
+//        System.out.println(res);
     }
 }
