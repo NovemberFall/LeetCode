@@ -15,16 +15,17 @@ class _2263_MakeArray_Non_decreasing_Or_Non_ncreasing {
             //we need to set it to the new number.
             if (!maxHeap.isEmpty() && maxHeap.peek() >= nums[i]) {
                 diff = maxHeap.peek() - nums[i];
+                System.out.println("diff: " + diff);
                 res1 += diff;
                 int head = maxHeap.poll();
-                System.out.println(head);
+                System.out.println("Top: " + head);
                 maxHeap.add(nums[i]);
             }
             //if current max is smaller than nums[i], it's already acending
             //just set the new sea level to nums[i]
             maxHeap.add(nums[i]);
         }
-        System.out.println(res1);
+        System.out.println("res1: " + res1);
 
         // vice versa
         PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> a - b);
@@ -42,7 +43,7 @@ class _2263_MakeArray_Non_decreasing_Or_Non_ncreasing {
 
     public static void main(String[] args) {
         _2263_MakeArray_Non_decreasing_Or_Non_ncreasing ndna = new _2263_MakeArray_Non_decreasing_Or_Non_ncreasing();
-        int[] nums = new int[]{3, 2, 4, 5, 0};
+        int[] nums = new int[]{3, 2, 4, 5, 0, 2, 3};
         int res = ndna.convertArray(nums);
 //        System.out.println(res);
     }
