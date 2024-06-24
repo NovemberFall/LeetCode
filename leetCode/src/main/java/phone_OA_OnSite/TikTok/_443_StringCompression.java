@@ -1,30 +1,25 @@
 package phone_OA_OnSite.TikTok;
 
-import java.util.HashMap;
-import java.util.Map;
-
 class _443_StringCompression {
     public int compress(char[] chars) {
-        Map<Character, Integer> map = new HashMap<>();
-        for (char c : chars) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
-        }
-
-        int i = 0;
-        for (char c : map.keySet()) {
-            if (map.get(c) == 1) {
-                chars[i++] = c;
+        int indexAns = 0;
+        int count = 1;//represent the times char appears;
+        for (int i = 1; i <= chars.length; i++) {
+            if (i < chars.length && chars[i] == chars[i - 1]) {//avoid post processing for last char
+                count++;
             } else {
-                chars[i++] = c;
-                String digits = String.valueOf(map.get(c)); // maybe digits = 8, or 11
-                for (char digit : digits.toCharArray()) {
-                    chars[i++] = digit;
+                chars[indexAns++] = chars[i - 1];
+                if (count <= 1) {
+                    continue;
                 }
+                String s = String.valueOf(count);
+                for (char c : s.toCharArray()) {
+                    chars[indexAns++] = c;
+                }
+                count = 1; // after append, reset to 1;
             }
         }
-        System.out.println(new String(chars));
-
-        return i;
+        return indexAns;
     }
 
     public static void main(String[] args) {
