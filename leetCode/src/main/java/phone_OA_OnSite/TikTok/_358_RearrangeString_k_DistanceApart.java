@@ -50,4 +50,11 @@ class _358_RearrangeString_k_DistanceApart {
 
         return sb.toString();
     }
+
+    public static void main(String[] args) {
+        _358_RearrangeString_k_DistanceApart rearrangeStringKDistanceApart = new _358_RearrangeString_k_DistanceApart();
+        String s = "aabbcc";
+        int k = 3;
+        rearrangeStringKDistanceApart.rearrangeString(s, k);
+    }
 }

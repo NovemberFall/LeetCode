@@ -21,4 +21,11 @@ class _926_FlipStringToMonotoneIncreasing {
         }
         return res;
     }
+
+    public static void main(String[] args) {
+        _926_FlipStringToMonotoneIncreasing flipStringToMonotoneIncreasing = new _926_FlipStringToMonotoneIncreasing();
+        String s = "00110";
+        int res = flipStringToMonotoneIncreasing.minFlipsMonoIncr(s);
+        System.out.println(res);
+    }
 }
