@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 class _465_OptimalAccountBalancing {
+    int res = Integer.MAX_VALUE;
     public int minTransfers(int[][] transactions) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int[] t : transactions) {
-            map.put(t[0], map.getOrDefault(t[0], 0) + t[2]);
-            map.put(t[1], map.getOrDefault(t[1], 0) - t[2]);
+            map.put(t[0], map.getOrDefault(t[0], 0) - t[2]);
+            map.put(t[1], map.getOrDefault(t[1], 0) + t[2]);
         }
 
         List<Integer> list = new ArrayList<>();
@@ -19,33 +20,35 @@ class _465_OptimalAccountBalancing {
                 list.add(v);
             }
         }
-        return dfs(0, list);
+        dfs(0, 0, list);
+        return res;
     }
 
     // return the total number of transactions
-    private int dfs(int k, List<Integer> list) {
-        if (k == list.size()) {
-            return 0; // return 0 transaction
+    private void dfs(int startIndex, int count, List<Integer> list) {
+        while (startIndex < list.size() && list.get(startIndex) == 0) {
+            startIndex++;
         }
-        int cur = list.get(k);
-        if (cur == 0) {
-            return dfs(k + 1, list);
+        if (startIndex == list.size()) {
+            res = Math.min(res, count);
+            return;
         }
 
-        int min = Integer.MAX_VALUE;
-        for (int i = k + 1; i < list.size(); i++) {
-            int next = list.get(i);
-            if (cur * next < 0) { // thcek if they are same sign
-                list.set(i, cur + next);
-                min = Math.min(min, 1 + dfs(k + 1, list));
-                list.set(i, next);
-            }
-
-            if (cur + next == 0) {
-                break;
+        for (int i = startIndex + 1; i < list.size(); i++) {
+            // check if they are same sign
+            // if (list.get(startIndex) * list.get(i)) < 0
+            if ((list.get(startIndex) < 0 && list.get(i) > 0) || (list.get(startIndex) > 0 && list.get(i) < 0)) {
+                list.set(i, list.get(i) + list.get(startIndex));
+                dfs(startIndex + 1, count + 1, list);
+                list.set(i, list.get(i) - list.get(startIndex));
             }
         }
+    }
 
-        return min;
+    public static void main(String[] args) {
+        _465_OptimalAccountBalancing optimalAccountBalancing = new _465_OptimalAccountBalancing();
+        int[][] transactions = new int[][]{{0, 1, 10}, {1, 0, 1}, {1, 2, 5}, {2, 0, 5}};
+        int res = optimalAccountBalancing.minTransfers(transactions);
+        System.out.println(res);
     }
 }
