@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class nestedAnagrams {
+class nestedAnagrams {
 
     public static boolean nestedAnagrams(String string1, String string2) {
 

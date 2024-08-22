@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class nestedAna {
+class nestedAna {
     public static void main(String[] args) {
         boolean test1 = nestedAnagrams("bored cat", "act robed");
         System.out.println(test1);
@@ -85,7 +85,7 @@ public class nestedAna {
     }
 
     // helper function
-    public static String helper(int[] count, String word) {
+    private static String helper(int[] count, String word) {
 
         Arrays.fill(count, 0);
 
