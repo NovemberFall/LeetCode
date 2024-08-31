@@ -9,10 +9,13 @@ class isBST_Recursion_Post {
         if (root == null) {
             return true;
         }
+
         int x = root.val;
 
         if (left < x && x < right) {
-            return isBST(root.left, left, x) && isBST(root.right, x, right);
+            return isBST(root.left, left, x)
+                    &&
+                    isBST(root.right, x, right);
         }
 
         return false;
