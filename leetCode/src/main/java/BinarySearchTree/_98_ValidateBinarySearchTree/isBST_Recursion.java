@@ -22,11 +22,11 @@ package BinarySearchTree._98_ValidateBinarySearchTree;
 
  */
 class isBST_Recursion {
-    public static boolean isValidBST(TreeNode root) {
+    public boolean isValidBST(TreeNode root) {
         return isBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private static boolean isBST(TreeNode root, long min, long max) {
+    private boolean isBST(TreeNode root, long min, long max) {
         if (root == null) {
             return true;
         }
@@ -40,7 +40,8 @@ class isBST_Recursion {
 
     public static void main(String[] args) {
         TreeNode root = create();
-        System.out.println(isValidBST(root));
+        isBST_Recursion isBSTRecursion = new isBST_Recursion();
+        System.out.println(isBSTRecursion.isValidBST(root));
     }
 
 
