@@ -10,8 +10,7 @@ class UnionFind {
         rank = new int[size];
         for (int i = 0; i < size; i++) {
             parent[i] = i;
-            rank[i] = 1; // The initial "rank" of each vertex is 1, because each of them is
-            // a standalone vertex with no connection to other vertices.
+            rank[i] = 1; // The initial "rank" of each vertex is 1, because each of them is a standalone vertex with no connection to other vertices.
         }
     }
 

@@ -16,6 +16,7 @@ class ceiling {
 
         Integer element = 5;
         Integer ceiling = treeSet.ceiling(element);
-        System.out.println("The ceiling of " + element + " is " + ceiling);
+        System.out.println(treeSet);
+        System.out.println("The ceiling of " + element + " is " + ceiling); // `>= 5` 的最小数
     }
 }

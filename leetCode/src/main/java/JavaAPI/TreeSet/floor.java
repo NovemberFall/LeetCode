@@ -16,7 +16,12 @@ class floor {
 
         Integer element = 10;
         Integer floor = treeSet.floor(element);
-
+        System.out.println(treeSet);
         System.out.println("The floor of " + element + " is " + floor);
+
+        ////////////////////////////////////
+        treeSet.clear();
+        treeSet.add(5);
+        System.out.println(treeSet.ceiling(5));
     }
 }

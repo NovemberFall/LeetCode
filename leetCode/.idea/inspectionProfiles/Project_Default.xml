@@ -35,6 +35,7 @@
       <option name="m_ignoreImmediatelyReturnedVariables" value="false" />
       <option name="m_ignoreAnnotatedVariables" value="false" />
     </inspection_tool>
+    <inspection_tool class="UnusedReturnValue" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="UseBulkOperation" enabled="true" level="INFORMATION" enabled_by_default="true" />
   </profile>
 </component>

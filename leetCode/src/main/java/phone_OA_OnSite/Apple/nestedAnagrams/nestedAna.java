@@ -6,10 +6,12 @@ import java.util.Map;
 
 class nestedAna {
     public static void main(String[] args) {
-        boolean test1 = nestedAnagrams("bored cat", "act robed");
+        nestedAna nestedAnagrams = new nestedAna();
+
+        boolean test1 = nestedAnagrams.nestedAnagrams("bored cat", "act robed");
         System.out.println(test1);
 
-        boolean test2 = nestedAnagrams("ab ba", "aa bb");
+        boolean test2 = nestedAnagrams.nestedAnagrams("ab ba", "aa bb");
         System.out.println(test2);
     }
 
@@ -17,7 +19,7 @@ class nestedAna {
     //Time -  NMlogM
     // N - Math.max(count of words in string1, count of words in string2)
     // M - Math.max(word with largest number of letters in any String)
-    public static boolean nestedAnagrams(String string1, String string2) {
+    public boolean nestedAnagrams(String string1, String string2) {
 
         if (string1.length() != string2.length()) {
             return false;
@@ -55,7 +57,7 @@ class nestedAna {
     //Time -  NM
     // N - Math.max(count of words in string1, count of words in string2)
     // M - Math.max(word with largest number of letters in any String)
-    public static boolean nestedAnagrams2(String string1, String string2) {
+    public boolean nestedAnagrams2(String string1, String string2) {
 
         if (string1.length() != string2.length()) return false;
 
@@ -85,7 +87,7 @@ class nestedAna {
     }
 
     // helper function
-    private static String helper(int[] count, String word) {
+    private String helper(int[] count, String word) {
 
         Arrays.fill(count, 0);
 
