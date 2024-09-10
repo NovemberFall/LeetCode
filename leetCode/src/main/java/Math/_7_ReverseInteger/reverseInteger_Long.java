@@ -1,7 +1,7 @@
 package Math._7_ReverseInteger;
 
-public class reverseInteger_Long {
-    public static int reverse(int x) {
+class reverseInteger_Long {
+    public int reverse(int x) {
         long res = 0;
         while (x != 0) {
             res = res * 10;
@@ -13,11 +13,12 @@ public class reverseInteger_Long {
     }
 
     public static void main(String[] args) {
+        reverseInteger_Long reverseIntegerLong = new reverseInteger_Long();
         int num = 1534236469;
-        System.out.println(reverse(num)); // overflow, it returns 0
+        System.out.println(reverseIntegerLong.reverse(num)); // overflow, it returns 0
         num = 456;
-        System.out.println(reverse(num));
+        System.out.println(reverseIntegerLong.reverse(num));
         num = -1234;
-        System.out.println(reverse(num));
+        System.out.println(reverseIntegerLong.reverse(num));
     }
 }
