@@ -15,20 +15,20 @@ class dp {
         // cnt[i] means the number of LIS ending at index i
         int[] cnt = new int[len];
 
-        int res = 0, max = 1;
-        for (int i = 0; i < len; i++) {
-            int count = 1;
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
-                    if (dp[j] + 1 > dp[i]) {
-                        dp[i] = dp[j] + 1;
-                        count = cnt[j];
-                    } else if (dp[j] + 1 == dp[i]) {
-                        count += cnt[j];
+            int res = 0, max = 1;
+            for (int i = 0; i < len; i++) {
+                int count = 1;
+                for (int j = 0; j < i; j++) {
+                    if (nums[i] > nums[j]) {
+                        if (dp[j] + 1 > dp[i]) {
+                            dp[i] = dp[j] + 1;
+                            count = cnt[j];
+                        } else if (dp[j] + 1 == dp[i]) {
+                            count += cnt[j];
+                        }
                     }
                 }
-            }
-            cnt[i] = count;
+                cnt[i] = count;
 
             if (dp[i] > max) {
                 max = dp[i];
