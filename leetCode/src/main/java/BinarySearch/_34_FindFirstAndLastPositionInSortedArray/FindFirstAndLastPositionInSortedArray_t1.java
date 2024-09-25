@@ -13,11 +13,10 @@ class FindFirstAndLastPositionInSortedArray_t1 {
         int idx = -1;
         int left = 0, right = nums.length - 1;
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            int mid = (left + right) >>> 1;
             if (nums[mid] == target) {
                 idx = mid;
-                // because nothing after mid
-                // can be the first occurrence of target.
+                // because nothing after mid can be the first occurrence of target.
                 //maybe mid is the first occurrence , maybe not
                 //so let's narrow the target for [0... mid-1] and find out
                 right = mid - 1;
@@ -34,11 +33,10 @@ class FindFirstAndLastPositionInSortedArray_t1 {
         int idx = -1;
         int left = 0, right = nums.length - 1;
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            int mid = (left + right) >>> 1;
             if (nums[mid] == target) {
                 idx = mid;
-                // because nothing before mid
-                // can be the last occurrence of target.
+                // because nothing before mid can be the last occurrence of target.
                 //maybe mid is the last occurrence , maybe not
                 //so let's narrow the target for [mid+1 ... high] and find out
                 left = mid + 1;
