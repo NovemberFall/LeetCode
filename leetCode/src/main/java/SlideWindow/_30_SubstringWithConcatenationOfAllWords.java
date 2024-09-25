@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 /*
-    滑动窗口 + 双 HashMap 优化
-    关键在于只需要遍历 0 ~ wordLen-1 为起始索引的子串,然后遍历边维护符合条件res
-    具体逻辑可以看代码,核心就是动态维护根据cur的数目动态查找合法子串
-    时间复杂度:O(N),空间复杂度:O(N)
+    Sliding window + double HashMap optimization
+    The key is that we only need to iterate through the substring starting at indices 0 to wordLen-1,
+    and then maintain valid substrings as we iterate.
+    The core logic is to dynamically maintain and search for valid substrings based on the current count.
+    Time complexity: O(N), Space complexity: O(N)
 */
 class _30_SubstringWithConcatenationOfAllWords {
     public List<Integer> findSubstring(String s, String[] words) {
