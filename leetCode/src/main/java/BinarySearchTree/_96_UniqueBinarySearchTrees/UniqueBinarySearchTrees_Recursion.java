@@ -1,7 +1,7 @@
 package BinarySearchTree._96_UniqueBinarySearchTrees;
 
 class UniqueBinarySearchTrees_Recursion {
-    public static int numTrees(int n) {
+    public int numTrees(int n) {
         if (n == 0 || n == 1) {
             return 1;
         }
@@ -10,10 +10,5 @@ class UniqueBinarySearchTrees_Recursion {
             sum += numTrees(i - 1) * numTrees(n - i);
         }
         return sum;
-    }
-
-    public static void main(String[] args) {
-        int res = numTrees(3);
-        System.out.println(res); // 5
     }
 }

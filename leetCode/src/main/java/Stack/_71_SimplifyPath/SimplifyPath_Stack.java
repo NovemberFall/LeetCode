@@ -1,4 +1,4 @@
-package Design._71_SimplifyPath;
+package Stack._71_SimplifyPath;
 
 import java.util.Arrays;
 import java.util.Stack;

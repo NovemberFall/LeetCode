@@ -14,7 +14,7 @@ class _82_RemoveDuplicatesFromSortedList_II {
                     head = head.next;
                 }
                 prev.next = head.next;
-            } else {
+            } else if (head.next != null && head.val != head.next.val){
                 prev = prev.next;
             }
             head = head.next;
