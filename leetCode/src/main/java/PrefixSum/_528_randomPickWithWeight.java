@@ -9,8 +9,9 @@ public class _528_randomPickWithWeight {
 
     public _528_randomPickWithWeight(int[] w) {
         this.random = new Random();
-        for (int i = 1; i < w.length; ++i)
+        for (int i = 1; i < w.length; ++i) {
             w[i] += w[i - 1];
+        }
         this.wSums = w;
         System.out.println(Arrays.toString(w));
     }
@@ -22,12 +23,13 @@ public class _528_randomPickWithWeight {
         // search position
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (wSums[mid] == idx)
+            if (wSums[mid] == idx) {
                 return mid;
-            else if (wSums[mid] < idx)
+            } else if (wSums[mid] < idx) {
                 left = mid + 1;
-            else
+            } else {
                 right = mid - 1;
+            }
         }
         return left;
     }
