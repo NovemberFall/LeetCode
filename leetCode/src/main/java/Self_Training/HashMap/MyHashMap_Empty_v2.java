@@ -210,7 +210,7 @@ class MyHashMap_Empty_v2<K, V> {
         map.put("yahoo", 2);
         map.put("apple", 3);
         map.put("IBM", 15);
-        map.put("Amazon", 22);
+        map.put("_OA_OnSite_tags/Amazon", 22);
         map.put("Meta", 16);
         System.out.println(map.get("google")); // 1
         System.out.println(map.containsKey("google")); // true
