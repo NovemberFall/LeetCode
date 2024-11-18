@@ -36,6 +36,9 @@ class _642_DesignSearchAutocompleteSystem {
             }
             node = node.children[index];
             node.counts.put(sentence, node.counts.getOrDefault(sentence, 0) + frequency);
+
+            // Debugging: Print the current character and its counts
+            System.out.println("Character: " + c + ", Counts: " + node.counts);
         }
     }
 
@@ -54,9 +57,13 @@ class _642_DesignSearchAutocompleteSystem {
         for (char ch : currentInput.toString().toCharArray()) {
             int index = ch == ' ' ? 26 : ch - 'a';
             if (node.children[index] == null) {
+                System.out.println("Character: " + ch + ", Counts: {}"); // No counts for this node
                 return new ArrayList<>(); // Return empty list if prefix doesn't match
             }
             node = node.children[index];
+
+            // Debugging: Print the current character and its counts
+            System.out.println("Character: " + ch + ", Counts: " + node.counts);
         }
 
         // Use a priority queue to retrieve the top 3 results
@@ -77,5 +84,42 @@ class _642_DesignSearchAutocompleteSystem {
         }
 
         return result;
+    }
+
+    public static void main(String[] args) {
+        String[] sentences = new String[]{"i love you", "island", "iroman", "i love leetcode"};
+        int[] times = new int[]{5, 3, 2, 2};
+        _642_DesignSearchAutocompleteSystem designSearchAutocompleteSystem =
+                new _642_DesignSearchAutocompleteSystem(sentences, times);
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+
+        List<String> res = designSearchAutocompleteSystem.input('i');
+        System.out.println(res.toString());
+        res = designSearchAutocompleteSystem.input(' ');
+        System.out.println(res.toString());
+        res = designSearchAutocompleteSystem.input('a');
+        System.out.println(res.toString());
+        res = designSearchAutocompleteSystem.input('#');
+        System.out.println(res.toString());
+
+
+        System.out.println();
+        System.out.println("Added a new sentence `i a` ");
+        System.out.println();
+
+
+        res = designSearchAutocompleteSystem.input('i');
+        System.out.println(res.toString());
+        res = designSearchAutocompleteSystem.input(' ');
+        System.out.println(res.toString());
+        res = designSearchAutocompleteSystem.input('a');
+        System.out.println(res.toString());
+        res = designSearchAutocompleteSystem.input('#');
+        System.out.println(res.toString());
+
     }
 }
