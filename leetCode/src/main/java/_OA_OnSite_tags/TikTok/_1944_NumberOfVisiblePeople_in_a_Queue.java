@@ -1,6 +1,7 @@
 package _OA_OnSite_tags.TikTok;
 
 
+import java.util.Arrays;
 import java.util.Stack;
 
 class _1944_NumberOfVisiblePeople_in_a_Queue {
@@ -20,49 +21,17 @@ class _1944_NumberOfVisiblePeople_in_a_Queue {
             }
             // Push the current person's index onto the stack
             stack.push(i);
+
+            System.out.println(Arrays.toString(result));
         }
 
         return result;
     }
+
+    public static void main(String[] args) {
+        _1944_NumberOfVisiblePeople_in_a_Queue numberOfVisiblePeopleInAQueue = new _1944_NumberOfVisiblePeople_in_a_Queue();
+        int[] heights = new int[]{10, 6, 8, 5, 11, 9};
+        int[] result = numberOfVisiblePeopleInAQueue.canSeePersonsCount(heights);
+        System.out.println(Arrays.toString(result));
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//class _1944_NumberOfVisiblePeople_in_a_Queue {
-//    public int[] canSeePersonsCount(int[] heights) {
-//        if (heights == null || heights.length == 0) {
-//            return new int[]{};
-//        }
-//
-//        int[] ans = new int[heights.length];
-//        Deque<Integer> stk = new ArrayDeque<>();
-//        for (int i = heights.length - 1; i >= 0; i--) {
-//            while (!stk.isEmpty() && heights[i] > heights[stk.peek()]) {
-//                stk.pop();
-//                ans[i]++;
-//            }
-//            if (!stk.isEmpty()) {
-//                ans[i]++;
-//            }
-//
-//            stk.push(i);
-//        }
-//
-//        return ans;
-//    }
-//}
