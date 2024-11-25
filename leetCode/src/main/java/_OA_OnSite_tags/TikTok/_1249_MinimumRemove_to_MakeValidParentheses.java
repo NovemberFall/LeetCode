@@ -20,6 +20,8 @@ class _1249_MinimumRemove_to_MakeValidParentheses {
             }
         }
 
+        System.out.println(sb.toString()); // le(e(t(co)de)
+
         StringBuilder filtered = new StringBuilder();
         for (int i = sb.length() - 1; i >= 0; i--) {
             char c = sb.charAt(i);
@@ -31,5 +33,11 @@ class _1249_MinimumRemove_to_MakeValidParentheses {
         }
 
         return filtered.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        _1249_MinimumRemove_to_MakeValidParentheses minimumRemoveToMakeValidParentheses = new _1249_MinimumRemove_to_MakeValidParentheses();
+        String s = "le(e(t(co)de)";
+        minimumRemoveToMakeValidParentheses.minRemoveToMakeValid(s);
     }
 }
