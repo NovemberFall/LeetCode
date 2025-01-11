@@ -1,40 +1,59 @@
 package _OA_OnSite_tags.TikTok;
 
+import java.util.Arrays;
+
 class _395_LongestSubstringWithAtLeast_K_RepeatingCharacters {
     public int longestSubstring(String s, int k) {
-        return dfs(s.toCharArray(), 0, s.length(), k);
-    }
+        int maxUnqiueCharCount = getUniqueCharCounts(s);
+        int[] freq = new int[26];
+        int res = 0;
 
-    private int dfs(char[] chars, int start, int end, int k) {
-        // 停止条件：字符串长度小于 k
-        if (end - start < k) {
-            return 0;
-        }
+        for (int curUniqueChars = 1; curUniqueChars <= maxUnqiueCharCount; curUniqueChars++) {
+            Arrays.fill(freq, 0);
+            int uniqueCount = 0, countOfCharsWithFreqAtLeastK = 0, slow = 0, fast = 0;
 
-        int[] count = new int[26];
-
-        // count the frequencies of current substring
-        for (int i = start; i < end; i++) {
-            int index = chars[i] - 'a';
-            count[index]++;
-        }
-
-        for (int i = 0; i < 26; i++) {
-            // 下面这个是不满足要求的字符，它不能出现在任何有效的子字符串中
-            if (count[i] < k && count[i] > 0) {
-                // 需要找到这个字符的位置，然后分别求解它的左半部分和右半部分
-                for (int j = start; j < end; j++) {
-                    System.out.println("start: " + start + "  " + "end: " + end);
-                    if (chars[j] == i + 'a') {
-                        System.out.println("chars[j] : "+ chars[j]);
-                        int left = dfs(chars, start, j, k);
-                        int right = dfs(chars, j + 1, end, k);
-                        return Math.max(left, right);
+            while (fast < s.length()) {
+                if (uniqueCount <= curUniqueChars) {
+                    int idx = s.charAt(fast) - 'a';
+                    if (freq[idx] == 0) {
+                        uniqueCount++;
                     }
+                    freq[idx]++;
+
+                    if (freq[idx] == k) {
+                        countOfCharsWithFreqAtLeastK++;
+                    }
+                    fast++;
+                } else {
+                    // we need to shrink
+                    int idx = s.charAt(slow) - 'a';
+                    if (freq[idx] == k) {
+                        countOfCharsWithFreqAtLeastK--;
+                    }
+                    freq[idx]--;
+                    if (freq[idx] == 0) {
+                        uniqueCount--;
+                    }
+                    slow++;
+                }
+
+                if (uniqueCount == countOfCharsWithFreqAtLeastK) {
+                    res = Math.max(fast - slow, res);
                 }
             }
         }
-        System.out.println("end - start: " + "=>" + " "+ (end - start));
-        return end - start;
+        return res;
+    }
+
+    private int getUniqueCharCounts(String s) {
+        boolean[] chars = new boolean[26];
+        int uniqueCount = 0;
+        for (char c : s.toCharArray()) {
+            if (!chars[c - 'a']) {
+                uniqueCount++;
+                chars[c - 'a'] = true;
+            }
+        }
+        return uniqueCount;
     }
 }
