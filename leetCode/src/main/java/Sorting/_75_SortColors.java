@@ -18,16 +18,16 @@ class _75_SortColors {
 
     private int partition(int[] nums, int left, int right) {
         int pivotIdx = left + new Random().nextInt(right - left + 1);
-        int pivot = nums[pivotIdx];
+        int pivotVal = nums[pivotIdx];
         swap(nums, pivotIdx, right);
         int leftBound = left;
         int rightBound = right - 1;
         while (leftBound <= rightBound) {
-            if (nums[leftBound] < pivot) {
+            if (nums[leftBound] < pivotVal) {
                 leftBound++;
-            } else if (nums[rightBound] >= pivot) {
+            } else if (nums[rightBound] >= pivotVal) {
                 rightBound--;
-            } else {
+            } else if (nums[leftBound] >= pivotVal && nums[rightBound] < pivotVal) {
                 swap(nums, leftBound, rightBound);
                 leftBound++;
                 rightBound--;

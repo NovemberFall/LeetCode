@@ -19,6 +19,7 @@
     <inspection_tool class="GrazieInspection" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" />
     <inspection_tool class="JUnit5AssertionsConverter" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="LanguageDetectionInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NewClassNamingConvention" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="OptionalOfNullableMisuseMerged" />
     <inspection_tool class="PointlessArithmeticExpression" enabled="true" level="INFORMATION" enabled_by_default="true">
       <option name="m_ignoreExpressionsContainingConstants" value="true" />
