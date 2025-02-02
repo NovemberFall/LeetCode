@@ -8,31 +8,13 @@ class meetingRooms_II_heap {
         if (intervals == null || intervals.length == 0) return 0;
 
         Arrays.sort(intervals, (a, b) -> (a[0] - b[0]));
-        PriorityQueue<int[]> minHeap = new PriorityQueue<>(intervals.length,
-                (e1, e2) -> (e1[1] - e2[1]));
-
-        minHeap.offer(intervals[0]);
-        int res = 1;
-
-        for (int i = 1; i < intervals.length; i++) {
-            int[] curMeeting = intervals[i];
-            int[] prevMeeting = minHeap.poll();
-            if (curMeeting[0] >= prevMeeting[1]) {
-                prevMeeting[1] = curMeeting[1];
-            } else {
-                res++;
-                minHeap.offer(curMeeting);
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> (a - b));
+        for (int i = 0; i < intervals.length; i++) {
+            if (!minHeap.isEmpty() && minHeap.peek() <= intervals[i][0]) {
+                minHeap.poll();
             }
-            minHeap.offer(prevMeeting);
+            minHeap.offer(intervals[i][1]);
         }
-        return res;
-//        return minHeap.size();
-    }
-
-    public static void main(String[] args) {
-        int[][] intervals = new int[][]{{1, 4}, {2, 8}, {5, 7}, {5, 9}, {3, 4}};
-        meetingRooms_II_heap meetingRooms = new meetingRooms_II_heap();
-        int size = meetingRooms.minMeetingRooms(intervals);
-        System.out.println(size);
+        return minHeap.size();
     }
 }
