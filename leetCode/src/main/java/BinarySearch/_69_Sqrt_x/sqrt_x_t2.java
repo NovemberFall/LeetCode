@@ -2,19 +2,24 @@ package BinarySearch._69_Sqrt_x;
 
 class sqrt_x_t2 {
     public int mySqrt(int x) {
-        if (x == 0) return 0;
+        if (x < 2) {
+            return x;
+        }
 
-        if (x == 1) return 1;
-
-        int left = 1, right = x / 2;
-        while (left < right) {
-            int mid = left + ((right - left) >> 1);
-            if (mid > x / mid) {
-                right = mid - 1;
-            } else {
+        int left = 1, right = x;
+        while (left < right - 1) {
+            int mid = (left + right) >>> 1;
+            if (mid == x / mid) {
+                return mid;
+            } else if (mid < x / mid) {
                 left = mid;
+            } else {
+                right = mid;
             }
         }
-        return left;
+        if (left * left < x) {
+            return left;
+        }
+        return right;
     }
 }

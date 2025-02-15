@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package DynamicProgramming._10_RegularExpressionMatching;
 
 /**
     '.' Matches any single character.
@@ -19,8 +19,8 @@ package DynamicProgramming;
     b*
     .*
  */
-class _10_RegularExpressionMatching {
-    public static boolean isMatch(String s, String p) {
+class _10_RegularExpressionMatching_dp {
+    public boolean isMatch(String s, String p) {
         int m = s.length(), n = p.length();
         char[] sc = s.toCharArray(), pc = p.toCharArray();
         boolean[][] dp = new boolean[m + 1][n + 1];
@@ -56,7 +56,8 @@ class _10_RegularExpressionMatching {
 
     public static void main(String[] args) {
         String text = "xaabyc", pattern = "xa*b.c";
-        boolean res = isMatch(text, pattern);
+        _10_RegularExpressionMatching_dp dp = new _10_RegularExpressionMatching_dp();
+        boolean res = dp.isMatch(text, pattern);
         System.out.println(res);
     }
 }
