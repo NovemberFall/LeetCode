@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package DynamicProgramming._198_HouseRobber;
 
 class _198_HouseRobber {
     public int rob(int[] nums) {

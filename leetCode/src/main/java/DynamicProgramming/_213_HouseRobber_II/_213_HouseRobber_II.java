@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package DynamicProgramming._213_HouseRobber_II;
 
 class _213_HouseRobber_II {
     public int rob(int[] nums) {
@@ -15,14 +15,11 @@ class _213_HouseRobber_II {
 
         int n = nums.length;
         int[] dp = new int[n];
-        dp[0] = nums[left];
-        dp[1] = Math.max(nums[left], nums[left + 1]);
-        for (int i = left + 2; i < right; i++) {
+        dp[left] = nums[left];
+        dp[left + 1] = Math.max(nums[left], nums[left + 1]);
+        for (int i = left + 2; i <= right; i++) {
             dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
         }
-        if (left == 0) {
-            return dp[n - 2];
-        }
-        return dp[n - 1];
+        return dp[right];
     }
 }

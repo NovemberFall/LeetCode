@@ -1,4 +1,4 @@
-package BFS;
+package DynamicProgramming._337_HouseRobber_III;
 
 class TreeNode {
     int val;
