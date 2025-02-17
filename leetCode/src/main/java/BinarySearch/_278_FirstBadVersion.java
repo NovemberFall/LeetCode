@@ -7,17 +7,23 @@ package BinarySearch;
 */
 
 
-//public class _278_FirstBadVersion {
+//class _278_FirstBadVersion {
 //    public int firstBadVersion(int n) {
 //        int left = 0, right = n - 1;
-//        while (left <= right) {
+//        while (left < right - 1) {
 //            int mid = left + (right - left) / 2;
 //            if (isBadVersion(mid)) {
-//                right = mid - 1;
+//                right = mid;
 //            } else {
 //                left = mid + 1;
 //            }
 //        }
-//        return left;
+//        if (isBadVersion(left)) {
+//            return left;
+//        }
+//        if (isBadVersion(right)) {
+//            return right;
+//        }
+//        return -1;
 //    }
 //}
