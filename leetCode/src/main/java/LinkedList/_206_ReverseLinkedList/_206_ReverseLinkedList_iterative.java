@@ -1,22 +1,7 @@
 package LinkedList._206_ReverseLinkedList;
 
 class _206_ReverseLinkedList_iterative {
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {
-
-        }
-        ListNode(int val) {
-            this.val = val;
-        }
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    public static ListNode reverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode next = null;
         ListNode cur = head;
@@ -30,6 +15,7 @@ class _206_ReverseLinkedList_iterative {
     }
 
     public static void main(String[] args) {
+        _206_ReverseLinkedList_iterative test = new _206_ReverseLinkedList_iterative();
         ListNode L1 = new ListNode(3);
         ListNode L2 = new ListNode(5);
         ListNode L3 = new ListNode(7);
@@ -37,15 +23,15 @@ class _206_ReverseLinkedList_iterative {
         L2.next = L3;
         ListNode dummy = L1;
         while (dummy != null) {
-            System.out.println(dummy.val);
+            System.out.print(dummy.val + " ");
             dummy = dummy.next;
         }
 
-        System.out.println("==========Reverse==========");
+        System.out.println("\n==========Reverse==========");
 
-        ListNode head = reverseList(L1);
+        ListNode head = test.reverseList(L1);
         while(head != null){
-            System.out.println(head.val);
+            System.out.print(head.val + " ");
             head = head.next;
         }
     }
