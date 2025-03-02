@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-class TimeBased_KeyValue_Store_Simple {
+class TimeBased_KeyValue_Store_TreeMap {
     Map<String, TreeMap<Integer, String>> map;
 
-    public TimeBased_KeyValue_Store_Simple() {
+    public TimeBased_KeyValue_Store_TreeMap() {
         this.map = new HashMap<>();
     }
 

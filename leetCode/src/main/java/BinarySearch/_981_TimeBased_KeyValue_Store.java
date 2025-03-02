@@ -6,24 +6,24 @@ import java.util.List;
 import java.util.Map;
 
 class _981_TimeBased_KeyValue_Store {
-    static class Data {
+    static class Pair {
         String val;
         int time;
 
-        public Data(String val, int time) {
+        public Pair(String val, int time) {
             this.val = val;
             this.time = time;
         }
     }
 
-    Map<String, List<Data>> map;
+    Map<String, List<Pair>> map;
     public _981_TimeBased_KeyValue_Store() {
         map = new HashMap<>();
     }
 
     public void set(String key, String value, int timestamp) {
         map.putIfAbsent(key, new ArrayList<>());
-        map.get(key).add(new Data(value, timestamp));
+        map.get(key).add(new Pair(value, timestamp));
     }
 
     public String get(String key, int timestamp) {
@@ -31,7 +31,7 @@ class _981_TimeBased_KeyValue_Store {
         if (!map.containsKey(key)) {
             return res;
         }
-        List<Data> values = map.get(key);
+        List<Pair> values = map.get(key);
 
         int left = 0, right = values.size() - 1;
         while (left <= right) {

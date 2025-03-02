@@ -44,12 +44,10 @@ class TimeBased_KeyValue_Store {
 
         while (left < right - 1) {
             int mid = left + (right - left) / 2;
-            if (currentKeyList.get(mid).time == timestamp) {
+            if (currentKeyList.get(mid).time <= timestamp) {
                 left = mid;
-            } else if (currentKeyList.get(mid).time < timestamp) {
-                left = mid;
-            } else {
-                right = mid;
+            }  else {
+                right = mid - 1;
             }
         }
         if (currentKeyList.get(right).time <= timestamp) {
