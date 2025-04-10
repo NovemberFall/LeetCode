@@ -1,11 +1,11 @@
-package BFS;
+package BFS._103_BinaryTreeZigzagLevelOrderTraversal;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-class _103_BinaryTreeZigzagLevelOrderTraversal {
+class binaryTreeZigzagLevelOrderTraversal_v0 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
@@ -49,7 +49,7 @@ class _103_BinaryTreeZigzagLevelOrderTraversal {
         root.right = new TreeNode(20);
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
-        _103_BinaryTreeZigzagLevelOrderTraversal btzlot = new _103_BinaryTreeZigzagLevelOrderTraversal();
+        binaryTreeZigzagLevelOrderTraversal_v0 btzlot = new binaryTreeZigzagLevelOrderTraversal_v0();
         List<List<Integer>> res = btzlot.zigzagLevelOrder(root);
         System.out.println(res);
     }
