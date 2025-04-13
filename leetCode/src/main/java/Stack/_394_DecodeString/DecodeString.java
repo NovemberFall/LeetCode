@@ -2,59 +2,52 @@ package Stack._394_DecodeString;
 
 import java.util.Stack;
 
-/*
-        Example 1:
-        Input: s = "3[a]2[bc]"
-        Output: "aaabcbc"
-
-        Example 2:
-        Input: s = "3[a2[c]]"
-        Output: "accaccacc"
-
-        stk[ "3", "[",
- */
 class DecodeString {
     public String decodeString(String s) {
-        if (s.length() == 0) return "";
-        Stack<String> stk = new Stack<>();
-        int num = 0;
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c >= '0' && c <= '9') {
-                num = num * 10 + c - '0';
-            } else if (c == '[') {
-                stk.push(String.valueOf(num));
-                stk.push("["); //use [ as a marker, we don't have to check whether an item is a number or not
-                num = 0;
-            } else if (c == ']') {
-                StringBuilder str = new StringBuilder();
-                //keep pop until meet '['
-                while (!stk.peek().equals("[")) {
-                    str.insert(0, stk.pop());
+        Stack<String> strStack = new Stack<>();
+        Stack<Integer> countStack = new Stack<>();
+        StringBuilder currentStr = new StringBuilder();
+        int i = 0;
+
+        while (i < s.length()) {
+            char ch = s.charAt(i);
+
+            // Step 1: If it's a digit, parse the full number
+            if (Character.isDigit(ch)) {
+                int count = 0;
+                while (Character.isDigit(s.charAt(i))) {
+                    count = count * 10 + (s.charAt(i) - '0');
+                    i++;
                 }
-                stk.pop(); //pop '['
-                int repeat = Integer.parseInt(stk.pop());
-                StringBuilder sb = new StringBuilder();
-                for (int k = 0; k < repeat; k++) {
-                    sb.append(str);
+                countStack.push(count);
+            }
+
+            // Step 2: If it's a letter, add to current string
+            else if (Character.isLetter(ch)) {
+                currentStr.append(ch);
+                i++;
+            }
+
+            // Step 3: If it's '[', save the current context
+            else if (ch == '[') {
+                strStack.push(currentStr.toString());
+                currentStr = new StringBuilder();
+                i++;
+            }
+
+            // Step 4: If it's ']', decode and combine
+            else if (ch == ']') {
+                int repeatTimes = countStack.pop();
+                String prevStr = strStack.pop();
+                StringBuilder repeated = new StringBuilder();
+                for (int j = 0; j < repeatTimes; j++) {
+                    repeated.append(currentStr);
                 }
-                stk.push(sb.toString());
-            } else {
-                stk.push(String.valueOf(c));
+                currentStr = new StringBuilder(prevStr + repeated);
+                i++;
             }
         }
 
-        StringBuilder ans = new StringBuilder();
-        while (!stk.isEmpty()) {
-            ans.insert(0, stk.pop());
-        }
-        return ans.toString();
-    }
-
-    public static void main(String[] args) {
-        DecodeString ds = new DecodeString();
-        String str = "3[a2[c]]";
-        String res = ds.decodeString(str);
-        System.out.println(res);
+        return currentStr.toString();
     }
 }
