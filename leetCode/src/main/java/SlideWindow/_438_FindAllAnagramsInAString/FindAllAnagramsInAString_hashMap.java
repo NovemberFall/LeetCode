@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class FindAllAnagramsInAString_slidingWindow {
+class FindAllAnagramsInAString_hashMap {
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> res = new ArrayList<>();
         if (p.length() > s.length()) return res;
