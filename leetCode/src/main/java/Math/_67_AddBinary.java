@@ -2,11 +2,16 @@ package Math;
 
 class _67_AddBinary {
     public String addBinary(String a, String b) {
-        StringBuilder sb = new StringBuilder();
-        int i = a.length() - 1, j = b.length() - 1;
+        if (a == null || a.isEmpty()) return b;
+        if (b == null || b.isEmpty()) return a;
 
-        int sum = 0, carry = 0;
+        StringBuilder res = new StringBuilder();
+        int carry = 0;
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+
         while (i >= 0 || j >= 0) {
+            int sum = carry;
             if (i >= 0) {
                 sum += a.charAt(i) - '0';
                 i--;
@@ -15,16 +20,15 @@ class _67_AddBinary {
                 sum += b.charAt(j) - '0';
                 j--;
             }
-
-            sb.insert(0, sum % 2);
+            res.append(sum % 2);
             carry = sum / 2;
-            sum = carry;
         }
 
-        if (carry != 0) {
-            sb.insert(0, carry);
+        if (carry == 1) {
+            res.append("1");
         }
-        return sb.toString();
+
+        return res.reverse().toString();
     }
 
     public static void main(String[] args) {
