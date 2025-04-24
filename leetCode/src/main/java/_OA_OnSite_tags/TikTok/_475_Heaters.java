@@ -1,31 +1,38 @@
 package _OA_OnSite_tags.TikTok;
 
-import java.util.TreeSet;
+
+import java.util.Arrays;
 
 class _475_Heaters {
     public int findRadius(int[] houses, int[] heaters) {
-        TreeSet<Integer> set = new TreeSet<>();
-        for (int h : heaters) {
-            set.add(h);
-        }
-
+        Arrays.sort(houses);
         int res = 0;
         for (int house : houses) {
-            Integer ceil = set.ceiling(house);
-            Integer floor = set.floor(house);
-
-            int d1 = ceil - house;
-            int d2 = house - floor;
-
-            return Math.max(res, Math.min(d1, d2));
+            int i = binarySearch(heaters, house);
+            int j = i + 1;
+            int leftDistance = i < 0 ? Integer.MAX_VALUE : house - heaters[i];
+            int rightDistance = j >= heaters.length ? Integer.MAX_VALUE : heaters[j] - house;
+            int curDistance = Math.min(leftDistance, rightDistance);
+            res = Math.max(res, curDistance);
         }
         return res;
     }
 
-    public static void main(String[] args) {
-        _475_Heaters heaters_ins = new _475_Heaters();
-        int[] houses = new int[]{1, 2, 3};
-        int[] heaters = new int[]{2};
-        System.out.println(heaters_ins.findRadius(houses, heaters));
+    private int binarySearch(int[] heaters, int target) {
+        int left = 0, right = heaters.length - 1;
+        if (heaters[left] > target) {
+            return -1;
+        }
+        while (left < right - 1) {
+            int mid = left + (right - left) / 2;
+            if (heaters[mid] == target) {
+                return mid;
+            } else if (heaters[mid] < target) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return heaters[right] <= target ? right : left;
     }
 }
