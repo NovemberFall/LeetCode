@@ -9,8 +9,7 @@ class MinCostToConnectAllPoints {
             return 0;
         }
         int size = points.length;
-        PriorityQueue<Edge> minHeap = new PriorityQueue<>((x, y) -> (
-                x.cost - y.cost));
+        PriorityQueue<Edge> minHeap = new PriorityQueue<>((x, y) -> (x.cost - y.cost));
         UnionFind uf = new UnionFind(size);
 
         for (int i = 0; i < size; i++) {
