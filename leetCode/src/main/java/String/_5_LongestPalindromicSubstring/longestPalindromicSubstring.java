@@ -2,35 +2,30 @@ package String._5_LongestPalindromicSubstring;
 
 class longestPalindromicSubstring {
     public String longestPalindrome(String s) {
+        if (s == null || s.length() == 0) {
+            return "";
+        }
         String res = "";
-        int maxLen = Integer.MIN_VALUE;
-        char[] chars = s.toCharArray();
-        int n = s.length();
-
-        for (int i = 0; i < n; i++) {
-            // odd length
-            int oddLeft = i, oddRight = i;
-            while (oddLeft >= 0 && oddRight < n && chars[oddLeft] == chars[oddRight]) {
-                if (oddRight - oddLeft + 1 > maxLen) {
-                    res = s.substring(oddLeft, oddRight + 1);
-                    maxLen = oddRight - oddLeft + 1;
-                }
-                oddLeft--;
-                oddRight++;
+        for (int i = 0; i < s.length(); i++) {
+            String oddStr = expandAroundCenter(s, i, i);
+            if (oddStr.length() > res.length()) {
+                res = oddStr;
             }
 
-            // even length
-            int evenLeft = i, evenRight = i + 1;
-            while (evenLeft >= 0 && evenRight < n && chars[evenLeft] == chars[evenRight]) {
-                if (evenRight - evenLeft + 1 > maxLen) {
-                    res = s.substring(evenLeft, evenRight + 1);
-                    maxLen = evenRight - evenLeft + 1;
-                }
-                evenLeft--;
-                evenRight++;
+            String evenStr = expandAroundCenter(s, i, i + 1);
+            if (evenStr.length() > res.length()) {
+                res = evenStr;
             }
         }
         return res;
+    }
+
+    private String expandAroundCenter(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        return s.substring(left + 1, right);
     }
 
     public static void main(String[] args) {
