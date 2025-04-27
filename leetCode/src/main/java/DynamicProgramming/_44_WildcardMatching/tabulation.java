@@ -32,7 +32,6 @@ class tabulation {
                 }
             }
         }
-
         // Result for full string s[0:] vs full pattern p[0:]
         return dp[0][0];
     }
