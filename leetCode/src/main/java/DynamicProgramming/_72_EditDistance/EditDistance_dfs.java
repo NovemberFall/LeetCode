@@ -8,8 +8,7 @@ class EditDistance_dfs {
 
         // a. Check what the distance is if the charaxters[0] are identical and we do nothing first
         if (word1.charAt(0) == word2.charAt(0)) {
-            int nothing = minDistance(word1.substring(1),
-                    word2.substring(1));
+            int nothing = minDistance(word1.substring(1), word2.substring(1));
             return nothing;
         }
 
