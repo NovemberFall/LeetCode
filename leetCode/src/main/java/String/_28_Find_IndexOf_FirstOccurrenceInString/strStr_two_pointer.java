@@ -1,6 +1,6 @@
 package String._28_Find_IndexOf_FirstOccurrenceInString;
 
-public class strStr {
+public class strStr_two_pointer {
     public int subStr(String haystack, String needle) {
         if (haystack.length() < needle.length()) {
             return -1;
@@ -24,6 +24,6 @@ public class strStr {
     public static void main(String[] args) {
         String s1 = "abcde";
         String s2 = "cde";
-        System.out.println(new strStr().subStr(s1, s2));
+        System.out.println(new strStr_two_pointer().subStr(s1, s2));
     }
 }
