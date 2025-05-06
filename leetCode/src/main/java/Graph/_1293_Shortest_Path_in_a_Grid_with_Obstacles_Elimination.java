@@ -1,7 +1,6 @@
 package Graph;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Queue;
 
 class _1293_Shortest_Path_in_a_Grid_with_Obstacles_Elimination {
@@ -15,18 +14,15 @@ class _1293_Shortest_Path_in_a_Grid_with_Obstacles_Elimination {
             return m + n - 2;
         }
 
+        // visited[r][c][kLeft] = true means we've been at (r,c) with kLeft eliminations remaining.
+        // This 3D array tracks visited states to avoid cycles and redundant processing.
+        boolean[][][] visited = new boolean[m][n][k + 1];
+
         // Queue for BFS: stores {row, col, remaining_k}
         Queue<int[]> queue = new ArrayDeque<>();
-        queue.offer(new int[]{0, 0, k});
-
-        // Visited array: visited[r][c] stores the maximum remaining_k when reaching cell (r, c)
-        // Initialize with -1 to indicate not visited with only k
-        int[][] visited = new int[m][n];
-        for (int[] row : visited) {
-            Arrays.fill(row, -1);
-        }
-        visited[0][0] = k; // Start at (0,0) with k eliminations allowed
-        int steps = 0; // num of steps taken
+        // Queue stores {row, col, steps, remaining_k}
+        queue.offer(new int[]{0, 0, 0, k});
+        visited[0][0][k] = true; // Mark the starting state as visited
 
         // BFS traversal
         while (!queue.isEmpty()) {
@@ -36,7 +32,8 @@ class _1293_Shortest_Path_in_a_Grid_with_Obstacles_Elimination {
                  int[] cur = queue.poll();
                  int row = cur[0];
                  int col = cur[1];
-                 int curK = cur[2];
+                 int steps = cur[2];
+                 int kLeft = cur[3];
 
                 // If we reached the target cell
                 if (row == m - 1 && col == n - 1) {
@@ -44,23 +41,28 @@ class _1293_Shortest_Path_in_a_Grid_with_Obstacles_Elimination {
                 }
                 // Explore neighbors
                 for (int[] dir : dirs) {
-                    int newRow = row + dir[0];
-                    int newCol = col + dir[1];
+                    int nr = row + dir[0];
+                    int nc = col + dir[1];
 
                     // Check if the neighbor is within grid bounds
-                    if (newRow < 0 ||newRow >= m || newCol < 0 || newCol >= n) {
+                    if (nr < 0 ||nr >= m || nc < 0 || nc >= n) {
                         continue;
                     }
-                    int obstacle = grid[newRow][newCol];
-                    int remaining_K = curK - obstacle; // Remaining k after potetially eliminating an obstacle
 
-                    // If we have enough k to eliminate the obstacle (or it's empty)
-                    // AND we haven't visited this cell (newRow, newCol) with a better or equal remaining_k
-                    if (remaining_K >= 0 && remaining_K > visited[newRow][newCol]) {
-
+                    // Calculate remaining k after potentially eliminating an obstacle at (nr, nc)
+                    int nextK = kLeft - grid[nr][nc];
+                    // If we have enough eliminations left (nextK >= 0)
+                    // AND this exact state (row, col, remainingK) hasn't been visited
+                    if (nextK >= 0 && !visited[nr][nc][nextK]) {
+                        visited[nr][nc][nextK] = true;
+                        queue.offer(new int[]{nr, nc, steps + 1, nextK});
                     }
                 }
             }
+            // After processing all nodes at the current level, the next iteration
+            // of the while loop will process nodes at the next level (steps + 1).
         }
+        // If the queue is empty and the destination hasn't been reached, no path exists
+        return -1;
     }
 }
