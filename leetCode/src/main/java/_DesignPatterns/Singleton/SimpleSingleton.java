@@ -1,4 +1,4 @@
-package DesignPatterns.Singleton;
+package _DesignPatterns.Singleton;
 
 public class SimpleSingleton {
     private static SimpleSingleton simpleSingleton = new SimpleSingleton();

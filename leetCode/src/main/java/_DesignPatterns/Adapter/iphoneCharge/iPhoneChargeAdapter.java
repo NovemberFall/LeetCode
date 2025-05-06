@@ -1,4 +1,4 @@
-package DesignPatterns.Adapter.iphoneCharge;
+package _DesignPatterns.Adapter.iphoneCharge;
 
 // Target interface
 interface IPhone {

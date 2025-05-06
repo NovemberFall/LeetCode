@@ -1,4 +1,4 @@
-package DesignPatterns.Factory;
+package _DesignPatterns.Factory;
 
 abstract class Pizza {
     protected String name;

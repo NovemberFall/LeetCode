@@ -1,4 +1,4 @@
-package String._28_Find_IndexOf_FirstOccurrenceInString.KMP;
+package String._28_KMP_Find_IndexOf_FirstOccurrenceInString.KMP;
 
 /**
  * Do pattern matching using KMP algorithm

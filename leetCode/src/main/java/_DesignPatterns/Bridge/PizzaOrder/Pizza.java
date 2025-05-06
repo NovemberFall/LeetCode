@@ -1,4 +1,4 @@
-package DesignPatterns.Bridge.PizzaOrder;
+package _DesignPatterns.Bridge.PizzaOrder;
 
 abstract class Pizza {
     protected String description;

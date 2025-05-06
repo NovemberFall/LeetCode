@@ -27,12 +27,8 @@ class _105_ConstructBinaryTreeFromPreorderAnd_InorderTraversal {
         }
         TreeNode root = new TreeNode(preorder[preLeft]);
         int leftSubtreeSize = inOrderMap.get(root.val) - inLeft;
-        root.left = construct(inOrderMap,
-                preorder, preLeft + 1, preLeft + leftSubtreeSize,
-                inorder, inLeft, inLeft + leftSubtreeSize - 1);
-        root.right = construct(inOrderMap,
-                preorder, preLeft + leftSubtreeSize + 1, preRight,
-                inorder, inLeft + leftSubtreeSize + 1, inRight);
+        root.left = construct(inOrderMap, preorder, preLeft + 1, preLeft + leftSubtreeSize, inorder, inLeft, inLeft + leftSubtreeSize - 1);
+        root.right = construct(inOrderMap, preorder, preLeft + leftSubtreeSize + 1, preRight, inorder, inLeft + leftSubtreeSize + 1, inRight);
 
         return root;
     }

@@ -1,4 +1,4 @@
-package String._28_Find_IndexOf_FirstOccurrenceInString;
+package String._28_KMP_Find_IndexOf_FirstOccurrenceInString;
 
 public class strStr_two_pointer {
     public int subStr(String haystack, String needle) {
