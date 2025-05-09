@@ -26,15 +26,14 @@ class UnionFind {
         if (rootX == rootY) {
             return;
         }
-        if (rootX != rootY) {
-            if (rank[rootX] > rank[rootY]) {
-                root[rootY] = rootX;
-            } else if (rank[rootX] < rank[rootY]) {
-                root[rootX] = rootY;
-            } else {
-                root[rootY] = rootX;
-                rank[rootX] += 1;
-            }
+
+        if (rank[rootX] > rank[rootY]) {
+            root[rootY] = rootX;
+        } else if (rank[rootX] < rank[rootY]) {
+            root[rootX] = rootY;
+        } else {
+            root[rootY] = rootX;
+            rank[rootX] += 1;
         }
     }
 
