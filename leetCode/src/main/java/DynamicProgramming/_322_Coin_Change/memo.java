@@ -12,27 +12,32 @@ class memo {
         return dfs(coins, amount);
     }
 
-    private int dfs(int[] coins, int remaining) {
-        if (remaining < 0) {
+    private int dfs(int[] coins, int amount) {
+        // Base Case 1: If remaining amount is negative, this path is invalid
+        if (amount < 0) {
             return -1;
         }
-        if (remaining == 0) {
+        // Base Case 2: If remaining amount is 0, we found a valid combination
+        if (amount == 0) {
             return 0;// We needed 0 additional coins to reach this state
         }
-        if (dp[remaining] != 0) {
-            return dp[remaining];
+        if (dp[amount] != 0) {
+            return dp[amount];
         }
         int min = Integer.MAX_VALUE;
+        // Try each coin
         for (int coin : coins) {
-            int res = dfs(coins, remaining - coin);
-
-            // If the recursive call returned a valid result (not -1, meaning possible)
-            // AND this result + 1 (for the current coin) is better than the current minimum
-            if (res >= 0 && res < min) {
-                min = res + 1; // +1 because we are adding the current 'coin'
+            // Recursively find the minimum coins for the remaining amount after using the current coin
+            int res = dfs(coins, amount - coin);
+            if (res == -1) {
+                continue;
             }
+            // Update the minimum with 1 (for the current coin) + result from subproblem
+            min = Math.min(min, 1 + res);
         }
-        dp[remaining] = (min == Integer.MAX_VALUE) ? -1 : min;
-        return dp[remaining];
+
+        // Store the result: -1 if amount is unreachable, otherwise the minimum coins
+        dp[amount] = (min == Integer.MAX_VALUE) ? -1 : min;
+        return dp[amount];
     }
 }
