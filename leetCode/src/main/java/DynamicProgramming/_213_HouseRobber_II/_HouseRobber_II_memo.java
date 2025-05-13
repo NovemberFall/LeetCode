@@ -13,24 +13,26 @@ class _HouseRobber_II_memo {
         Arrays.fill(dp1, -1);
         int[] dp2 = new int[n];
         Arrays.fill(dp2, -1);
-        // Either rob from 0 to n-2 or from 1 to n-1
-        return Math.max(f(n - 2, nums, dp1, 0), f(n - 1, nums, dp2, 1));
+
+        // Case 1: Rob from 0 to n - 2
+        // Case 2: Rob from 1 to n - 1
+        return Math.max(f(nums, dp1, 0, n - 2), f(nums, dp2, 1, n - 1));
     }
 
-    private int f(int index, int[] nums, int[] dp, int start) {
-        if (index < start) {
+    private int f(int[] nums, int[] dp, int index, int end) {
+        if (index > end) {
             return 0;
         }
-        if (index == start) {
-            return nums[start];
+        if (index == end) {
+            return nums[end];
         }
 
         if (dp[index] != -1) {
             return dp[index];
         }
 
-        int pick = nums[index] + f(index - 2, nums, dp, start);
-        int notPick = f(index - 1, nums, dp, start);
+        int pick = nums[index] + f(nums, dp, index + 2, end);
+        int notPick = f(nums, dp, index + 1, end);
 
         dp[index] = Math.max(pick, notPick);
         return dp[index];

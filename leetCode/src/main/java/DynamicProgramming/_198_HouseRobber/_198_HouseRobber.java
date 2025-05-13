@@ -13,10 +13,4 @@ class _198_HouseRobber {
         }
         return dp[nums.length - 1];
     }
-
-    public static void main(String[] args) {
-        _198_HouseRobber houseRobber = new _198_HouseRobber();
-        int[] nums = {3, 1, 2, 4};
-        System.out.println(houseRobber.rob(nums)); // 7
-    }
 }
