@@ -25,7 +25,7 @@ class word_Break_II_dfs {
                 continue;
             }
             if (s.substring(index, index + word.length()).equals(word)) {
-                if (sb.isEmpty()) {
+                if (sb.length() == 0) {
                     sb.append(word);
                 } else {
                     sb.append(" " + word);
