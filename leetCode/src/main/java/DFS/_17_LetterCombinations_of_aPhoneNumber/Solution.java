@@ -4,27 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Solution {
+    String[] map = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     public List<String> letterCombinations(String digits) {
         List<String> res = new ArrayList<>();
         if (digits == null || digits.length() == 0) {
             return res;
         }
 
-        String[] map = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        dfs(res, new StringBuilder(), digits, map, 0);
+        dfs(res, new StringBuilder(), digits, 0);
         return res;
     }
 
-    private void dfs(List<String> res, StringBuilder sb, String digits, String[] map, int mapIndex) {
+    private void dfs(List<String> res, StringBuilder sb, String digits, int mapIndex) {
         if (mapIndex == digits.length()) {
             res.add(new String(sb));
             return;
         }
 
-        String curStr = map[digits.charAt(mapIndex) - '0'];
-        for (int i = 0; i < curStr.length(); i++) {
-            sb.append(curStr.charAt(i));
-            dfs(res, sb, digits, map, mapIndex + 1);
+        char c = digits.charAt(mapIndex);
+        int pos = c - '0';
+        String map_str = map[pos];
+        for (int i = 0; i < map_str.length(); i++) {
+            sb.append(map_str.charAt(i));
+            dfs(res, sb, digits, mapIndex + 1);
             sb.setLength(sb.length() - 1);
         }
     }
