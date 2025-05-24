@@ -1,9 +1,9 @@
-package DFS;
+package DFS._39CombinationSum;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class _39_CombinationSum {
+public class backtracking {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<>();
         if (candidates == null || candidates.length == 0) {
@@ -33,7 +33,7 @@ public class _39_CombinationSum {
 
     public static void main(String[] args) {
         int[] candidates = {2, 3, 6, 7};
-        _39_CombinationSum combinationSum = new _39_CombinationSum();
+        backtracking combinationSum = new backtracking();
         List<List<Integer>> res = combinationSum.combinationSum(candidates, 7);
         System.out.println(res);
         int[] candidates2 = {2, 3, 5};
