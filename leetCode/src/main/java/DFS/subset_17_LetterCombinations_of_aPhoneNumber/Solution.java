@@ -1,4 +1,4 @@
-package DFS._17_LetterCombinations_of_aPhoneNumber;
+package DFS.subset_17_LetterCombinations_of_aPhoneNumber;
 
 import java.util.ArrayList;
 import java.util.List;

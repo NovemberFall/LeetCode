@@ -1,4 +1,4 @@
-package DFS._93_RestoreIpAddress;
+package DFS.subset_93_Restore_IP_Addresses;
 
 import java.util.ArrayList;
 import java.util.List;

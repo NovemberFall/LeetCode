@@ -1,4 +1,4 @@
-package DFS;
+package DFS.subset_131_PalindromePartitioning;
 
 import java.util.ArrayList;
 import java.util.List;

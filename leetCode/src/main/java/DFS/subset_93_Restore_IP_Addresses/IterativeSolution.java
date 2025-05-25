@@ -1,4 +1,4 @@
-package DFS._93_RestoreIpAddress;
+package DFS.subset_93_Restore_IP_Addresses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,17 +25,10 @@ class IterativeSolution {
     }
 
     private boolean isValid(String s) {
-        if (s.length() > 3 || s.length() == 0 ||
-                (s.charAt(0) == '0' && s.length() > 1) || Integer.parseInt(s) > 255) {
+        int n = s.length();
+        if (n > 3 || n == 0 || (s.charAt(0) == '0' && n > 1) || Integer.parseInt(s) > 255) {
             return false;
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        IterativeSolution iterativeSolution = new IterativeSolution();
-        String s = "101023";
-        List<String> res = iterativeSolution.restoreIpAddresses(s);
-        System.out.println(res);
     }
 }
