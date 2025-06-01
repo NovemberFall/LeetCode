@@ -6,7 +6,7 @@ import java.util.Deque;
 class _Basic_Calculator_II {
     int index = 0;
     public int calculate(String s) {
-        return evaluate(s + "+");
+        return evaluate(s);
     }
 
     private int evaluate(String s) {
@@ -35,6 +35,16 @@ class _Basic_Calculator_II {
                 lastOperator = curChar;
                 curNum = 0;
             }
+        }
+
+        if (lastOperator == '+') {
+            stack.push(curNum);
+        } else if (lastOperator == '-') {
+            stack.push(-curNum);
+        } else if (lastOperator == '*') {
+            stack.push(stack.pop() * curNum);
+        } else if (lastOperator == '/') {
+            stack.push(stack.pop() / curNum);
         }
 
         int res = 0;

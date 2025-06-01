@@ -6,7 +6,6 @@ import java.util.Deque;
 class _Basic_Calculator_III {
     int index = 0;
     public int calculate(String s) {
-        index = 0;
         return evaluate(s + "+");
     }
 
@@ -25,7 +24,7 @@ class _Basic_Calculator_III {
                 curNum = curNum * 10 + curChar - '0';
             } else if (curChar == '(') {
                 curNum = evaluate(s);
-            } else {
+            } else if (curChar == '+' || curChar == '-' || curChar == '*' || curChar == '/') {
                 if (lastOperator == '+') {
                     stack.push(curNum);
                 } else if (lastOperator == '-') {
@@ -37,10 +36,19 @@ class _Basic_Calculator_III {
                 }
                 lastOperator = curChar;
                 curNum = 0;
-                if (curChar == ')') {
-                    break;
-                }
+            } else if (curChar == ')') {
+                break;
             }
+        }
+
+        if (lastOperator == '+') {
+            stack.push(curNum);
+        } else if (lastOperator == '-') {
+            stack.push(-curNum);
+        } else if (lastOperator == '*') {
+            stack.push(stack.pop() * curNum);
+        } else if (lastOperator == '/') {
+            stack.push(stack.pop() / curNum);
         }
 
         int res = 0;

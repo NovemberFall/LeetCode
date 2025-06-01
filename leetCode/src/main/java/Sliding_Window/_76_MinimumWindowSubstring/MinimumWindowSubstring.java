@@ -64,13 +64,6 @@ class MinimumWindowSubstring {
         }
         return map;
     }
-
-    public static void main(String[] args) {
-        MinimumWindowSubstring minimumWindowSubstring = new MinimumWindowSubstring();
-        String s = "ADOBECODEBANC", t = "ABC";
-        String res = minimumWindowSubstring.minWindow(s, t);
-        System.out.println(res); // BANC
-    }
 }
 
 
