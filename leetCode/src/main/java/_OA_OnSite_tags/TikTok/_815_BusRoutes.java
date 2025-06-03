@@ -15,13 +15,22 @@ class _815_BusRoutes {
             return 0;
         }
 
-        Map<Integer, List<Integer>> map = new HashMap<>();
+        // Build a mapping from each bus stop to the list of bus routes (bus IDs) that pass through it
+        Map<Integer, List<Integer>> stopToRoutes = new HashMap<>();
 
         for (int busId = 0; busId < routes.length; busId++) {
-            for (int j = 0; j < routes[busId].length; j++) {
-                map.putIfAbsent(routes[busId][j], new ArrayList<>());
-                map.get(routes[busId][j]).add(busId);
+            for (int stop : routes[busId]) {
+                // If the stop is not already in the map, initialize its list
+                stopToRoutes.putIfAbsent(stop, new ArrayList<>());
+
+                // Add the current bus route (busId) to the list of routes serving this stop
+                stopToRoutes.get(stop).add(busId);
             }
+        }
+
+        // If the source stop is not served by any route, it's impossible to proceed
+        if (!stopToRoutes.containsKey(source)) {
+            return -1;
         }
 
         Set<Integer> visitedStops = new HashSet<>();
@@ -29,13 +38,13 @@ class _815_BusRoutes {
         Queue<Integer> queue = new ArrayDeque<>();
         queue.offer(source);
 
-        int res = 0;
+        int busCount = 0;
         while (!queue.isEmpty()) {
-            res++;
+            busCount++;
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 int stop = queue.poll();
-                List<Integer> buses = map.get(stop);
+                List<Integer> buses = stopToRoutes.get(stop);
                 if (buses == null) {
                     continue;
                 }
@@ -46,7 +55,7 @@ class _815_BusRoutes {
                     visitedBuses.add(bus);
                     for (int nextStop : routes[bus]) {
                         if (nextStop == target) {
-                            return res;
+                            return busCount;
                         }
                         if (!visitedStops.contains(nextStop)) {
                             visitedStops.add(nextStop);
