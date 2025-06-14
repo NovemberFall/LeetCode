@@ -8,6 +8,7 @@ class dfs {
         List<Integer> res = new ArrayList<>();
         char[] s = Integer.toString(n).toCharArray();
         dfs(res, s, 0, 0, true);
+        return res.size();
     }
 
     private void dfs(List<Integer> res, char[] s, int index, int path, boolean isLimit) {

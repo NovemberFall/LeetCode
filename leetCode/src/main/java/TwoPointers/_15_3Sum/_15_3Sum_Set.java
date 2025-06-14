@@ -20,7 +20,9 @@ class _15_3Sum_Set {
             while (second < third) {
                 int curSum = nums[first] + nums[second] + nums[third];
                 if (curSum == 0) {
-                    res.add(Arrays.asList(nums[first], nums[second++], nums[third--]));
+                    res.add(Arrays.asList(nums[first], nums[second], nums[third]));
+                    second++;
+                    third--;
                 } else if (curSum > 0) {
                     third--;
                 } else {
