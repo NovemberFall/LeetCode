@@ -1,46 +1,52 @@
 package BinarySearch._4_MedianOfTwoSortedArrays;
 
 class MedianOfTwoSortedArrays_t2 {
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        if (nums1.length > nums2.length) {
-            return findMedianSortedArrays(nums2, nums1);
-        }
-
+    private int findKth(int[] nums1, int[] nums2, int i, int j, int k) {
         int m = nums1.length;
         int n = nums2.length;
 
-        // 分割线左边的所有元素需要满足的个数 m + (n - m + 1) / 2;
-        int totalLeft = (m + n + 1) >>> 1;
-
-        // 在 nums1 的区间 [0, m] 里查找恰当的分割线，
-        // 使得 nums1[i - 1] <= nums2[j] && nums2[j - 1] <= nums1[i]
-        int left = 0;
-        int right = m;
-
-        while (left <= right) {
-            int i = (left + right) >>> 1;
-            int j = totalLeft - i;
-
-
-            // 接下来我们做数组是否分别越界的检测
-            int nums1LeftMax = i == 0 ? Integer.MIN_VALUE : nums1[i - 1];
-            int nums1RightMin = i == m ? Integer.MAX_VALUE : nums1[i];
-            int nums2LeftMax = j == 0 ? Integer.MIN_VALUE : nums2[j - 1];
-            int nums2RightMin = j == n ? Integer.MAX_VALUE : nums2[j];
-
-            if (nums1LeftMax <= nums2RightMin && nums2LeftMax <= nums1RightMin) {
-                if (((m + n) % 2) == 0) {
-                    return (double) ((Math.max(nums1LeftMax, nums2LeftMax) + Math.min(nums1RightMin, nums2RightMin))) / 2;
-                } else {
-                    return Math.max(nums1LeftMax, nums2LeftMax);
-                }
-            }
-            else if (nums1LeftMax > nums2RightMin) {
-                right = i - 1;
-            } else {
-                left = i + 1;
-            }
+        // Case 1: nums1 is exhausted
+        if (i == m) {
+            return nums2[j + k - 1];
         }
-        return Double.MIN_VALUE;
+
+        // Case 2: nums2 is exhausted
+        if (j == n) {
+            return nums1[i + k - 1];
+        }
+
+        // Case 3: find the smallest remaining number
+        if (k == 1) {
+            return Math.min(nums1[i], nums2[j]);
+        }
+
+        int half = k / 2;
+        int newI = Math.min(i + half, m) - 1;
+        int newJ = Math.min(j + half, n) - 1;
+
+        int pivot1 = nums1[newI];
+        int pivot2 = nums2[newJ];
+
+        if (pivot1 <= pivot2) {
+            int removed = newI - i + 1;
+            return findKth(nums1, nums2, newI + 1, j, k - removed);
+        } else {
+            int removed = newJ - j + 1;
+            return findKth(nums1, nums2, i, newJ + 1, k - removed);
+        }
+    }
+
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int total = nums1.length + nums2.length;
+
+        if (total % 2 == 1) {
+            return findKth(nums1, nums2, 0, 0, total / 2 + 1);
+        }
+
+        int left = findKth(nums1, nums2, 0, 0, total / 2);
+        int right = findKth(nums1, nums2, 0, 0, total / 2 + 1);
+
+        // Cast before addition to avoid integer overflow.
+        return ((double) left + right) / 2.0;
     }
 }
