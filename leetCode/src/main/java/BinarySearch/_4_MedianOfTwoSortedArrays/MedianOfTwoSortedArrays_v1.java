@@ -1,6 +1,6 @@
 package BinarySearch._4_MedianOfTwoSortedArrays;
 
-class MedianOfTwoSortedArrays_t2 {
+class MedianOfTwoSortedArrays_v1 {
     private int findKth(int[] nums1, int[] nums2, int i, int j, int k) {
         int m = nums1.length;
         int n = nums2.length;
